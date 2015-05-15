@@ -9,42 +9,92 @@ and open the template in the editor.
         <title>FemSport</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       
+
         <link href="../style/estilo.css" rel="stylesheet" type="text/css"/>
-       
+
+
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
     </head>
     <body>
         <header><img src="../style/images/selectRol/logoFemEsport2.png">
-            
+
             <menu>
                 <ul>
                     <li><a href="#Aqui URL">Inicio</a></li>
-                   
-                   
-                
-                    
+
+
+
+
                 </ul>
-                
-               
+
+
             </menu>
         </header>
-        
+
         <article>
             <sidebar>
-                <p><a href="#Aqui URL" class="boton azul formaBoton ">LOGIN</a></p>
+
+
+                <div class="container">
+
+                    <!-- Trigger the modal with a button -->
+                    <button type="button" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal">LOGIN</button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Modal Header</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container">
+                                        <h2> <font color="blue"> Inicia Sesión</font></h2>
+                                        <form role="form">
+                                            <div class="form-group">
+                                                <label for="email">Email:</label>
+                                                <input type="email" class="form-control" id="email" placeholder="Enter Usuario">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="pwd">Password:</label>
+                                                <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox"><font color="blue">  Remember me</font></label>
+                                            </div>
+                                            <button type="submit" class="btn btn-default">Submit</button>
+                                        </form>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
             </sidebar>
             <div class="content">
                 <h1 class="titol">Entra ya</h1>
-                
+
                 <div align="center"><img src="../style/images/selectRol/jugador2.png" width="250px">&nbsp &nbsp &nbsp &nbsp &nbsp<img src="../style/images/selectRol/club.png" width="250px"></div>
-                <p>Unete ya a nuestra comunidad para empezar a reservar partidos o participar en encuentros con otros usuarios. Selecciona si eres un jugador o un club para registrarte.</p>
-               
+                <p>Unete ya a nuestra comunidad para empezar a reservar partidos o participar en encuentros con otros usuarios. <br>Selecciona si eres un jugador o un club para registrarte.</p>
+
             </div>
-            
-             
-        
+
+
+
         </article>
-        
+
         <footer>Copyright ©FemSport</footer>
     </body>
 </html>
