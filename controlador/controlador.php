@@ -5,11 +5,17 @@ if (isset($_POST["accion"])) {
     $accio = $_POST["accion"];
     //$sessio = new Session();
     switch ($accio) {
-        case 'portada':
-            include 'vistas/selectRol.html';
-            break;            
+        case "portada":
+            include "vistas/selectRol.html";
+            break;
+        case "nuevoJugador":
+            include "vistas/formularioJugador.php"; 
+            break;
+        case "nuevoClub":
+            include "vistas/formularioClub.php"; 
+            break;
         default :
-            echo 'NO HA RECIBIDO NADA POR POST';
+            echo 'HOLAMUNDO';
             break;
     }
 } else {
