@@ -3,10 +3,13 @@
 
 if (isset($_POST["accion"])) {
     $accio = $_POST["accion"];
-    $sessio = new Session();
+    //$sessio = new Session();
     switch ($accio) {
+        case 'portada':
+            include 'vistas/selectRol.html';
+            break;            
         default :
-            echo 'HOLAMUNDO';
+            echo 'NO HA RECIBIDO NADA POR POST';
             break;
     }
 } else {
