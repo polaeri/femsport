@@ -25,38 +25,75 @@ and open the template in the editor.
         </header>
 
         <article>
-            <h1>Formulario de Jugador</h1>
-            <form method="POST" action="control/controlador.php">
-                <input id="nombreUsuario" values="" placeholder="Nombre de Usuario" required/>
-                <input id="emailJugador" values="" placeholder="Correo" required/>
-                <input id="nombreJugador" values=""  placeholder="Nombre" required/>
-                <input id="apellidosJugador" values="" placeholder="Apellidos" required/>
-                <input id="dniJugador" values="" placeholder="DNI/NIF" required/>
-                <input id="telefonoJugador" values="" placeholder="Telefono" required/>
-
-            </form>
-
+           
             <form class="contact_form" action="#" id="contact_form" runat="server"> 
                 
                 <div>
                     <ul> 
                         <li> 
-                            <h2>Contactos</h2>
+                               <h2>Formulario Jugador</h2>
                             <span class="required_notification">* Datos requeridos</span> 
-                        </li> <li>
-                            
-                            <label for="name">Nombre:</label> 
-                            <input type="text" placeholder="John Doe" required /> 
-                            
-                            
-                        </li> <li> <label for="email">Email:</label> 
-                            <input type="email" name="email"  placeholder="info@developerji.com" required /> 
-                            <span class="form_hint" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$">Formato correcto: "name@something.com"</span> </li> 
+                        </li> 
                         
+                        <li>
+                 
+                            <input type="text" value="" placeholder="Nombre" required /> 
+               
+                         </li> 
+                         
+                         <li>
+                 
+                             <input type="text" value="" placeholder="Apellidos" required /> 
+               
+                         </li> 
+                  
+                         <li>
+                 
+                            <input type="DNI" placeholder="DNI/NIF" required /> 
+               
+                         </li> 
+                         
+                         <li>
+                 
+                            <input type="tel" placeholder="Telefono" required /> 
+               
+                         </li> 
+                     
+                                         
+                         <li> 
+                            <input type="email" name="email"   placeholder="Correo electronico" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required /> 
+                            <span class="form_hint" >Formato correcto: "nombre@dominio.com"</span> 
+                         </li> 
                         
-                        <li> <label for="website">Sitio web:</label> <input type="url" name="website" placeholder="http://developerji.com" required pattern="(http|https)://.+" /> 
-                            <span class="form_hint">Formato correcto: "http://developerji.com"</span> </li> <li>
-                            <label for="message">Mensaje:</label> <textarea name="message" cols="40" rows="6" required></textarea> </li> <li> 
+                        <li>
+                 
+                             <input type="text" value="" placeholder="Nombre Usuario" required /> 
+               
+                         </li> 
+                         
+                         <li>
+                 
+                             <input type="password" value="" placeholder="Contraseña" required /> 
+               
+                         </li> 
+                         
+                         <li>
+                 
+                             <input type="test" value="" placeholder="Contraseña" required /> 
+               
+                         </li> 
+                         
+                         <li>
+                             
+                            <input type="file" name="Imgaen" placeholder="Imagen Perfil"/>
+                         </li>
+                         
+                         <li>
+                             
+                               <textarea name="Descripcion" cols="40" rows="6" placeholder="Descripción"></textarea>  
+                         </li>
+                         
+                            
                             <button class="submit" type="submit">Enviar mensaje</button> </li> </ul> </div> </form> </body> </html>
 
 <sidebar>WIDGET FACEBOOK</sidebar>
