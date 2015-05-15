@@ -10,6 +10,6 @@ if (isset($_POST["accion"])) {
             break;
     }
 } else {
-    include 'vistas/intro/index.html';
+    include 'vistas/intro/portada.html';
 }
 ?>
