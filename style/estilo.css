@@ -97,8 +97,14 @@ a {
 a:hover {
     cursor:pointer;
     color:white;
-    background-color:#3366FF;
+    text-decoration:none;   
+    //background-color:#3366FF;
 }
+
+a:link   
+{   
+ text-decoration:none;   
+}  
 
 li {
     display: inline;
