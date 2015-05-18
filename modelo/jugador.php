@@ -25,6 +25,18 @@ class jugador {
         $this->avatar = $avatar;
     }
     
+    function printJugador() {
+        echo "Nombre: " . $this->nombre . "<br>DNI: " . $this->dni . "<br>Apellidos:" . $this->apellidos . 
+                "<br>Telefono: " . $this->telefono . "<br>Email: " . $this->email . "<br>Usuario: " . $this->usuario . 
+                "<br>Reputacion: " . $this->reputacion . "<br>Contraseña: " . $this->contrasena . "<br>Descripcion: " . 
+                $this->descripcion . "<br> Avatar: " . $this->avatar;
+    }
+    
+    function guardarJugador(){
+        $conexio = new Conexio();
+        $conexio->guardarJugador($this->dni, $this->nombre, $this->apellidos, $this->telefono, $this->email, $this->usuario, $this->reputacion, $this->contrasena, $this->descripcion, $this->avatar);
+        $conexio->tancarConexio();
+    }
     
 
 }

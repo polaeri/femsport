@@ -35,7 +35,7 @@ http://www.the-art-of-web.com/javascript/validate-password/
             
             <div class="content">
                
-               <form class="contact_form" action="index.html" method="POST" id="contact_form" runat="server"> 
+               <form class="contact_form" action="index.php" method="POST" id="contact_form" runat="server"> 
                 
                     <ul> 
                         <li> 
@@ -43,38 +43,38 @@ http://www.the-art-of-web.com/javascript/validate-password/
                             <span class="required_notification">* Datos requeridos</span>
                         </li> 
                          <li>
-                             <input type="text" name="accion" value="nombre" placeholder="Nombre" pattern="[A-Za-z]" required /> 
+                             <input type="text" name="nombre" placeholder="Nombre" pattern="[A-Za-z]" required /> 
                          </li> 
                          <li>
-                             <input type="text" name="accion" value="apellidos" placeholder="Apellidos" required /> 
+                             <input type="text" name="apellidos" placeholder="Apellidos" required /> 
                          </li> 
                          <li>
-                             <input type="DNI" name="accion" value="dni" placeholder="DNI/NIF" pattern="^[0-5][0-9]{7}[A-Z]$" required /> 
+                             <input type="DNI" name="dni" placeholder="DNI/NIF" pattern="^[0-5][0-9]{7}[A-Z]$" required /> 
                             <span class="form_hint" >Formato correcto: "12345678A"</span> 
                          <li>
-                             <input type="tel" name="accion" value="telefono" placeholder="Telefono" pattern="^[9|8|7|6]\d{8}$" required /> 
+                             <input type="tel" name="telefono" placeholder="Telefono" pattern="^[9|8|7|6]\d{8}$" required /> 
                          </li>              
                          <li> 
-                            <input type="email" name="accion" value="email" placeholder="Correo electronico" pattern="^[-\w.]+@{1}[-a-z0-9]+[.]{1}[a-z]{2,5}$" required />
+                            <input type="email" name="email" placeholder="Correo electronico" pattern="^[-\w.]+@{1}[-a-z0-9]+[.]{1}[a-z]{2,5}$" required />
                             <span class="form_hint" >Formato correcto: "nombre@dominio.com"</span> 
                          </li> 
                         <li>
-                             <input type="text" name="accion" value="usuario" placeholder="Nombre Usuario" required /> 
+                             <input type="text" name="usuario" placeholder="Nombre Usuario" required /> 
                          </li>
                          <li>
-                             <input type="password" placeholder="Contraseña" name="accion" value="pass" name="pwd1" onchange="form.pwd2.pattern = this.value;" required />
+                             <input type="password" placeholder="Contraseña" name="pwd1" onchange="form.pwd2.pattern = this.value;" required />
                          </li> 
                          <li>
-                             <input type="password"  name="accion" value="pwd2" placeholder="Confirmar contraseña" name="pwd2"required /> 
+                             <input type="password"  name="pwd2" placeholder="Confirmar contraseña" name="pwd2"required /> 
                          </li> 
                          <li>
-                            <input type="file" name="accion" value="avatar" placeholder="Imagen Perfil"/>
+                            <input type="file" name="avatar" placeholder="Imagen Perfil"/>
                          </li>
                          <li>
-                               <textarea name="accion" value="descripcion" cols="40" rows="6" placeholder="Descripción"></textarea>  
+                               <textarea name="descripcion" cols="40" rows="6" placeholder="Descripción"></textarea>  
                          </li>
                           <li>
-                            <button class="submit" name='accion' value='registroJugador'>Confirmar</button> 
+                            <button name='accion' value='registroJugador'>Confirmar</button> 
                             </li> 
                     </ul> 
                     
