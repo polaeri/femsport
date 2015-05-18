@@ -25,8 +25,8 @@ class Conexio {
         }
     }
 
-    public function recuperarJugador($usuario) {
-        $sentenciaSql = "SELECT * FROM jugador WHERE usuario = '" . $usuario . "'";
+    public function buscarJugador($usuario, $contrasena) {
+        $sentenciaSql = "SELECT * FROM jugador WHERE usuario = '" . $usuario . "' AND contrasena = '" . $contrasena . "'";
         $consulta = $this->connexio->query($sentenciaSql);
         while ($vector = $consulta->fetch_array(MYSQLI_ASSOC)) {
             $nombre = $vector["nombre"];
@@ -40,8 +40,12 @@ class Conexio {
             $descripcion = $vector["descripcion"];
             $avatar = $vector["avatar"];
         }
-        $jugador = new jugador($nombre, $dni, $apellidos, $telefono, $email, $usuario, $reputacion, $contrasena, $descripcion, $avatar);
-        return $jugador;
+        if (isset($nombre) && isset($dni) && isset($apellidos) && isset($telefono) && isset($email) && isset($usuario) && isset($reputacion) && isset($contrasena) && isset($avatar) && isset($descripcion)) {
+            $jugador = new Jugador($nombre, $dni, $apellidos, $telefono, $email, $usuario, $reputacion, $contrasena, $descripcion, $avatar);
+            return $jugador;
+        } else {
+            return null;
+        }
     }
 
     //CLUB
@@ -50,6 +54,29 @@ class Conexio {
                 . $cif . "','" . $nombre . "','" . $telefono . "','" . $telefono2 . "','" . $direccion . "','" . $email . "','" . $avatar . "','" .
                 $web . "','" . $password . "','" . $descripcion . "')";
         $consulta = $this->connexio->query($sentenciaSql);
+    }
+    
+    public function buscarClub($cif, $password) {
+        $sentenciaSql = "SELECT * FROM club WHERE cif = '" . $cif . "' AND password = '" . $password . "'";
+        $consulta = $this->connexio->query($sentenciaSql);
+        while ($vector = $consulta->fetch_array(MYSQLI_ASSOC)) {
+            $cif = $vector["cif"];
+            $nombre = $vector["nombre"];
+            $telefono = $vector["telefono"];
+            $telefono2 = $vector["telefono2"];
+            $direccion = $vector["direccion"];
+            $email = $vector["email"];
+            $avatar = $vector["avatar"];
+            $web = $vector["web"];
+            $password = $vector["password"];
+            $descripcion = $vector["descripcion"];
+        }
+        if (isset($cif) && isset($nombre) && isset($telefono) && isset($telefono2) && isset($direccion) && isset($email) && isset($avatar) && isset($web) && isset($password) && isset($descripcion)) {
+            $club = new Club($cif, $nombre, $telefono, $telefono2, $direccion, $email, $avatar, $web, $password, $descripcion);
+            return $club;
+        } else {
+            return null;
+        }
     }
 
 }

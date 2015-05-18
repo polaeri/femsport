@@ -1,13 +1,12 @@
 
 <?php
 
-include 'modelo/jugador.php';
+include 'modelo/Jugador.php';
 include 'modelo/Club.php';
 include 'modelo/Session.php';
 include 'modelo/Conexio.php';
 if (isset($_POST["accion"])) {
     $accio = $_POST["accion"];
-    $sessio = new Session();
     switch ($accio) {
         case "portada":
             include "vistas/selectRol.html";
@@ -19,7 +18,7 @@ if (isset($_POST["accion"])) {
             include "vistas/formularioClub.php";
             break;
         case "registroJugador":
-            $jugador = new jugador($_POST['nombre'], $_POST['dni'], $_POST['apellidos'], $_POST['telefono'], $_POST['email'], $_POST['usuario'], 0, $_POST['pwd1'], $_POST['descripcion'], $_POST['avatar']);
+            $jugador = new Jugador($_POST['nombre'], $_POST['dni'], $_POST['apellidos'], $_POST['telefono'], $_POST['email'], $_POST['usuario'], 0, $_POST['pwd1'], $_POST['descripcion'], $_POST['avatar']);
             $jugador->printJugador();
             $jugador->guardarJugador();
             include 'vistas/registroCompletado.php';
@@ -30,7 +29,22 @@ if (isset($_POST["accion"])) {
             $club->guardarClub();
             break;
         case "login":
-            echo "LOGIN ECHO: " . $_POST["usuario"] . "  " . $_POST["contrasena"];
+            $sessio = new Session();
+            $conexion = new Conexio();
+            $club = $conexion->buscarClub($_POST["usuario"], $_POST["contrasena"]);
+            if ($club !== null) {
+                $sessio->setSession("club", $conexion->buscarClub($_POST["usuario"], $_POST["contrasena"]));
+                include 'vistas/gestionClub.html';
+            } else {
+                $jugador = $conexion->buscarJugador($_POST["usuario"], $_POST["contrasena"]);
+                if ($jugador !== null) {
+                    $sessio->setSession("jugador", $conexion->buscarJugador($_POST["usuario"], $_POST["contrasena"]));
+                    include 'vistas/gestionJugador.html';
+                } else {
+                    //DANI REDIRECCIONA ESTO AL LOGIN CON EL MENSAJE DE USUARIO NO EXISTE
+                    echo 'EL USUARIO NO EXISTE';
+                }
+            }
             break;
         default :
             echo 'HOLAMUNDO';
