@@ -68,7 +68,7 @@ http://www.the-art-of-web.com/javascript/validate-password/
                             <input type="password" placeholder="Contraseña" name="password"   onchange="form.pwd2.pattern = this.value;" required />
                         </li> 
                         <li>
-                            <input type="password"  placeholder="Confirmar contraseña" name="accion"  required /> 
+                            <input type="password" name="pwd2" placeholder="Confirmar contraseña" name="pdw2"  required /> 
                         </li> 
                         <li>
                             <input type="file" name="avatar" placeholder="Imagen Perfil"/>
