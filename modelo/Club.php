@@ -1,4 +1,5 @@
 <?php
+
 class Club {
 
     private $cif;
@@ -11,7 +12,7 @@ class Club {
     private $web;
     private $password;
     private $descripcion;
-    
+
     function __construct($cif, $nombre, $telefono, $telefono2, $direccion, $email, $avatar, $web, $password, $descripcion) {
         $this->cif = $cif;
         $this->nombre = $nombre;
@@ -24,11 +25,18 @@ class Club {
         $this->password = $password;
         $this->descripcion = $descripcion;
     }
-    
-    function printClub(){
-        echo "CLUB<br>CIF: ". $this->cif . "<br>Nombre:" . $this->nombre . "<br>Telefono: " . $this->telefono .
-                "<br>Telefono 2: " . $this->telefono2 . "<br>Direccion: " . $this->direccion . "<br>Email: " . 
-                $this->email . "<br>Avatar: " . $this->avatar . "<br>Web: " . $this->web . "<br>Password: " . 
-                $this->password . "<br>Descripcion: " .$this->descripcion . "<br>";
+
+    function printClub() {
+        echo "CLUB<br>CIF: " . $this->cif . "<br>Nombre:" . $this->nombre . "<br>Telefono: " . $this->telefono .
+        "<br>Telefono 2: " . $this->telefono2 . "<br>Direccion: " . $this->direccion . "<br>Email: " .
+        $this->email . "<br>Avatar: " . $this->avatar . "<br>Web: " . $this->web . "<br>Password: " .
+        $this->password . "<br>Descripcion: " . $this->descripcion . "<br>";
     }
+
+    function guardarClub() {
+        $conexio = new Conexio();
+        $conexio->guardarClub($this->cif, $this->nombre, $this->telefono, $this->telefono2, $this->direccion, $this->email, $this->avatar, $this->web, $this->password, $this->descripcion);
+        $conexio->tancarConexio();
+    }
+
 }

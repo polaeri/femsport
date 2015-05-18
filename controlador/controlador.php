@@ -27,6 +27,7 @@ if (isset($_POST["accion"])) {
         case "registroClub":
             $club = new Club($_POST["cif"], $_POST["nombre"], $_POST["telefono"], $_POST["telefono2"], $_POST["direccion"], $_POST["email"], $_POST["avatar"], $_POST["web"], $_POST["password"], $_POST["descripcion"]);
             $club->printClub();
+            $club->guardarClub();
             break;
         case "login":
             echo "LOGIN ECHO: " . $_POST["usuario"] . "  " . $_POST["contrasena"];

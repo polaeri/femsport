@@ -12,6 +12,7 @@ class Conexio {
         $this->connexio->close();
     }
 
+    //JUGADOR
     public function guardarJugador($dni, $nombre, $apellidos, $telefono, $email, $usuario, $reputacion, $contrasena, $descripcion, $avatar) {
         $sentenciaSql = "INSERT INTO jugador(dni, nombre, apellidos, telefono, email, usuario, reputacion, contrasena, descripcion, avatar) VALUES ('"
                 . $dni . "','" . $nombre . "','" . $apellidos . "','" . $telefono . "','" . $email . "','" . $usuario . "','" . $reputacion . "','" .
@@ -23,9 +24,9 @@ class Conexio {
             return false;
         }
     }
-    
-    public function recuperarJugador($usuario){
-        $sentenciaSql = "SELECT * FROM jugador WHERE usuario = '". $usuario ."'";
+
+    public function recuperarJugador($usuario) {
+        $sentenciaSql = "SELECT * FROM jugador WHERE usuario = '" . $usuario . "'";
         $consulta = $this->connexio->query($sentenciaSql);
         while ($vector = $consulta->fetch_array(MYSQLI_ASSOC)) {
             $nombre = $vector["nombre"];
@@ -41,6 +42,14 @@ class Conexio {
         }
         $jugador = new jugador($nombre, $dni, $apellidos, $telefono, $email, $usuario, $reputacion, $contrasena, $descripcion, $avatar);
         return $jugador;
+    }
+
+    //CLUB
+    public function guardarClub($cif, $nombre, $telefono, $telefono2, $direccion, $email, $avatar, $web, $password, $descripcion) {
+        $sentenciaSql = "INSERT INTO club(cif, nombre, telefono, telefono2, direccion, email, avatar, web, password, descripcion) VALUES ('"
+                . $cif . "','" . $nombre . "','" . $telefono . "','" . $telefono2 . "','" . $direccion . "','" . $email . "','" . $avatar . "','" .
+                $web . "','" . $password . "','" . $descripcion . "')";
+        $consulta = $this->connexio->query($sentenciaSql);
     }
 
 }
