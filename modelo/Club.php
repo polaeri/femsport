@@ -38,5 +38,9 @@ class Club {
         $conexio->guardarClub($this->cif, $this->nombre, $this->telefono, $this->telefono2, $this->direccion, $this->email, $this->avatar, $this->web, $this->password, $this->descripcion);
         $conexio->tancarConexio();
     }
+    
+    function getCIF(){
+        return $this->cif;
+    }
 
 }

@@ -5,6 +5,7 @@ include 'modelo/Jugador.php';
 include 'modelo/Club.php';
 include 'modelo/Session.php';
 include 'modelo/Conexio.php';
+$sessio = null;
 if (isset($_POST["accion"])) {
     $accio = $_POST["accion"];
     switch ($accio) {
@@ -45,6 +46,9 @@ if (isset($_POST["accion"])) {
                     echo 'EL USUARIO NO EXISTE';
                 }
             }
+            break;
+        case "calendario":
+            include 'calendario/index.php';
             break;
         default :
             echo 'HOLAMUNDO';
