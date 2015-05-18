@@ -1,16 +1,34 @@
 <?php
 class Club {
 
-    function __construct() {
-        
+    private $cif;
+    private $nombre;
+    private $telefono;
+    private $telefono2;
+    private $direccion;
+    private $email;
+    private $avatar;
+    private $web;
+    private $password;
+    private $descripcion;
+    
+    function __construct($cif, $nombre, $telefono, $telefono2, $direccion, $email, $avatar, $web, $password, $descripcion) {
+        $this->cif = $cif;
+        $this->nombre = $nombre;
+        $this->telefono = $telefono;
+        $this->telefono2 = $telefono2;
+        $this->direccion = $direccion;
+        $this->email = $email;
+        $this->avatar = $avatar;
+        $this->web = $web;
+        $this->password = $password;
+        $this->descripcion = $descripcion;
     }
-
-    function __destruct() {
-        
+    
+    function printClub(){
+        echo "CLUB<br>CIF: ". $this->cif . "<br>Nombre:" . $this->nombre . "<br>Telefono: " . $this->telefono .
+                "<br>Telefono 2: " . $this->telefono2 . "<br>Direccion: " . $this->direccion . "<br>Email: " . 
+                $this->email . "<br>Avatar: " . $this->avatar . "<br>Web: " . $this->web . "<br>Password: " . 
+                $this->password . "<br>Descripcion: " .$this->descripcion . "<br>";
     }
-
-    public function __toString() {
-        
-    }
-
 }
