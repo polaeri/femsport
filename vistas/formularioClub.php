@@ -1,45 +1,92 @@
+<?php ?>
+!DOCTYPE html>
+<!--
+AYUDAS 
+http://www.the-art-of-web.com/javascript/validate-password/
+-->
 <html>
     <head>
         <title>FemSport</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="style/estilo.css">
+
+        <link href="style/estilo.css" rel="stylesheet" type="text/css"/>
+        <link href="style/estilo.css" rel="stylesheet" type="text/css"/>
+        <link href="style/form.css" rel="stylesheet" type="text/css"/>
+
+
     </head>
     <body>
-        <header><img src="style/images/logoFemEsport2.png">
+        <header>
+            <img src="style/images/selectRol/logoFemEsport2.png">
             <menu>
                 <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Perfil</a></li>
-                    
+                    <li><a href="#Aqui URL">Inicio</a></li>
                 </ul>
             </menu>
         </header>
-        
-        <article>CONTENIDO  asdasd   asdasd
-        
-            
-                    <h1>Formulario Club</h1>
 
-                    <form action="index.php" method="post">
-                        
-                        
-                        <input type="text" name="nombre" value="" placeholder="Nombre" required/>
-                        <input type="text" name="cif" value="" placeholder="CIF" required/>
-                        <input type="text" name="telefono" value="" />
-                        <input type="text" name="nombre" value="" />
-                        <input type="text" name="nombre" value="" />
-                        <input type="text" name="nombre" value="" />
-                        
-                        <input type="submit" value="Registrar" />
-                    </form>
-                
+        <article>
+            <sidebar>
+                <div class="container">
+
+                 </div>
+            </sidebar>
             
-           
-        
-        <sidebar>WIDGET FACEBOOK</sidebar>
+            <div class="content">
+               
+               <form class="contact_form" action="index.html" method="POST" id="contact_form" runat="server"> 
+                
+                    <ul> 
+                        <li> 
+                            <h2>Formulario Club</h2>
+                            <span class="required_notification">* Datos requeridos</span>
+                        </li> 
+                         <li>
+                             <input type="text" name="accion" placeholder="Nombre" pattern="[A-Za-z]" required /> 
+                             
+                            
+                         </li> 
+                         <li>
+                             <input type="DNI" name="accion" placeholder="DNI/NIF" pattern="^[0-5][0-9]{7}[A-Z]$" required /> 
+                            <span class="form_hint" >Formato correcto: "12345678A"</span> 
+                         <li>
+                             <input type="tel" name="accion" placeholder="Telefono" pattern="^[9|8|7|6]\d{8}$" required /> 
+                         </li>
+                         <li>
+                             <input type="tel" name="accion" placeholder="Telefono" pattern="^[9|8|7|6]\d{8}$"/> 
+                         </li>  
+                         <li> 
+                            <input type="email" name="accion"  placeholder="Correo electronico" pattern="^[-\w.]+@{1}[-a-z0-9]+[.]{1}[a-z]{2,5}$" required />
+                            <span class="form_hint" >Formato correcto: "nombre@dominio.com"</span> 
+                         </li> 
+                         <li> 
+                            <input type="url" name="accion" placeholder="Página Web" pattern="^http://www.[a-zA-Z0.9._-]{4,}$" required />
+                            <span class="form_hint" >Formato correcto: "http://dirección.com""</span> 
+                         </li> 
+                        <li>
+                             <input type="text" name="accion" placeholder="Dirección" required /> 
+                         </li>
+                         <li>
+                             <input type="password" placeholder="Contraseña" name="accion"   onchange="form.pwd2.pattern = this.value;" required />
+                         </li> 
+                         <li>
+                             <input type="password"  placeholder="Confirmar contraseña" name="accion"  required /> 
+                         </li> 
+                         <li>
+                            <input type="file" name="accion" value="avatar" placeholder="Imagen Perfil"/>
+                         </li>
+                         <li>
+                               <textarea name="accion" value="descripcion" cols="40" rows="6" placeholder="Descripción"></textarea>  
+                         </li>
+                          <li>
+                            <button class="submit" name='accion' value='registroJugador'>Confirmar</button> 
+                            </li> 
+                    </ul> 
+                    
+                    </form> 
+            </div> 
         </article>
-        
         <footer>Copyright ©FemSport</footer>
     </body>
 </html>
