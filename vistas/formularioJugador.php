@@ -43,23 +43,23 @@ http://www.the-art-of-web.com/javascript/validate-password/
                             <span class="required_notification">* Datos requeridos</span>
                         </li> 
                          <li>
-                             <input type="text" name="nombre" placeholder="Nombre" pattern="[A-Za-z]" required /> 
+                             <input type="text" name="nombre" placeholder="Nombre" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" required /> 
                          </li> 
                          <li>
-                             <input type="text" name="apellidos" placeholder="Apellidos" required /> 
+                             <input type="text" name="apellidos" placeholder="Apellidos" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" required /> 
                          </li> 
                          <li>
                              <input type="DNI" name="dni" placeholder="DNI/NIF" pattern="^[0-5][0-9]{7}[A-Z]$" required /> 
                             <span class="form_hint" >Formato correcto: "12345678A"</span> 
                          <li>
-                             <input type="tel" name="telefono" placeholder="Telefono" pattern="^[9|8|7|6]\d{8}$" required /> 
+                             <input type="tel" name="telefono" placeholder="Telefono" pattern="^[9|8|7|6|5]\d{8}$" required /> 
                          </li>              
                          <li> 
                             <input type="email" name="email" placeholder="Correo electronico" pattern="^[-\w.]+@{1}[-a-z0-9]+[.]{1}[a-z]{2,5}$" required />
                             <span class="form_hint" >Formato correcto: "nombre@dominio.com"</span> 
                          </li> 
                         <li>
-                             <input type="text" name="usuario" placeholder="Nombre Usuario" required /> 
+                             <input type="text" name="usuario" placeholder="Nombre Usuario" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" required /> 
                          </li>
                          <li>
                              <input type="password" placeholder="Contraseña" name="pwd1" onchange="form.pwd2.pattern = this.value;" required />
