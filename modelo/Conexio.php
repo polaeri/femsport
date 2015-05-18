@@ -5,7 +5,7 @@ class Conexio {
     private $connexio = null;
 
     function __construct() {
-        $this->connexio = new mysqli("localhost", "polaeri", "123456", "femsport");
+        $this->connexio = new mysqli("endurorocks.com", "femsports", "xpid", "femsport");
     }
 
     function tancarConexio() {
@@ -17,12 +17,7 @@ class Conexio {
         $sentenciaSql = "INSERT INTO jugador(dni, nombre, apellidos, telefono, email, usuario, reputacion, contrasena, descripcion, avatar) VALUES ('"
                 . $dni . "','" . $nombre . "','" . $apellidos . "','" . $telefono . "','" . $email . "','" . $usuario . "','" . $reputacion . "','" .
                 $contrasena . "','" . $descripcion . "','" . $avatar . "')";
-        $consulta = $this->connexio->query($sentenciaSql);
-        if ($consulta == TRUE) {
-            return true;
-        } else {
-            return false;
-        }
+        $this->connexio->query($sentenciaSql);
     }
 
     public function buscarJugador($usuario, $contrasena) {
@@ -53,7 +48,7 @@ class Conexio {
         $sentenciaSql = "INSERT INTO club(cif, nombre, telefono, telefono2, direccion, email, avatar, web, password, descripcion) VALUES ('"
                 . $cif . "','" . $nombre . "','" . $telefono . "','" . $telefono2 . "','" . $direccion . "','" . $email . "','" . $avatar . "','" .
                 $web . "','" . $password . "','" . $descripcion . "')";
-        $consulta = $this->connexio->query($sentenciaSql);
+        $this->connexio->query($sentenciaSql);
     }
     
     public function buscarClub($cif, $password) {
