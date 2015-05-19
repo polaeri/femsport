@@ -46,6 +46,20 @@ if (isset($_POST["accion"])) {
                 }
             }
             break;
+        case "perfilJugador":
+            include 'vistas/perfilJugador.php';
+            break;
+        case "reservaJugador":
+            include 'vistas/reservaJugador.php';
+            break;
+        case "buscaJugador":
+            include 'vistas/buscarJugador.php';
+            break;
+        case "salir":
+            $sessio = new Session();
+            $sessio->destroy();
+            include 'vistas/selectRol.html';
+            break;
         default :
             echo 'HOLAMUNDO';
             break;
