@@ -6,6 +6,15 @@
         <link rel="stylesheet" type="text/css" href="estilo.css">
     </head>
     <body>
-      perfil jugador
+        <ul>
+            <?php
+            $sessio = new Session();
+            $jugador = $sessio->getSession("jugador");
+            $jugador->printPerfilJugador();
+            ?>
+        </ul>
+        <form action="index.php" method="POST">
+            <button name="accion" value="editarPerfilJugador">Editar</button>
+        </form>
     </body>
 </html>

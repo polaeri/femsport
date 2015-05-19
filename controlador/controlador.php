@@ -61,8 +61,25 @@ if (isset($_POST["accion"])) {
             $sessio->destroy();
             include 'vistas/selectRol.html';
             break;
+        case "perfilClub":
+            include 'vistas/perfilClub.php';
+            break;
         case "calendario":
             include 'calendario/index.php';
+            break;     
+        case "editarPerfilJugador":
+            include 'vistas/editarPerfilJugador.php';
+            break;
+        case "cancelarEditarPerfilJugador":
+            include 'vistas/perfilJugador.php';
+            break;
+        case "GuardarEditarPerfilJugador":
+            //RECOGER TODOS LOS DATOS DEL NUEVO JUGADOR I HACER UN UPDATE A LA BBDD
+            $session = new Session();            
+            $jugador = $sessio->getSession("jugador");
+            $jugador->printPerfilJugador();
+            /*$jugador->modificarJugador($_POST["nombre"], $_POST["dni"], $_POST["apellidos"], $_POST["telefono"], $_POST["email"], $_POST["usuario"], $_POST["reputacion"], $_POST["descripcion"], $_POST["avatar"]);
+            include 'vistas/perfilJugador.php';*/
             break;
         default :
             echo 'HOLAMUNDO';
