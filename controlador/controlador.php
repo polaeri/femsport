@@ -61,6 +61,9 @@ if (isset($_POST["accion"])) {
             $sessio->destroy();
             include 'vistas/selectRol.html';
             break;
+        case "calendario":
+            include 'calendario/index.php';
+            break;
         default :
             echo 'HOLAMUNDO';
             break;
