@@ -1,9 +1,3 @@
-!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>FemSport</title>
@@ -37,25 +31,27 @@ and open the template in the editor.
 
                 <div class="container">
 
-                    <button type="button" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal">SALIR</button>
-                      
-                    </div>
+                    <form action="index.php" method="POST">
+                        <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>
+                    </form>
+
+                </div>
 
                 </div>
             </sidebar>
             <div class="content">
                 <h1 class="titol">Gestor Club</h1>
-                
-               
+
+
 
                 <div align="center">
                     <form method="POST" action="index.php">
-                        <input class="especial" type="image" name="accion" value="perfilClub" src="style/images/botonPerfil.png" width="250px">
+                        <input class="especial" type="image" name="accion" value="nuevoJugador" src="style/images/botonPerfil.png" width="250px">
                         &nbsp &nbsp &nbsp &nbsp &nbsp
-                        <input class="especial" type="image" name="accion" value="calendario" src="style/images/botonReservas.png" width="250px">
+                        <input class="especial" type="image" name="accion" value="nuevoClub" src="style/images/botonReservas.png" width="250px">
                     </form>
                 </div>
-               
+
 
             </div>
 

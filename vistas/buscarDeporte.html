@@ -36,37 +36,37 @@ and open the template in the editor.
 
 
                 <div class="container">
-
-                    <button type="button" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal">SALIR</button>
-                      
-                    </div>
+                    <form action="index.php" method="POST">
+                        <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>
+                    </form>
+                </div>
 
                 </div>
             </sidebar>
             <div class="content">
                 <h1 class="titol">¡Selecciona el deporte para buscar partidos en curso!</h1>
-                
-               
+
+
 
                 <div align="center">
                     <form method="POST" action="index.php">
-                        
-                       
+
+
                         <input class="especial" type="image" name="accion" value="nuevoJugador" src="../style/images/iconoDeportes/basket.png" width="150px">
                         &nbsp &nbsp &nbsp &nbsp &nbsp
                         <input class="especial" type="image" name="accion" value="nuevoClub" src="../style/images/iconoDeportes/padel.png" width="150px">
                         &nbsp &nbsp &nbsp &nbsp &nbsp
-                        
+
                         <input class="especial" type="image" name="accion" value="nuevoClub" src="../style/images/iconoDeportes/tenis.png" width="150px">
                         &nbsp &nbsp &nbsp &nbsp &nbsp
                         <input class="especial" type="image" name="accion" value="nuevoClub" src="../style/images/iconoDeportes/futbol11.png" width="150px">
-                         &nbsp &nbsp &nbsp &nbsp &nbsp
+                        &nbsp &nbsp &nbsp &nbsp &nbsp
                         <input class="especial" type="image" name="accion" value="nuevoClub" src="../style/images/iconoDeportes/futbol7.png" width="150px">
-                          &nbsp &nbsp &nbsp &nbsp &nbsp
+                        &nbsp &nbsp &nbsp &nbsp &nbsp
                         <input class="especial" type="image" name="accion" value="nuevoClub" src="../style/images/iconoDeportes/futbol5.png" width="150px">
                     </form>
                 </div>
-               
+
 
             </div>
 
