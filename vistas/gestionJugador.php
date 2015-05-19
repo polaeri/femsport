@@ -46,16 +46,25 @@ and open the template in the editor.
                 </div>
             </sidebar>
             <div class="content">
-                <h1 class="titol">Gestor Club</h1>
+                <h1 class="titol">
+                    <?php
+                    $sessio = new Session();
+                    $jugador = $sessio->getSession("jugador");
+                    echo "Bienvenido " . $jugador->getUsuario();
+                    ?>
+                </h1>
 
 
 
                 <div align="center">
                     <form method="POST" action="index.php">
-                        <input class="especial" type="image" name="accion" value="nuevoJugador" src="style/images/botonPerfil.png" width="250px">
+                        <input class="especial" type="image" name="accion" value="perfilJugador" src="style/images/botonPerfilJugador.png" width="250px">
                         &nbsp &nbsp &nbsp &nbsp &nbsp
-                        <input class="especial" type="image" name="accion" value="nuevoClub" src="style/images/botonReservas.png" width="250px">
+                        <input class="especial" type="image" name="accion" value="reservaJugador" src="style/images/ReservaJugador.png" width="250px">
+                        &nbsp &nbsp &nbsp &nbsp &nbsp
+                        <input class="especial" type="image" name="accion" value="buscaJugador" src="style/images/BuscaJugador.png" width="250px">
                     </form>
+
                 </div>
 
 

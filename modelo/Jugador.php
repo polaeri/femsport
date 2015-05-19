@@ -38,5 +38,9 @@ class jugador {
         $conexio->tancarConexio();
     }
     
+    function getUsuario(){
+        return $this->usuario;
+    }
+    
 
 }

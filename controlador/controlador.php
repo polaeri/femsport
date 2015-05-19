@@ -34,12 +34,12 @@ if (isset($_POST["accion"])) {
             $club = $conexion->buscarClub($_POST["usuario"], $_POST["contrasena"]);
             if ($club !== null) {
                 $sessio->setSession("club", $conexion->buscarClub($_POST["usuario"], $_POST["contrasena"]));
-                include 'vistas/gestionClub.html';
+                include 'vistas/gestionClub.php';
             } else {
                 $jugador = $conexion->buscarJugador($_POST["usuario"], $_POST["contrasena"]);
                 if ($jugador !== null) {
                     $sessio->setSession("jugador", $conexion->buscarJugador($_POST["usuario"], $_POST["contrasena"]));
-                    include 'vistas/gestionJugador.html';
+                    include 'vistas/gestionJugador.php';
                 } else {
                     //DANI REDIRECCIONA ESTO AL LOGIN CON EL MENSAJE DE USUARIO NO EXISTE
                     echo 'EL USUARIO NO EXISTE';
