@@ -87,8 +87,15 @@ if (isset($_POST["accion"])) {
             } else {
                 include 'vistas/editarPerfilJugador.php'; //enviar un mensaje de error (la contraseña no es correcta)
             }
-
-
+            break;
+        case "editarPerfilClub":
+            include 'vistas/editarPerfilClub.php';
+            break;
+        case "cancelarEditarPerfilClub":
+            include 'vistas/PerfilClub.php';
+            break;
+        case "guardarEditarPerfilClub":
+            echo "guardarEditarPerfilClub";
             break;
         default :
             echo 'HOLAMUNDO';

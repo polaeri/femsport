@@ -42,5 +42,14 @@ class Club {
     function getCIF(){
         return $this->cif;
     }
+    
+    function printEditarClub() {
+        echo "<li>Telefono: <input type='text' name='telefono' value='" . $this->telefono . "' ></li>";
+        echo "<li>Telefono2: <input type='text' name='telefono2' value='" . $this->telefono . "' ></li>";
+        echo "<li>Email: <input type='text' name='email' value='" . $this->email . "' ></li>";
+        echo "<li>Direccion: <input type='text' name='direccion' value='" . $this->direccion . "' ></li>";
+        echo "<li>Web: <input type='text' name='web' value='" . $this->web . "' ></li>";
+        echo "<li>Descripcion: <textarea cols='40' rows='6' name='descripcion' >$this->descripcion</textarea></li>";
+    }
 
 }
