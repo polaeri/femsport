@@ -118,14 +118,32 @@ li {
 .content p{
     font-size:23px;
     color: white;
-    text-align: center;
+    text-align: left;
 }
+
+.perfil h2{
+     font-size:20px;
+     color: black;
+     text-align: center;
+}
+
+.perfil2 h2{
+     font-size:20px;
+     color: black;
+     text-align: center;
+}
+
 
 .perfil p{
     font-size:15px;
     color: black;
-    margin-left: 20px;
-    
+    margin-left: 20px;  
+}
+
+.perfil2 p{
+    font-size:15px;
+    color: black;
+    margin-left: 20px;  
 }
     
 

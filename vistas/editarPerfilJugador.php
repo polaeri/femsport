@@ -45,7 +45,7 @@ and open the template in the editor.
             <div class="content">
                 
                 <div class="perfil2">
-                    <p>Editar Información</p>
+                    <h2>Editar Información</h2>
                     <hr>
         <form action="index.php" method="POST">
             <?php
