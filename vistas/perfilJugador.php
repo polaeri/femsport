@@ -44,7 +44,7 @@ and open the template in the editor.
             <div class="content">
 
                 <div class="perfil">
-                    <p>Información Personal</h2></p>
+                    <h2>Información Personal</h2>
                     <hr>
                     <p>
                         <?php
@@ -59,13 +59,13 @@ and open the template in the editor.
                 </div>
                 
                 <div class="perfil">
-                    <p>Historial Reservas</p>
+                    <h2>Historial Reservas</h2>
                     <hr>
                     
                 </div>
                 
                  <div class="perfil">
-                    <p>Partidos Jugados</p>
+                    <h2>Partidos Jugados</h2>
                     <hr>
                     
                 </div>
