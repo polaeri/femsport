@@ -40,26 +40,32 @@ and open the template in the editor.
                 </div>
 
             </sidebar>
-            
+
             <div class="content">
+
+                <div class="perfil">
+                    <h2>Información Personal</h2>s
+                    <p>
+                        <?php
+                        $sessio = new Session();
+                        $jugador = $sessio->getSession("jugador");
+                        $jugador->printPerfilJugador();
+                        ?>
+                    </p>
+                    <form action="index.php" method="POST">
+                        <p> <button name="accion" value="editarPerfilJugador">Editar</button></p>
+                    </form>
+                </div>
                 
                 <div class="perfil">
-                <p>
-                    <?php
-                    $sessio = new Session();
-                    $jugador = $sessio->getSession("jugador");
-                    $jugador->printPerfilJugador();
-                    ?>
-                </p>
-                <form action="index.php" method="POST">
-                    <p> <button name="accion" value="editarPerfilJugador">Editar</button></p>
-                </form>
-</div>
+                    <h2>Historial Partidos</h2>
+                    
+                </div>
             </div>
 
-    </article>
+        </article>
 
-    <footer>Copyright ©FemSport</footer>
-</body>
+        <footer>Copyright ©FemSport</footer>
+    </body>
 </html>
 
