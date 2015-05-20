@@ -44,7 +44,8 @@ and open the template in the editor.
             <div class="content">
 
                 <div class="perfil">
-                    <h2>Información Personal</h2>s
+                    <p>Información Personal</h2></p>
+                    <hr>
                     <p>
                         <?php
                         $sessio = new Session();
@@ -58,7 +59,14 @@ and open the template in the editor.
                 </div>
                 
                 <div class="perfil">
-                    <h2>Historial Partidos</h2>
+                    <p>Historial Reservas</p>
+                    <hr>
+                    
+                </div>
+                
+                 <div class="perfil">
+                    <p>Partidos Jugados</p>
+                    <hr>
                     
                 </div>
             </div>
