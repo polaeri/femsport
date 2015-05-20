@@ -5,7 +5,6 @@ include 'modelo/Jugador.php';
 include 'modelo/Club.php';
 include 'modelo/Session.php';
 include 'modelo/Conexio.php';
-$sessio = null;
 if (isset($_POST["accion"])) {
     $accio = $_POST["accion"];
     switch ($accio) {
@@ -66,7 +65,7 @@ if (isset($_POST["accion"])) {
             break;
         case "calendario":
             include 'calendario/index.php';
-            break;     
+            break;
         case "editarPerfilJugador":
             include 'vistas/editarPerfilJugador.php';
             break;
@@ -74,12 +73,18 @@ if (isset($_POST["accion"])) {
             include 'vistas/perfilJugador.php';
             break;
         case "GuardarEditarPerfilJugador":
-            //RECOGER TODOS LOS DATOS DEL NUEVO JUGADOR I HACER UN UPDATE A LA BBDD
-            $session = new Session();            
-            $jugador = $sessio->getSession("jugador");
-            $jugador->printPerfilJugador();
-            /*$jugador->modificarJugador($_POST["nombre"], $_POST["dni"], $_POST["apellidos"], $_POST["telefono"], $_POST["email"], $_POST["usuario"], $_POST["reputacion"], $_POST["descripcion"], $_POST["avatar"]);
-            include 'vistas/perfilJugador.php';*/
+            //RECOGER TODOS LOS DATOS DEL NUEVO JUGADOR I HACER UN UPDATE A LA BBDD      
+            $session = new Session();
+            $jugador = $session->getSession("jugador");
+            if ($jugador->comprovarPassword($_POST['contrasenaVieja'])) {
+                $jugador->modificarJugador($_POST['telefono'], $_POST['email'], $_POST['contrasenaNueva'], $_POST['descripcion']);
+                $jugador->guardarModificarJugador();
+                include 'vistas/perfilJugador.php';
+            }else{
+                include 'vistas/editarPerfilJugador.php'; //enviar un mensaje de error (la contraseña no es correcta)
+            }
+
+
             break;
         default :
             echo 'HOLAMUNDO';
