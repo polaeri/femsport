@@ -5,8 +5,7 @@ class Conexio {
     private $connexio = null;
 
     function __construct() {
-//$this->connexio = new mysqli("endurorocks.com", "femsport", "xpid2015", "femsport");
-        $this->connexio = new mysqli("localhost", "polaeri", "123456", "femsport");
+        $this->connexio = new mysqli("endurorocks.com", "femsport", "xpid2015", "femsport");
     }
 
     function tancarConexio() {
