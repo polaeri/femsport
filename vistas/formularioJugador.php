@@ -34,7 +34,7 @@ http://www.the-art-of-web.com/javascript/validate-password/
             </sidebar>
             
             <div class="content">
-               
+                
                <form class="contact_form" action="index.php" method="POST" id="contact_form" runat="server"> 
                 
                     <ul> 
@@ -79,6 +79,7 @@ http://www.the-art-of-web.com/javascript/validate-password/
                     </ul> 
                     
                     </form> 
+                    
             </div> 
         </article>
         <footer>Copyright ©FemSport</footer>
