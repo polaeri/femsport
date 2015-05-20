@@ -76,11 +76,15 @@ if (isset($_POST["accion"])) {
             //RECOGER TODOS LOS DATOS DEL NUEVO JUGADOR I HACER UN UPDATE A LA BBDD      
             $session = new Session();
             $jugador = $session->getSession("jugador");
-            if ($jugador->comprovarPassword($_POST['contrasenaVieja'])) {
+            if ($_POST['contrasenaVieja'] === "") {
+                $jugador->modificarJugador($_POST['telefono'], $_POST['email'], null, $_POST['descripcion']);
+                $jugador->guardarModificarJugador();
+                include 'vistas/perfilJugador.php';
+            } else if ($jugador->comprovarPassword($_POST['contrasenaVieja'])) {
                 $jugador->modificarJugador($_POST['telefono'], $_POST['email'], $_POST['contrasenaNueva'], $_POST['descripcion']);
                 $jugador->guardarModificarJugador();
                 include 'vistas/perfilJugador.php';
-            }else{
+            } else {
                 include 'vistas/editarPerfilJugador.php'; //enviar un mensaje de error (la contraseña no es correcta)
             }
 

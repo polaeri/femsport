@@ -38,8 +38,8 @@ class jugador {
         $conexio->guardarJugador($this->dni, $this->nombre, $this->apellidos, $this->telefono, $this->email, $this->usuario, $this->reputacion, $this->contrasena, $this->descripcion, $this->avatar);
         $conexio->tancarConexio();
     }
-    
-    function guardarModificarJugador(){
+
+    function guardarModificarJugador() {
         $conexio = new Conexio();
         $conexio->modificarJugador($this);
         $conexio->tancarConexio();
@@ -67,15 +67,17 @@ class jugador {
     function modificarJugador($telefono, $email, $contrasena, $descripcion) {
         $this->setTelefono($telefono);
         $this->setEmail($email);
-        $this->setContrasena($contrasena);
+        if (isset($contrasena)) {
+            $this->setContrasena($contrasena);
+        }
         $this->setDescripcion($descripcion);
         //$this->avatar($avatar);
     }
-    
-    function comprovarPassword($contrasena){
-        if($contrasena === $this->contrasena){
+
+    function comprovarPassword($contrasena) {
+        if ($contrasena === $this->contrasena) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
