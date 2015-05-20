@@ -42,17 +42,19 @@ and open the template in the editor.
             </sidebar>
             
             <div class="content">
-                <ul>
+                
+                <div class="perfil">
+                <p>
                     <?php
                     $sessio = new Session();
                     $jugador = $sessio->getSession("jugador");
                     $jugador->printPerfilJugador();
                     ?>
-                </ul>
+                </p>
                 <form action="index.php" method="POST">
-                    <button name="accion" value="editarPerfilJugador">Editar</button>
+                    <p> <button name="accion" value="editarPerfilJugador">Editar</button></p>
                 </form>
-
+</div>
             </div>
 
     </article>
