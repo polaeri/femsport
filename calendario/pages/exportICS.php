@@ -2,7 +2,7 @@
 /*
 = iCal event file export script =
 
-ï¿½ Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
+© Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
 
 This file is part of the LuxCal Web Calendar.
 
@@ -22,8 +22,8 @@ Web Calendar. If not, see: http://www.gnu.org/licenses/.
 if (!defined('LCC')) { exit('not permitted ('.substr(basename(__FILE__),0,-4).')'); } //launch via script only
 
 //initialize
-$adminLang = (file_exists('calendario/lang/ai-'.strtolower($_SESSION['cL']).'.php')) ? $_SESSION['cL'] : "English";
-require 'calendario/lang/ai-'.strtolower($adminLang).'.php';
+$adminLang = (file_exists('./lang/ai-'.strtolower($_SESSION['cL']).'.php')) ? $_SESSION['cL'] : "English";
+require './lang/ai-'.strtolower($adminLang).'.php';
 
 $fileName = (isset($_POST['fileName'])) ? $_POST['fileName'] : ''; //file name
 $fileDes = (isset($_POST['fileDes'])) ? stripslashes(strip_tags($_POST['fileDes'])) : ''; //file description
@@ -214,7 +214,7 @@ function makeFile() {
 	//save to iCal file
 	$icalfName = $fileName ? $fileName : $set['calendarTitle'];
 	$icalfName = translit($icalfName,true);
-	if (file_put_contents("calendario/files/{$icalfName}.ics", $icsHead.$icsBody.$icsTail, LOCK_EX) !== false) {
+	if (file_put_contents("./files/{$icalfName}.ics", $icsHead.$icsBody.$icsTail, LOCK_EX) !== false) {
 		$result = $ax['iex_file_created'];
 	} else {
 		$result = $ax['iex_write error'];

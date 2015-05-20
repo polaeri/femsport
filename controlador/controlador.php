@@ -5,6 +5,7 @@ include 'modelo/Jugador.php';
 include 'modelo/Club.php';
 include 'modelo/Session.php';
 include 'modelo/Conexio.php';
+include 'modelo/ConexioCalendario.php';
 if (isset($_POST["accion"])) {
     $accio = $_POST["accion"];
     switch ($accio) {
@@ -27,6 +28,11 @@ if (isset($_POST["accion"])) {
             $club = new Club($_POST["cif"], $_POST["nombre"], $_POST["telefono"], $_POST["telefono2"], $_POST["direccion"], $_POST["email"], $_POST["avatar"], $_POST["web"], $_POST["password"], $_POST["descripcion"]);
             $club->printClub();
             $club->guardarClub();
+            
+            //Añadir tablas Mysql del calendario
+            $ConexioCalendario = new ConexioCalendario();
+            $ConexioCalendario->registrarClub($_POST["cif"], $_POST["email"]);
+            
             break;
         case "login":
             $sessio = new Session();
@@ -64,7 +70,7 @@ if (isset($_POST["accion"])) {
             include 'vistas/perfilClub.php';
             break;
         case "calendario":
-            include 'calendario/index.php';
+            include 'vistas/calendario.php';
             break;
         case "editarPerfilJugador":
             include 'vistas/editarPerfilJugador.php';

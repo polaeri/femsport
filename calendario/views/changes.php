@@ -2,7 +2,7 @@
 /*
 = view calendar changes (added / edited / deleted events) since specified date =
 
-ï¿½ Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
+© Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
 
 This file is part of the LuxCal Web Calendar.
 
@@ -18,7 +18,7 @@ You should have received a copy of the GNU General Public License along with the
 Web Calendar. If not, see: http://www.gnu.org/licenses/.
 */
 
-require 'calendario/common/retrieve2.php';
+require './common/retrieve2.php';
 
 function showGrid(&$events,$date) {
 	global $privs, $wkDays, $set, $xx, $months;

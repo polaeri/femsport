@@ -2,7 +2,7 @@
 /*
 = Header for the LuxCal calendar pages = (no Top bar, no Nav bar)
 
-ï¿½ Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
+© Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
 
 This file is part of the LuxCal Web Calendar.
 
@@ -27,7 +27,7 @@ if (!defined('LCC')) { exit('not permitted ('.substr(basename(__FILE__),0,-4).')
 <meta charset="utf-8">
 <title><?php echo $set['calendarTitle']; ?></title>
 <link rel="icon" href="lcal.ico">
-<link rel="stylesheet" href="calendario/css/css.php" type="text/css">
+<link rel="stylesheet" href="css/css.php" type="text/css">
 <style type="text/css">
 /* ---- all views ----- */
 .content {margin-top:-48px;}

@@ -2,7 +2,7 @@
 /*
 = week view of events =
 
-ï¿½ Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
+© Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
 
 This file is part of the LuxCal Web Calendar.
 
@@ -22,7 +22,7 @@ Web Calendar. If not, see: http://www.gnu.org/licenses/.
 if (!defined('LCC')) { exit('not permitted ('.substr(basename(__FILE__),0,-4).')'); } //launch via script only
 
 //initialize
-require 'calendario/views/dw_functions.php';
+require './views/dw_functions.php';
 
 $cD = $_SESSION['cD'];
 $d = substr($cD,8,2);

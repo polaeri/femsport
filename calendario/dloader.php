@@ -1,7 +1,7 @@
 <?php
 /*= file downloader script =
 
-ï¿½ Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
+© Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
 
 This file is part of the LuxCal Web Calendar.
 
@@ -14,7 +14,7 @@ if (!isset($_GET['ftd']) or !preg_match('%^[^+,()|&@<>\s\\/]{1,60}\.(ics|txt)$%'
 
 $fName = $_GET['ftd']; //file to download
 $rName = $_GET['rName']; //rename
-$dName = 'calendario/files/';
+$dName = './files/';
 if (file_exists($dName.$fName)) { //file valid
 	header("Content-type: application/octet-stream");
 	header("Content-Disposition: attachment; filename=$rName");

@@ -2,7 +2,7 @@
 /*
 = LuxCal add/edit event page =
 
-ï¿½ Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
+© Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
 
 This file is part of the LuxCal Web Calendar.
 
@@ -396,11 +396,11 @@ if ($cMsg) echo '<p class="confirm">'.$cMsg."</p>\n";
 
 if (strpos($mode,'exe') === false or $mayEdit) {
 	if (($r_t > 0 or $sda < $eda) and $mayEdit and !$editN and !$refresh and !$eMsg and !$cMsg) {
-		require 'calendario/pages/eventform0.php'; //ask series or occurence
+		require './pages/eventform0.php'; //ask series or occurence
 	} elseif ($mayEdit and !($app and $apd and $privs < 4)) {
-		require 'calendario/pages/eventform1.php';
+		require './pages/eventform1.php';
 	} elseif ($mayView) {
-		require 'calendario/pages/eventreport.php';
+		require './pages/eventreport.php';
 	} else {
 		exit('no view rights ('.substr(basename(__FILE__),0,-4).')');
 	}

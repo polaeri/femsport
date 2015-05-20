@@ -2,7 +2,7 @@
 /*
 = LuxCal RSS feeder =
 
-ï¿½ Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
+© Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
 
 This file is part of the LuxCal Web Calendar.
 
@@ -20,10 +20,10 @@ Web Calendar. If not, see: http://www.gnu.org/licenses/.
 header("Content-Type: application/rss+xml; charset=utf-8");
 
 //load toolbox
-require 'calendario/common/toolbox.php';
+require './common/toolbox.php';
 
 //load config data
-require 'calendario/lcconfig.php';
+require './lcconfig.php';
 
 //get calendar
 $calID = !empty($_GET['cal']) ? $_GET['cal'] : $dbDef;
@@ -38,10 +38,10 @@ $set = getSettings();
 date_default_timezone_set($set['timeZone']);
 
 //get common functions
-require 'calendario/common/retrieve.php';
+require './common/retrieve.php';
 
 //set language
-require 'calendario/lang/ui-'.strtolower($set['language']).'.php';
+require './lang/ui-'.strtolower($set['language']).'.php';
 
 //set filter
 $filter = '';

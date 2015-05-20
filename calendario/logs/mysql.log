@@ -1,0 +1,75 @@
+2015-05-11T17:06:12+02:00
+Script name: /lux2/index.php
+MySQL error: Table 'lux.clubtest_users' doesn't exist
+Query string: SELECT user_name, email, privs FROM [db]users WHERE user_id = 1
+
+2015-05-11T17:06:13+02:00
+Script name: /lux2/index.php
+MySQL error: Table 'lux.clubtest_users' doesn't exist
+Query string: SELECT user_name, email, privs FROM [db]users WHERE user_id = 1
+
+2015-05-11T17:06:13+02:00
+Script name: /lux2/index.php
+MySQL error: Table 'lux.clubtest_users' doesn't exist
+Query string: SELECT user_name, email, privs FROM [db]users WHERE user_id = 1
+
+2015-05-11T17:07:57+02:00
+Script name: /lux2/index.php
+MySQL error: Table 'lux.clubtest_users' doesn't exist
+Query string: SELECT user_name, email, privs FROM [db]users WHERE user_id = 1
+
+2015-05-11T17:07:57+02:00
+Script name: /lux2/index.php
+MySQL error: Table 'lux.clubtest_users' doesn't exist
+Query string: SELECT user_name, email, privs FROM [db]users WHERE user_id = 1
+
+2015-05-11T17:07:57+02:00
+Script name: /lux2/index.php
+MySQL error: Table 'lux.clubtest_users' doesn't exist
+Query string: SELECT user_name, email, privs FROM [db]users WHERE user_id = 1
+
+2015-05-11T17:07:58+02:00
+Script name: /lux2/index.php
+MySQL error: Table 'lux.clubtest_users' doesn't exist
+Query string: SELECT user_name, email, privs FROM [db]users WHERE user_id = 1
+
+2015-05-11T17:08:02+02:00
+Script name: /lux2/index.php
+MySQL error: Table 'lux.clubtest_users' doesn't exist
+Query string: SELECT user_name, email, privs FROM [db]users WHERE user_id = 1
+
+2015-05-11T17:08:02+02:00
+Script name: /lux2/index.php
+MySQL error: Table 'lux.clubtest_users' doesn't exist
+Query string: SELECT user_name, email, privs FROM [db]users WHERE user_id = 1
+
+2015-05-11T17:08:02+02:00
+Script name: /lux2/index.php
+MySQL error: Table 'lux.clubtest_users' doesn't exist
+Query string: SELECT user_name, email, privs FROM [db]users WHERE user_id = 1
+
+2015-05-11T17:37:33+02:00
+Script name: /lux2/index.php
+MySQL error: Table 'lux.clubtest_categories' doesn't exist
+Query string: SELECT sequence, name, color, background FROM [db]categories WHERE status >= 0 AND public > 0 ORDER BY sequence
+
+2015-05-11T17:37:34+02:00
+Script name: /lux2/index.php
+MySQL error: Table 'lux.clubtest_categories' doesn't exist
+Query string: SELECT sequence, name, color, background FROM [db]categories WHERE status >= 0 AND public > 0 ORDER BY sequence
+
+2015-05-11T17:37:37+02:00
+Script name: /lux2/index.php
+MySQL error: Table 'lux.clubtest_categories' doesn't exist
+Query string: SELECT sequence, name, color, background FROM [db]categories WHERE status >= 0 AND public > 0 ORDER BY sequence
+
+2015-05-11T17:37:42+02:00
+Script name: /lux2/index.php
+MySQL error: Table 'lux.clubtest_categories' doesn't exist
+Query string: SELECT sequence, name, color, background FROM [db]categories WHERE status >= 0 ORDER BY sequence
+
+2015-05-11T17:37:47+02:00
+Script name: /lux2/index.php
+MySQL error: Table 'lux.clubtest_categories' doesn't exist
+Query string: SELECT sequence, name, color, background FROM [db]categories WHERE status >= 0 ORDER BY sequence
+

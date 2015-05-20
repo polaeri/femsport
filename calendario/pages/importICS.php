@@ -2,7 +2,7 @@
 /*
 = iCal event file import script =
 
-ï¿½ Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
+© Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
 
 This file is part of the LuxCal Web Calendar.
 
@@ -22,8 +22,8 @@ Web Calendar. If not, see: http://www.gnu.org/licenses/.
 if (!defined('LCC')) { exit('not permitted ('.substr(basename(__FILE__),0,-4).')'); } //launch via script only
 
 //initialize
-$adminLang = (file_exists('calendario/lang/ai-'.strtolower($_SESSION['cL']).'.php')) ? $_SESSION['cL'] : "English";
-require 'calendario/lang/ai-'.strtolower($adminLang).'.php';
+$adminLang = (file_exists('./lang/ai-'.strtolower($_SESSION['cL']).'.php')) ? $_SESSION['cL'] : "English";
+require './lang/ai-'.strtolower($adminLang).'.php';
 
 $defcatID = (isset($_POST['defcatID'])) ? $_POST['defcatID'] : 1;
 $fromD = (isset($_POST['fromD'])) ? $_POST['fromD'] : IDtoDD(date("Y-m-d"));

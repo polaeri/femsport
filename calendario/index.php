@@ -2,7 +2,7 @@
 /*
 = LuxCal event calendar index =
 
-ï¿½ Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
+© Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
 
 This file is part of the LuxCal Web Calendar.
 
@@ -19,7 +19,7 @@ PARTICULAR PURPOSE. See the GNU General Public License for more details.
 define("LCV","3.2.3");
 
 //get php toolbox
-require 'calendario/common/toolbox.php';
+require './common/toolbox.php';
 
 //validate GET / POST variables
 validVars();
@@ -45,13 +45,13 @@ $_COOKIE = array_map('stripslashes', $_COOKIE);
 
 if (!isset($_GET['lc'])) { //external hit
 	//connect to db
-	if (!file_exists('calendario/lcconfig.php') and !file_exists('calendario/lcaldbc.dat')) {//no db credentials: install
+	if (!file_exists('./lcconfig.php') and !file_exists('./lcaldbc.dat')) {//no db credentials: install
 		header("Location: install".substr(str_replace('.','',LCV),0,3).".php"); exit();
 	}
 	$dbPfix = dbConnect();
-	//if ($dbPfix === false or LCC != substr(LCV,0,5)) { //no connection or LCC (dbConnect) not current: upgrade
-	//	header("Location: upgrade".substr(str_replace('.','',LCV),0,3).".php"); exit();
-
+	if ($dbPfix === false or LCC != substr(LCV,0,5)) { //no connection or LCC (dbConnect) not current: upgrade
+		header("Location: upgrade".substr(str_replace('.','',LCV),0,3).".php"); exit();
+	}
 	//set PHP session cookie to 30 days
 	setcookie('PHPSESSID', $sessID, time()+2592000);
 
@@ -118,8 +118,8 @@ elseif (!isset($_SESSION['hdr'])) { $_SESSION['hdr'] = 1; }
 //set language
 if (isset($_POST["cL"])) { $_SESSION['cL'] = $_POST['cL']; }
 elseif (empty($_SESSION['cL'])) { $_SESSION['cL'] = $set['language']; }
-if (!file_exists('calendario/lang/ui-'.strtolower($_SESSION['cL']).'.php')) { $_SESSION['cL'] = 'English'; }
-require 'calendario/lang/ui-'.strtolower($_SESSION['cL']).'.php';
+if (!file_exists('./lang/ui-'.strtolower($_SESSION['cL']).'.php')) { $_SESSION['cL'] = 'English'; }
+require './lang/ui-'.strtolower($_SESSION['cL']).'.php';
 
 //get user data & set privs
 if (isset($_GET["logout"])) { $_SESSION['uid'] = 1; } //public user
@@ -196,7 +196,7 @@ $pageTitle = $pages[$cP][6];
 //echo "LuxCal version: ".LCV."<br>"; print_r($set); die;//TEST LINE
 
 if ($pages[$cP][7]) { //retrieve required
-	require 'calendario/common/retrieve.php';
+	require './common/retrieve.php';
 }
 /* build calendar page */
 //header
@@ -207,10 +207,10 @@ if ($_SESSION['hdr'] == 0) {
 } else {
 	$suffix = $pages[$cP][1]; //normal hdr
 }
-require 'calendario/canvas/header'.$suffix.'.php';
+require './canvas/header'.$suffix.'.php';
 //page body
-require 'calendario/'.$pages[$cP][0];
+require './'.$pages[$cP][0];
 //footer
 $suffix = $_SESSION['mobile'] ? $pages[$cP][5] : $pages[$cP][4]; //set footer type
-require 'calendario/canvas/footer'.$suffix.'.php';
+require './canvas/footer'.$suffix.'.php';
 ?>

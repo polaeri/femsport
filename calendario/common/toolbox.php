@@ -2,7 +2,7 @@
 /*
 === REGEX DEFINITIONS & TOOLBOX FUNCTIONS ===
 
-ï¿½ Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
+© Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
 
 This file is part of the LuxCal Web Calendar.
 */
@@ -222,13 +222,13 @@ function validVars() {
 //Log error
 function logError($logName,$errorMsg) {
 	date_default_timezone_set(@date_default_timezone_get());
-	file_put_contents("calendario/logs/{$logName}.log", date(DATE_ATOM)."\nScript name: ".htmlentities($_SERVER['PHP_SELF'])."\n{$errorMsg}\n\n" , FILE_APPEND);
+	file_put_contents("./logs/{$logName}.log", date(DATE_ATOM)."\nScript name: ".htmlentities($_SERVER['PHP_SELF'])."\n{$errorMsg}\n\n" , FILE_APPEND);
 }
 
 //Connect to database and define LCC
 function dbConnect() {
-	if (file_exists('calendario/lcconfig.php')) {
-		include 'calendario/lcconfig.php';
+	if (file_exists('lcconfig.php')) {
+		include './lcconfig.php';
 		define("LCC",$lcc);
 		$link = mysql_connect($dbHost,$dbUnam,$dbPwrd);
 		if (!$link) { exit("Could not connect to the MySQL server"); }
@@ -354,8 +354,8 @@ function sendMail($subject,$message,$emlList,$senderId=0) {
 			$emlArray[] = $emlAorL;
 		} else { //email list
 			$emlAorL .= strpos($emlAorL,'.') ? '' : '.txt';
-			if (file_exists("calendario/emlists/$emlAorL")) {
-				$emlArray = array_merge($emlArray,file("calendario/emlists/$emlAorL", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES));
+			if (file_exists("./emlists/$emlAorL")) {
+				$emlArray = array_merge($emlArray,file("./emlists/$emlAorL", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES));
 			}
 		}
 	}

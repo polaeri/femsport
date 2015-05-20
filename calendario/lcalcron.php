@@ -2,7 +2,7 @@
 /*
 = LuxCal event calendar cronjobs =
 
-ï¿½ Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
+© Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
 
 This file should be executed via a cronjob once a day at 2am user time
 ============================================================================
@@ -105,7 +105,7 @@ h4 {font-size:12px; font-weight:bold; margin-top:20px;}
 chdir(dirname(__FILE__));
 
 //load toolbox
-require 'calendario/common/toolbox.php';
+require './common/toolbox.php';
 
 //connect to database
 $calID = dbConnect();
@@ -122,15 +122,15 @@ while ($row = mysql_fetch_row($rSet)) {
 if (count($calIDs) == 0) { exit('No calendars found in database'); }
 
 //load retrieve functions
-require 'calendario/common/retrieve.php';
-require 'calendario/common/retrieve2.php';
+require './common/retrieve.php';
+require './common/retrieve2.php';
 
 //load cronjob functions
-require 'calendario/cronjobs/notify.php';
-require 'calendario/cronjobs/sendchg.php';
-require 'calendario/cronjobs/expical.php';
-require 'calendario/cronjobs/eventchk.php';
-require 'calendario/cronjobs/userchk.php';
+require './cronjobs/notify.php';
+require './cronjobs/sendchg.php';
+require './cronjobs/expical.php';
+require './cronjobs/eventchk.php';
+require './cronjobs/userchk.php';
 
 //run job for each calendar in the db
 foreach ($calIDs as $calID) {
@@ -139,8 +139,8 @@ foreach ($calIDs as $calID) {
 	$set = getSettings();
 
 	//load language files
-	require_once 'calendario/lang/ui-'.strtolower($set['language']).'.php';
-	require_once 'calendario/lang/ai-'.strtolower($set['language']).'.php';
+	require_once './lang/ui-'.strtolower($set['language']).'.php';
+	require_once './lang/ai-'.strtolower($set['language']).'.php';
 
 	//set timezone
 	date_default_timezone_set($set['timeZone']);

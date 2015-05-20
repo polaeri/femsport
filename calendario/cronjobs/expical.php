@@ -2,7 +2,7 @@
 /*
 = Export events in iCalendar format to .ics file in 'files' folder =
 
-ï¿½ Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
+© Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
 
 -------------------------------------------------------------------
  This script depends on and is executed via the file lcalcron.php.
@@ -120,7 +120,7 @@ CALSCALE:GREGORIAN\r\n";
 	$icsTail = "END:VCALENDAR";
 	//save to iCal file
 	$fileName = translit($set['calendarTitle'],true);
-	file_put_contents("calendario/files/{$fileName}.ics", $icsHead.$icsBody.$icsTail, LOCK_EX);
+	file_put_contents("./files/{$fileName}.ics", $icsHead.$icsBody.$icsTail, LOCK_EX);
 	return $nrExported;
 }
 ?>

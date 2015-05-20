@@ -2,7 +2,7 @@
 /*
 = LuxCal stand-alone sidebar - upcoming events =
 
-ï¿½ Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
+© Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
 
 This file is part of the LuxCal Web Calendar.
 
@@ -118,7 +118,7 @@ function displayUE(&$evtList) {
 $cwd = getcwd();
 chdir(dirname(__FILE__));
 
-require_once 'calendario/common/toolbox.php'; //get toolbox
+require_once './common/toolbox.php'; //get toolbox
 
 $calID = dbConnect(); //connect to database
 
@@ -128,9 +128,9 @@ if (!isset($set)) { $set = getSettings(); } //get settings from db
 
 date_default_timezone_set($set['timeZone']); //set time zone
 
-require_once 'calendario/lang/ui-'.strtolower($set['language']).'.php'; //set language
+require_once './lang/ui-'.strtolower($set['language']).'.php'; //set language
 
-require_once 'calendario/common/retrieve.php';//get retrieve function
+require_once './common/retrieve.php';//get retrieve function
 
 //process external params
 if (empty($sbContent)) { $sbContent = 'upco'; }

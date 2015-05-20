@@ -2,7 +2,7 @@
 /*
 = LuxCal user management page =
 
-ï¿½ Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
+© Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
 
 This file is part of the LuxCal Web Calendar.
 
@@ -26,8 +26,8 @@ if (!defined('LCC') or
 	) { exit('not permitted ('.substr(basename(__FILE__),0,-4).')'); }
 
 //initialize
-$adminLang = (file_exists('calendario/lang/ai-'.strtolower($_SESSION['cL']).'.php')) ? $_SESSION['cL'] : "English";
-require 'calendario/lang/ai-'.strtolower($adminLang).'.php';
+$adminLang = (file_exists('./lang/ai-'.strtolower($_SESSION['cL']).'.php')) ? $_SESSION['cL'] : "English";
+require './lang/ai-'.strtolower($adminLang).'.php';
 
 $uid = isset($_REQUEST["uid"]) ? $_REQUEST["uid"] : "";
 $editUser = isset($_REQUEST["editUser"]) ? $_REQUEST["editUser"] : "";

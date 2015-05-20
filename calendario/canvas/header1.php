@@ -2,7 +2,7 @@
 /*
 = Header for the LuxCal calendar pages = (full)
 
-ï¿½ Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
+© Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
 
 This file is part of the LuxCal Web Calendar.
 
@@ -37,7 +37,7 @@ if ($privs > 0 and $set['rssFeed']) {
 	echo '<link rel="alternate" type="application/rss+xml" title="LuxCal RSS Feed" href="http://'.$_SERVER['SERVER_NAME'].rtrim(dirname($_SERVER["PHP_SELF"]),'/').'/rssfeed.php'.$cF.'">'."\n";
 }
 ?>
-<link rel="stylesheet" href="calendario/css/css.php" type="text/css">
+<link rel="stylesheet" href="css/css.php" type="text/css">
 <script>
 <?php //used by dtpicker.js
 echo "var mode = \"{$mode}\";
@@ -53,8 +53,8 @@ var dpWkdays = new Array('",implode("','",$wkDays_m),"');
 var dwTimeSlot = {$set['dwTimeSlot']};\n"; //used by dw_functions.php
 ?>
 </script>
-<script src="calendario/common/dtpicker.js"></script>
-<script src="calendario/common/toolbox.js"></script>
+<script src="common/dtpicker.js"></script>
+<script src="common/toolbox.js"></script>
 </head>
 
 <body>
@@ -190,7 +190,7 @@ if ($privs > 0) { //view rights
 	if ($set['navUpcoList']) {
 		//make side bar with upcoming events
 		echo "<div id='upcoBar'>
-			<img class='floatR point' onclick=\"show('upcoBar')\" src=\"calendario/images/close.png\" alt=\"close\">
+			<img class='floatR point' onclick=\"show('upcoBar')\" src=\"images/close.png\" alt=\"close\">
 			<div class='barHead move' onmousedown=\"dragMe('upcoBar',event)\">{$xx['hdr_upco_list']}</div>
 			<div class='barBody'>\n";
 		$curD = $_SESSION['cD'];
@@ -232,7 +232,7 @@ if ($privs > 0) { //view rights
 	if ($set['navTodoList']) {
 		//make side bar with todo list
 		echo "<div id='taskBar'>
-			<img class='floatR point' onclick=\"show('taskBar')\" src='calendario/images/close.png' alt='close'>
+			<img class='floatR point' onclick=\"show('taskBar')\" src='images/close.png' alt='close'>
 			<div class='barHead move' onmousedown=\"dragMe('taskBar',event)\">{$xx['hdr_todo_list']}</div>\n
 			<div class='barBody'>\n";
 		$curD = $_SESSION['cD'];

@@ -2,7 +2,7 @@
 /*
 = upcoming events view =
 
-ï¿½ Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
+© Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
 
 This file is part of the LuxCal Web Calendar.
 
@@ -110,5 +110,5 @@ if ($evtList) {
 	echo $xx['none']."\n";
 }
 echo "</div>\n";
-file_put_contents("calendario/files/{$fName}",$upcoTxt,LOCK_EX); //save upco text file
+file_put_contents("./files/{$fName}",$upcoTxt,LOCK_EX); //save upco text file
 ?>

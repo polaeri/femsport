@@ -2,7 +2,7 @@
 /*
 = LuxCal database management page =
 
-ï¿½ Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
+© Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
 
 This file is part of the LuxCal Web Calendar.
 
@@ -22,8 +22,8 @@ Web Calendar. If not, see: http://www.gnu.org/licenses/.
 if (!defined('LCC')) { exit('not permitted ('.substr(basename(__FILE__),0,-4).')'); } //launch via script only
 
 //initialize
-$adminLang = (file_exists('calendario/lang/ai-'.strtolower($_SESSION['cL']).'.php')) ? $_SESSION['cL'] : "English";
-require 'calendario/lang/ai-'.strtolower($adminLang).'.php';
+$adminLang = (file_exists('./lang/ai-'.strtolower($_SESSION['cL']).'.php')) ? $_SESSION['cL'] : "English";
+require './lang/ai-'.strtolower($adminLang).'.php';
 
 function mdbForm() {
 	global $ax, $compact, $repair, $backup, $restore, $events, $delevt, $fromD, $tillD;
@@ -167,7 +167,7 @@ function backupTables() {
 		}
 		echo "<tr><td>&nbsp;</td></tr>\n";
 		//save .sql backup file
-		$fName = 'calendario/files/cal-backup-'.date('Ymd-His').'.sql';
+		$fName = './files/cal-backup-'.date('Ymd-His').'.sql';
 		echo "<tr><td>{$ax['mdb_file_name']} <strong>{$fName}</strong></td></tr>\n";
 		if (file_put_contents($fName, $sqlFile) !== false) {
 			echo "<tr><td>{$ax['mdb_file_saved']}</td></tr>\n";
@@ -186,7 +186,7 @@ function restoreTables() {
 	echo "<table class='fieldBoxFix'>
 		<tr><td class='legend'>&nbsp;{$ax['mdb_restore']}&nbsp;</td></tr>\n";
 	//get backup file name
-	$files = scandir('calendario/files');
+	$files = scandir('./files');
 	$buFile = '';
 	if ($files !== false) {
 		foreach ($files as $key => $fName) {
@@ -199,7 +199,7 @@ function restoreTables() {
 		echo "<tr><td>{$ax['mdb_noshow_restore']}</td></tr>\n";
 	} else {
 		//Read SQL queries from $buFile
-		$sqlQueries = file('calendario/files/'.$buFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+		$sqlQueries = file('./files/'.$buFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 		$nrC = $nrE = $nrS = $nrU = 0; //init counters
 		$query = $lcVersion = '';
 		//restore

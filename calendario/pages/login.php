@@ -2,7 +2,7 @@
 /*
 = LuxCal log in / register / change personal data page =
 
-ï¿½ Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
+© Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
 
 This file is part of the LuxCal Web Calendar.
 
@@ -60,8 +60,8 @@ function notifyReg($uName,$eMail) { //notify a new user registration
 if (!defined('LCC')) { exit('not permitted ('.substr(basename(__FILE__),0,-4).')'); }
 
 //initialize
-$adminLang = (file_exists('calendario/lang/ai-'.strtolower($_SESSION['cL']).'.php')) ? $_SESSION['cL'] : "English";
-require 'calendario/lang/ai-'.strtolower($adminLang).'.php';
+$adminLang = (file_exists('./lang/ai-'.strtolower($_SESSION['cL']).'.php')) ? $_SESSION['cL'] : "English";
+require './lang/ai-'.strtolower($adminLang).'.php';
 $msg = '';
 
 $l_un_em = isset($_POST["l_un_em"]) ? $_POST["l_un_em"] : '';

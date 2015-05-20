@@ -2,7 +2,7 @@
 /*
 = Change Calendar Settings page =
 
-ï¿½ Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
+© Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
 
 This file is part of the LuxCal Web Calendar.
 
@@ -22,9 +22,9 @@ Web Calendar. If not, see: http://www.gnu.org/licenses/.
 if (!defined('LCC')) { exit('not permitted ('.substr(basename(__FILE__),0,-4).')'); } //launch via script only
 
 //initialize
-$adminLang = (file_exists('calendario/lang/ai-'.strtolower($_SESSION['cL']).'.php')) ? $_SESSION['cL'] : "English";
-require 'calendario/lang/ai-'.strtolower($adminLang).'.php'; //admin language file
-require 'calendario/common/toolboxx.php'; //admin tools
+$adminLang = (file_exists('./lang/ai-'.strtolower($_SESSION['cL']).'.php')) ? $_SESSION['cL'] : "English";
+require './lang/ai-'.strtolower($adminLang).'.php'; //admin language file
+require './common/toolboxx.php'; //admin tools
 $msg = "";
 
 if ($privs != 9) { //no admin

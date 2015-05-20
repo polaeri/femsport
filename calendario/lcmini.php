@@ -2,7 +2,7 @@
 /*
 = LuxCal mini calendar - one month =
 
-ï¿½ Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
+© Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
 config params /settings:
  database credentials
  calendarTitle
@@ -62,7 +62,7 @@ error_reporting(E_ALL ^ E_NOTICE); //errors, no notices
 //error_reporting(E_ALL); //errors and notices - test line
 
 //initialize
-require 'calendario/common/toolbox.php';
+require './common/toolbox.php';
 
 //connect to database
 $calID = dbConnect();
@@ -87,7 +87,7 @@ date_default_timezone_set($set['timeZone']);
 header("Cache-control: private");
 
 //set language
-require 'calendario/lang/ui-'.strtolower($set['language']).'.php';
+require './lang/ui-'.strtolower($set['language']).'.php';
 
 //set session params and privs
 $_SESSION['uid'] = 1; //public access
@@ -97,7 +97,7 @@ $row = mysql_fetch_assoc($rSet);
 $privs = $row["privs"];
 
 //get common functions
-require 'calendario/common/retrieve.php';
+require './common/retrieve.php';
 
 ?>
 <!DOCTYPE html>

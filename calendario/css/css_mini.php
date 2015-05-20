@@ -11,7 +11,7 @@ header('content-type:text/css');
 header("Expires: ".gmdate("D, d M Y H:i:s", (time()+900)) . " GMT");
 
 /* ---- LOAD USER-INTERFACE THEME DEFINITIONS ---- */
-require 'calendario/lctheme_mini.php';
+require './lctheme_mini.php';
 
 echo
 // ---- make HTML 5 elements block-level for consistent styling (see also toolbox.js) ----
