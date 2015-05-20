@@ -23,18 +23,13 @@ and open the template in the editor.
                 <ul>
                     <li><a href="#Aqui URL">Inicio</a></li>
 
-
-
-
                 </ul>
-
 
             </menu>
         </header>
 
         <article>
             <sidebar>
-
 
                 <div class="container">
 
@@ -44,30 +39,25 @@ and open the template in the editor.
 
                 </div>
 
-                </div>
             </sidebar>
+            
             <div class="content">
-                 <ul>
-            <?php
-            $sessio = new Session();
-            $jugador = $sessio->getSession("jugador");
-            $jugador->printPerfilJugador();
-            ?>
-        </ul>
-        <form action="index.php" method="POST">
-            <button name="accion" value="editarPerfilJugador">Editar</button>
-        </form>
-
-                </div>
-
+                <ul>
+                    <?php
+                    $sessio = new Session();
+                    $jugador = $sessio->getSession("jugador");
+                    $jugador->printPerfilJugador();
+                    ?>
+                </ul>
+                <form action="index.php" method="POST">
+                    <button name="accion" value="editarPerfilJugador">Editar</button>
+                </form>
 
             </div>
 
+    </article>
 
-
-        </article>
-
-        <footer>Copyright ©FemSport</footer>
-    </body>
+    <footer>Copyright ©FemSport</footer>
+</body>
 </html>
 
