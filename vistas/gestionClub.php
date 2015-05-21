@@ -35,7 +35,7 @@
                 <div class="container">
 
                     <form action="index.php" method="POST">
-                        <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>
+                        <button type="submit" class="boton azul formaBoton "  name="accion" value="salir">SALIR</button>
                     </form>
 
                 </div>
