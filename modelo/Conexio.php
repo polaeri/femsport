@@ -5,7 +5,8 @@ class Conexio {
     private $connexio = null;
 
     function __construct() {
-        $this->connexio = new mysqli("endurorocks.com", "femsport", "xpid2015", "femsport");
+        //$this->connexio = new mysqli("endurorocks.com", "femsport", "xpid2015", "femsport");
+        $this->connexio = new mysqli("localhost", "polaeri", "123456", "femsport");
     }
 
     function tancarConexio() {
@@ -50,6 +51,15 @@ class Conexio {
                 "', reputacion ='" . $jugador->getReputacion() . "',contrasena ='" . $jugador->getContrasena() .
                 "', descripcion = '" . $jugador->getDescripcion() . "', avatar = '" . $jugador->getAvatar() .
                 "' WHERE dni = '" . $jugador->getDni() . "';";
+        $this->connexio->query($sentenciaSql);
+    }
+
+    public function modificarClub($club) {
+        $sentenciaSql = "UPDATE club SET nombre='" . $club->getNombre() .
+                "',telefono='" . $club->getTelefono() . "',telefono2='" . $club->getTelefono2() . "',direccion='" .
+                $club->getDireccion() . "',email='" . $club->getEmail() . "',avatar='" . $club->getAvatar() . "',web='" .
+                $club->getWeb() . "',password='" . $club->getPassword() . "',descripcion='" . $club->getDescripcion() .
+                "' WHERE cif='" . $club->getCIF() . "'";
         $this->connexio->query($sentenciaSql);
     }
 
