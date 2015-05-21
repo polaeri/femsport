@@ -17,71 +17,71 @@ function registrarClub($cif,$email){
 $nomClub=$cif;
 
 $query_events="
-CREATE TABLE IF NOT EXISTS '".$nomClub."_events' (
-  'event_id' int(8) unsigned NOT NULL AUTO_INCREMENT,
-  'event_type' tinyint(1) unsigned NOT NULL DEFAULT '0',
-  'title' varchar(64) DEFAULT NULL,
-  'description' text,
-  'xfield1' text,
-  'xfield2' text,
-  'category_id' int(4) unsigned NOT NULL DEFAULT '1',
-  'venue' varchar(64) DEFAULT NULL,
-  'user_id' int(6) unsigned DEFAULT NULL,
-  'editor' varchar(32) NOT NULL DEFAULT '',
-  'approved' tinyint(1) unsigned NOT NULL DEFAULT '0',
-  'private' tinyint(1) unsigned NOT NULL DEFAULT '0',
-  'checked' text,
-  's_date' date DEFAULT NULL,
-  'e_date' date NOT NULL DEFAULT '9999-00-00',
-  'x_dates' text,
-  's_time' time DEFAULT NULL,
-  'e_time' time NOT NULL DEFAULT '99:00:00',
-  'r_type' tinyint(1) unsigned NOT NULL DEFAULT '0',
-  'r_interval' tinyint(1) unsigned NOT NULL DEFAULT '0',
-  'r_period' tinyint(1) unsigned NOT NULL DEFAULT '0',
-  'r_month' tinyint(1) unsigned NOT NULL DEFAULT '0',
-  'r_until' date NOT NULL DEFAULT '9999-00-00',
-  'notify' tinyint(1) NOT NULL DEFAULT '-1',
-  'not_mail' varchar(255) DEFAULT NULL,
-  'a_datetime' datetime NOT NULL DEFAULT '9999-00-00 00:00:00',
-  'm_datetime' datetime NOT NULL DEFAULT '9999-00-00 00:00:00',
-  'status' tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY ('event_id')
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;";
+CREATE TABLE IF NOT EXISTS ".$nomClub."_events (
+  event_id int(8) unsigned NOT NULL AUTO_INCREMENT,
+  event_type tinyint(1) unsigned NOT NULL DEFAULT '0',
+  title varchar(64) DEFAULT NULL,
+  description text,
+  xfield1 text,
+  xfield2 text,
+  category_id int(4) unsigned NOT NULL DEFAULT '1',
+  venue varchar(64) DEFAULT NULL,
+  user_id int(6) unsigned DEFAULT NULL,
+  editor varchar(32) NOT NULL DEFAULT '',
+  approved tinyint(1) unsigned NOT NULL DEFAULT '0',
+  private tinyint(1) unsigned NOT NULL DEFAULT '0',
+  checked text,
+  s_date date DEFAULT NULL,
+  e_date date NOT NULL DEFAULT '9999-00-00',
+  x_dates text,
+  s_time time DEFAULT NULL,
+  e_time time NOT NULL DEFAULT '99:00:00',
+  r_type tinyint(1) unsigned NOT NULL DEFAULT '0',
+  r_interval tinyint(1) unsigned NOT NULL DEFAULT '0',
+  r_period tinyint(1) unsigned NOT NULL DEFAULT '0',
+  r_month tinyint(1) unsigned NOT NULL DEFAULT '0',
+  r_until date NOT NULL DEFAULT '9999-00-00',
+  notify tinyint(1) NOT NULL DEFAULT '-1',
+  not_mail varchar(255) DEFAULT NULL,
+  a_datetime datetime NOT NULL DEFAULT '9999-00-00 00:00:00',
+  m_datetime datetime NOT NULL DEFAULT '9999-00-00 00:00:00',
+  status tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (event_id)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6";
 
-$query_cat="CREATE TABLE IF NOT EXISTS '".$nomClub."_categories' (
-  'category_id' int(4) unsigned NOT NULL AUTO_INCREMENT,
-  'name' varchar(40) NOT NULL DEFAULT '',
-  'sequence' int(2) unsigned NOT NULL DEFAULT '1',
-  'rpeat' tinyint(1) unsigned NOT NULL DEFAULT '0',
-  'approve' tinyint(1) unsigned NOT NULL DEFAULT '0',
-  'public' tinyint(1) unsigned NOT NULL DEFAULT '1',
-  'color' varchar(10) DEFAULT NULL,
-  'background' varchar(10) DEFAULT NULL,
-  'chbox' tinyint(1) unsigned NOT NULL DEFAULT '0',
-  'chlabel' varchar(40) NOT NULL DEFAULT 'approved',
-  'chmark' varchar(10) NOT NULL DEFAULT '&#10003;',
-  'status' tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY ('category_id')
+$query_cat="CREATE TABLE IF NOT EXISTS ".$nomClub."_categories (
+  category_id int(4) unsigned NOT NULL AUTO_INCREMENT,
+  name varchar(40) NOT NULL DEFAULT '',
+  sequence int(2) unsigned NOT NULL DEFAULT '1',
+  rpeat tinyint(1) unsigned NOT NULL DEFAULT '0',
+  approve tinyint(1) unsigned NOT NULL DEFAULT '0',
+  public tinyint(1) unsigned NOT NULL DEFAULT '1',
+  color varchar(10) DEFAULT NULL,
+  background varchar(10) DEFAULT NULL,
+  chbox tinyint(1) unsigned NOT NULL DEFAULT '0',
+  chlabel varchar(40) NOT NULL DEFAULT 'approved',
+  chmark varchar(10) NOT NULL DEFAULT '&#10003;',
+  status tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (category_id)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4;";	
 	
-$query_insertcat="INSERT INTO '".$nomClub."_categories' ('category_id', 'name', 'sequence', 'rpeat', 'approve', 'public', 'color', 'background', 'chbox', 'chlabel', 'chmark', 'status') VALUES
+$query_insertcat="INSERT INTO ".$nomClub."_categories (category_id, name, sequence, rpeat, approve, public, color, background, chbox, chlabel, chmark, status) VALUES
 (1, 'no cat', 1, 0, 0, 1, NULL, NULL, 0, 'approved', '&#10003;', 0),
 (2, 'PADEL', 2, 0, 0, 1, '', '#FFFF00', 0, '', 'âœ“', 0),
 (3, 'FUTBOL', 3, 0, 0, 1, '', '#00FF00', 0, '', 'âœ“', 0);";	
 	
 
 $query_settings="
-CREATE TABLE IF NOT EXISTS ".$nomClub."_settings' (
-  'name' varchar(15) NOT NULL DEFAULT '',
-  'value' text,
-  'description' text,
-  PRIMARY KEY ('name')
+CREATE TABLE IF NOT EXISTS ".$nomClub."_settings (
+  name varchar(15) NOT NULL DEFAULT '',
+  value text,
+  description text,
+  PRIMARY KEY (name)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;";	
 
 
 $query_insertsettings="
-INSERT INTO '".$nomClub."_settings' ('name', 'value', 'description') VALUES
+INSERT INTO ".$nomClub."_settings (name, value, description) VALUES
 ('adminCronSum', '1', 'Send cron job summary to admin (0:no, 1:yes)'),
 ('backLinkUrl', '', 'Nav bar Back button URL (blank: no button, url: Back button)'),
 ('calendarEmail', '".$email."', 'Sender in and receiver of email notifications'),
@@ -160,24 +160,24 @@ INSERT INTO '".$nomClub."_settings' ('name', 'value', 'description') VALUES
 ";
 	
 	
-$query_user="CREATE TABLE IF NOT EXISTS  '".$nomClub."_users' (
-  'user_id' int(6) unsigned NOT NULL AUTO_INCREMENT,
-  'user_name' varchar(32) NOT NULL DEFAULT '',
-  'password' varchar(32) NOT NULL DEFAULT '',
-  'temp_password' varchar(32) DEFAULT NULL,
-  'email' varchar(64) NOT NULL DEFAULT '',
-  'privs' tinyint(1) unsigned NOT NULL DEFAULT '0',
-  'login_0' date NOT NULL DEFAULT '9999-00-00',
-  'login_1' date NOT NULL DEFAULT '9999-00-00',
-  'login_cnt' int(8) NOT NULL DEFAULT '0',
-  'language' varchar(32) DEFAULT NULL,
-  'color' varchar(10) DEFAULT NULL,
-  'status' tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY ('user_id')
+$query_user="CREATE TABLE IF NOT EXISTS  ".$nomClub."_users (
+  user_id int(6) unsigned NOT NULL AUTO_INCREMENT,
+  user_name varchar(32) NOT NULL DEFAULT '',
+  password varchar(32) NOT NULL DEFAULT '',
+  temp_password varchar(32) DEFAULT NULL,
+  email varchar(64) NOT NULL DEFAULT '',
+  privs tinyint(1) unsigned NOT NULL DEFAULT '0',
+  login_0 date NOT NULL DEFAULT '9999-00-00',
+  login_1 date NOT NULL DEFAULT '9999-00-00',
+  login_cnt int(8) NOT NULL DEFAULT '0',
+  language varchar(32) DEFAULT NULL,
+  color varchar(10) DEFAULT NULL,
+  status tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (user_id)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;";
 
 $query_insertuser="
-INSERT INTO 'mycal_users' ('user_id', 'user_name', 'password', 'temp_password', 'email', 'privs', 'login_0', 'login_1', 'login_cnt', 'language', 'color', 'status') VALUES
+INSERT INTO ".$nomClub."_users (user_id, user_name, password, temp_password, email, privs, login_0, login_1, login_cnt, language, color, status) VALUES
 (1, 'Public Access', '', NULL, ' ', 1, '9999-00-00', '9999-00-00', 0, NULL, NULL, 0),
 (2, 'admin', '21232f297a57a5a743894a0e4a801fc3', NULL, '".$email."', 9, '2015-05-08', '2015-05-11', 35, NULL, NULL, 0);";
 	

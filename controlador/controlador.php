@@ -39,11 +39,11 @@ if (isset($_POST["accion"])) {
             $club = new Club($_POST["cif"], $_POST["nombre"], $_POST["telefono"], $_POST["telefono2"], $_POST["direccion"], $_POST["email"], $_POST["avatar"], $_POST["web"], $_POST["password"], $_POST["descripcion"]);
             $club->printClub();
             $club->guardarClub();
-            
+
             //Añadir tablas Mysql del calendario
             $ConexioCalendario = new ConexioCalendario();
             $ConexioCalendario->registrarClub($_POST["cif"], $_POST["email"]);
-            
+
             break;
         case "login":
             $sessio = new Session();
@@ -51,6 +51,7 @@ if (isset($_POST["accion"])) {
             $club = $conexion->buscarClub($_POST["usuario"], $_POST["contrasena"]);
             if ($club !== null) {
                 $sessio->setSession("club", $conexion->buscarClub($_POST["usuario"], $_POST["contrasena"]));
+                $sessio->setSession("CIFclub",$_POST["usuario"]);
                 include 'vistas/gestionClub.php';
             } else {
                 $jugador = $conexion->buscarJugador($_POST["usuario"], $_POST["contrasena"]);
@@ -112,7 +113,19 @@ if (isset($_POST["accion"])) {
             include 'vistas/PerfilClub.php';
             break;
         case "guardarEditarPerfilClub":
-            echo "guardarEditarPerfilClub";
+            $session = new Session();
+            $club = $session->getSession("club");
+            if ($_POST['contrasenaVieja'] === "") {
+                $club->modificarClub($_POST['telefono'], $_POST['telefono2'], $_POST['email'], $_POST['direccion'], $_POST['web'], $_POST['descripcion'], null);
+                $club->guardarModificarClub();
+                include 'vistas/perfilClub.php';
+            } else if ($club->comprovarPassword($_POST['contrasenaVieja'])) {
+                $club->modificarClub($_POST['telefono'], $_POST['telefono2'], $_POST['email'], $_POST['direccion'], $_POST['web'], $_POST['descripcion'], $_POST['contrasenaNueva']);
+                $club->guardarModificarClub();
+                include 'vistas/perfilClub.php';
+            } else {
+                include 'vistas/editarPerfilClub.php'; //enviar un mensaje de error (la contraseña no es correcta)
+            }
             break;
         default :
             echo 'HOLAMUNDO';
