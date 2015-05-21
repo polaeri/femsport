@@ -30,7 +30,7 @@ class jugador {
         echo "Nombre: " . $this->nombre . "<br>DNI: " . $this->dni . "<br>Apellidos:" . $this->apellidos .
         "<br>Telefono: " . $this->telefono . "<br>Email: " . $this->email . "<br>Usuario: " . $this->usuario .
         "<br>Reputacion: " . $this->reputacion . "<br>Contraseña: " . $this->contrasena . "<br>Descripcion: " .
-        $this->descripcion . "<br> Avatar: " . $this->avatar;
+        $this->descripcion . "<br> Avatar:<img src= '" . $this->avatar."'>";
     }
 
     function guardarJugador() {
