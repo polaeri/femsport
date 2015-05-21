@@ -54,7 +54,7 @@ and open the template in the editor.
                         ?>
                     </p>
                     <form action="index.php" method="POST">
-                        <p> <button name="accion" value="editarPerfilJugador">Editar</button></p>
+                        <p> <button name="accion" value="editarPerfilJugador" class="boton2 verde formaBoton ">Editar</button></p>
                     </form>
                 </div>
                 

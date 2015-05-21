@@ -37,7 +37,7 @@
             <div class="content">
 
                 <div class="perfil">
-                    <p>Información Del Club</h2></p>
+                    <h2>Información del Club</h2>
                     <hr>
                     <p>
                         <?php
@@ -47,7 +47,7 @@
                         ?>
                     </p>
                     <form action="index.php" method="POST">
-                        <p> <button name="accion" value="editarPerfilClub">Editar</button></p>
+                        <p> <button name="accion" value="editarPerfilClub" class="boton2 verde formaBoton ">Editar</button></p>
                     </form>
                 </div>
             </div>

@@ -8,10 +8,8 @@ and open the template in the editor.
     Author     : xavi
 */
 
-
 body{
     background-image:url('../style/images/selectRol/intro2.jpg'); 
-
 }
 
 header{
@@ -25,14 +23,10 @@ header{
     height: 5em;
     line-height: 3em;
     box-shadow: 0 0 0.15em 0 rgba(0,0,0,0.1);
-
-
-
 }
 header img{
     width:15%;
     margin-left:10px;
-
 }
 menu{
     position: absolute;
@@ -67,15 +61,12 @@ sidebar{
     width:10vw;
     height:75vh;
     max-width: 200px;
-
-
 }
 footer{
     color:white;
     width:200px;
     height:5vh;
     margin:auto;
-
 }
 
 ul {
@@ -122,17 +113,17 @@ li {
 }
 
 .perfil h2{
-     font-size:20px;
-     color: black;
-     text-align: center;
+    font-size:20px;
+    color: black;
+    text-align: center;
+    // text-shadow: 2px 2px 5px #000;
 }
 
 .perfil2 h2{
-     font-size:20px;
-     color: black;
-     text-align: center;
+    font-size:20px;
+    color: black;
+    text-align: center;
 }
-
 
 .perfil p{
     font-size:15px;
@@ -140,34 +131,56 @@ li {
     margin-left: 20px;  
 }
 
-.perfil2 p{
+.perfil2,.perfil3 li{
     font-size:15px;
     color: black;
     margin-left: 20px;  
+
 }
-    
 
 .perfil{
-
     float: left;
-    background-color: #A4A4A4;
+    // background-color: #A4A4A4;
     width: 300px;
     height: 450px;
-    border-style: solid;
+    //border-style: solid;
     border-color: #0000ff;
-    -webkit-border-radius: 10px 10px;  /* Safari  */
-    -moz-border-radius: 10px 10px;     /* Firefox */
+    //-webkit-border-radius: 10px 10px;  /* Safari  */
+    // -moz-border-radius: 10px 10px;     /* Firefox */
     opacity: 0.9;
     margin-left: 10px;
+    background-color:#ccc;
+    background-image: -moz-radial-gradient(center 45deg,circle cover, #ccc, #333);
+    background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%,800, from(#ccc), to(#333));
+    background-image: radial-gradient(center 45deg,circle cover, #ccc, #333);
+    -moz-border-radius: 35px 20px / 20px 35px;
+    border-radius: 35px 20px / 20px 35px;
+}
+
+hr{
+    border-color: #0000ff;
+
 }
 
 .perfil2{
-
     float: left;
     background-color: #E6E6E6;
-    width: 400px;
-    height: 450px;
-    border-style: solid;
+    width: 800px;
+    height: 400px;
+    // border-style: solid;
+    border-color: #0000ff;
+    -webkit-border-radius: 10px 10px;  /* Safari  */
+    -moz-border-radius: 10px 10px;     /* Firefox */
+    opacity: 0.8;
+    margin-left: 10px;
+}
+
+.perfil3{
+    float: left;
+    background-color: #E6E6E6;
+    width: 800px;
+    height: 550px;
+    // border-style: solid;
     border-color: #0000ff;
     -webkit-border-radius: 10px 10px;  /* Safari  */
     -moz-border-radius: 10px 10px;     /* Firefox */
@@ -176,13 +189,45 @@ li {
 }
 
 
+.subperfil1{
+    float: left;
+    width: 400px;
+    margin-left: 10px;
+}
+.subperfil2{
+    float: left;
+    width: 300px;
+    margin-left: 10px;
+}
+
+.subperfil3{
+    margin-bottom: 10px;
+    width: 400px;
+    margin-left: 10px;
+}
+
 
 /*boton unirse*/
 .boton {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
-    padding: 12px 20px;
+    padding: 5px 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    background-color: #666666;
+    box-shadow: 0 5px 5px #313131, 0 9px 0 #393939, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 9px rgba(255,255,255,0.2), inset 0 -2px 9px rgba(0,0,0,0.2);
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    display: inline-block;
+    font-family: Arial, Helvetica, sans;
+    text-shadow: 0px -1px 0px rgba(0,0,0,0.2);
+}
+.boton2 {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 2px 20px;
     font-size: 18px;
     border-radius: 10px;
     background-color: #666666;
@@ -294,3 +339,10 @@ li {
 .purpura:active {
     box-shadow: 0 2px 0 #42255e, 0px 4px 4px rgba(0,0,0,0.3), inset 0px 2px 5px rgba(0,0,0,0.2);
 }
+
+
+/*
+http://www.csslab.cl/2007/04/09/centrando-horizontalmente-a-prueba-de-ie/
+http://www.csslab.cl/2007/11/12/como-no-usar-mas/
+http://www.csslab.cl/2011/06/21/animaciones-css3-avanzadas/
+*/

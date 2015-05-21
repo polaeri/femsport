@@ -14,6 +14,7 @@ and open the template in the editor.
         <link href="style/estilo.css" rel="stylesheet" type="text/css"/>
         <link href="style/estilo.css" rel="stylesheet" type="text/css"/>
         <link href="style/form.css" rel="stylesheet" type="text/css"/>
+        <script src="jquery-2.1.3.js" type="text/javascript"></script>
 
 
     </head>
@@ -43,35 +44,43 @@ and open the template in the editor.
             </sidebar>
 
             <div class="content">
-                
+
                 <div class="perfil2">
                     <h2>Editar Información</h2>
                     <hr>
-        <form action="index.php" method="POST">
-            <?php
-            $sessio = new Session();
-            $jugador = $sessio->getSession("jugador");
-            $jugador->printEditarJugador();
-            ?>          
-            <input type="button" value="Actualizar Contraseña" id="mostrar">
-            <li><input type="password" placeholder="Contraseña actual" id="contrasenaVieja" name="contrasenaVieja" hidden/></li>
-            <li><input type="password" placeholder="Nueva contraseña" id="contrasenaNueva" name="contrasenaNueva"  hidden /></li>
-            <li><input type="password" placeholder="Confirmar nueva contraseña" id="contrasenaNueva2" name="contrasenaNueva2" hidden/></li>
-            <br><br>
-            <button name="accion" value="cancelarEditarPerfilJugador">Cancelar</button>
-            <button name="accion" value="GuardarEditarPerfilJugador">Guardar</button> 
-        </form>
-        <script>
-            $(document).ready(function () {
-                $("#mostrar").click(function () {
-                    $("#contrasenaVieja").show();
-                    $("#contrasenaNueva").show();
-                    $("#contrasenaNueva2").show();
-                });
-            });
-        </script>
-</div>
-</article>
+                    <div class="subperfil1" >
+                        <form action="index.php" method="POST" class="contact_form" id="contact_form" runat="server">
+                            <ul> 
+                            <?php
+                            $sessio = new Session();
+                            $jugador = $sessio->getSession("jugador");
+                            $jugador->printEditarJugador();
+                         ?>           
+                    </div>
+                    <div class="subperfil2">
+                        
+                       <input type="button" value="Actualizar Contraseña" id="mostrar" >
+                        <input type="password" placeholder="Contraseña actual" id="contrasenaVieja" name="contrasenaVieja" hidden/>
+                        <input type="password" placeholder="Nueva contraseña" id="contrasenaNueva" name="contrasenaNueva"  hidden />
+                        <input type="password" placeholder="Confirmar nueva contraseña" id="contrasenaNueva2" name="contrasenaNueva2" hidden/>
+                    </div>
+                    <div class="subperfil3">
+                        <button name="accion" value="cancelarEditarPerfilJugador" class="boton2 colorRojo formaBoton " >Cancelar</button>
+                        <button name="accion" value="GuardarEditarPerfilJugador" class="boton2 verde formaBoton " >Guardar</button>
+                     </div> 
+                    </form>
+                    <script>
+                        $(document).ready(function () {
+                            $("#mostrar").click(function () {
+                                $("#contrasenaVieja").show();
+                                $("#contrasenaNueva").show();
+                                $("#contrasenaNueva2").show();
+                            });
+                        });
+                    </script>
+
+                </div>
+        </article>
 
         <footer>Copyright ©FemSport</footer>
     </body>

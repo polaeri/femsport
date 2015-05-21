@@ -44,24 +44,31 @@ and open the template in the editor.
 
             <div class="content">
 
-                <div class="perfil2">
-                    <p>Editar Información</p>
+                <div class="perfil3">
+                    <h2>Editar Información</h2>
                     <hr>
-                    <form action="index.php" method="POST">
+                    <div class="subperfil1" >
+                    <form action="index.php" method="POST" class="contact_form" id="contact_form" runat="server">
                         <ul>
                             <?php
                             $sessio = new Session();
                             $club = $sessio->getSession("club");
                             $club->printEditarClub();
                             ?>         
-                        </ul>
+                            </div>
+                    
+                        <div class="subperfil2">
                         <input type="button" value="Actualizar Contraseña" id="mostrar">
-                        <li><input type="password" placeholder="Contraseña actual" id="contrasenaVieja" name="contrasenaVieja" hidden/></li>
-                        <li><input type="password" placeholder="Nueva contraseña" id="contrasenaNueva" name="contrasenaNueva"  hidden /></li>
-                        <li><input type="password" placeholder="Confirmar nueva contraseña" id="contrasenaNueva2" name="contrasenaNueva2" hidden/></li>
-                        <br><br>
-                        <button name="accion" value="cancelarEditarPerfilClub">Cancelar</button>
-                        <button name="accion" value="guardarEditarPerfilClub">Guardar</button> 
+                        <input type="password" placeholder="Contraseña actual" id="contrasenaVieja" name="contrasenaVieja" hidden/>
+                        <input type="password" placeholder="Nueva contraseña" id="contrasenaNueva" name="contrasenaNueva"  hidden />
+                        <input type="password" placeholder="Confirmar nueva contraseña" id="contrasenaNueva2" name="contrasenaNueva2" hidden/>
+                         </div>
+                    <div class="subperfil3">
+                      
+                        <button name="accion" value="cancelarEditarPerfilClub" class="boton2 colorRojo formaBoton ">Cancelar</button>
+                        <button name="accion" value="guardarEditarPerfilClub" class="boton2 verde formaBoton ">Guardar</button> 
+                  
+                    </div> 
                     </form>
                     <script>
                         $(document).ready(function () {

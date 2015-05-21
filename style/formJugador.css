@@ -20,7 +20,7 @@ body { font: 14px/21px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sa
 
 /* === List Styles === */ 
 
-.contact_form ul { width: 400px; list-style-type: none; list-style-position: outside; margin: 0px; padding: 0px;  } 
+.contact_form ul { width: 900px; list-style-type: none; list-style-position: outside; margin: 0px; padding: 0px;  } 
 
 .contact_form li { padding: 12px; border-bottom: 0px solid #eee; position: relative; } 
 
@@ -34,9 +34,9 @@ body { font: 14px/21px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sa
 
 /* === Form Elements === */ 
 
-.contact_form label { width: 150px; margin-top: 3px; display: inline-block; float: left; padding: 3px; } 
+.contact_form label { width: 150px; margin-top: 3px; display: inline-block; float: left; padding: 3px;} 
 
-.contact_form input { height: 30px; width: 230px; padding: 5px 8px; margin: 10px} 
+.contact_form input { height: 30px; width: 150px; padding: 5px 8px; margin: 10px} 
 
 .contact_form textarea { padding: 8px; width: 300px; } 
 
@@ -90,7 +90,7 @@ transition: padding .25s; }
     margin-left: 8px;
     padding: 1px 6px; 
     z-index: 999; /* hints stay above all other elements */ 
-    position: absolute; /* allows proper formatting if hint is two lines */ 
+    //position: absolute; /* allows proper formatting if hint is two lines */ 
     display: none; } 
 
 .form_hint::before { content: "\25C0"; color: #d45252; position: absolute; top: 1px; left: -6px; } 
@@ -160,13 +160,34 @@ input::-ms-input-placeholder { /* IE 10+ */
 
 
 .contenido{
+   
+      float:left;
+    width: 300px;
+    height:300px;
     
-    float:left;
-    color:red;
-    width: 200px;
 }
-/*
 
+.contenido2{
+   padding: 10px;
+    float:left;
+    width: 300px;
+    height:300px;
+}
+.contenido3{
+padding: 10px;
+    float:left;
+    width: 300px;
+    height:300px;
+}
+
+.contenido4{
+padding: 10px;
+    float:left;
+    width: 50px;
+    height:300px;
+}
+
+/*
 Explicacion paso a paso como funciona formulario html5
 http://webdesign.tutsplus.com/es/tutorials/bring-your-forms-up-to-date-with-css3-and-html5-validation--webdesign-4738
 */
