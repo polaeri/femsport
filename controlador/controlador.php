@@ -40,6 +40,7 @@ if (isset($_POST["accion"])) {
             $club = $conexion->buscarClub($_POST["usuario"], $_POST["contrasena"]);
             if ($club !== null) {
                 $sessio->setSession("club", $conexion->buscarClub($_POST["usuario"], $_POST["contrasena"]));
+                $sessio->setSession("CIFclub",$_POST["usuario"]);
                 include 'vistas/gestionClub.php';
             } else {
                 $jugador = $conexion->buscarJugador($_POST["usuario"], $_POST["contrasena"]);

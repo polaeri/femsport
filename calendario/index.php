@@ -2,7 +2,7 @@
 /*
 = LuxCal event calendar index =
 
-© Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
+ï¿½ Copyright 2009-2014 LuxSoft - www.LuxSoft.eu
 
 This file is part of the LuxCal Web Calendar.
 
