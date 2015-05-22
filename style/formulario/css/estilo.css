@@ -4,7 +4,10 @@
 /*reset basico*/
 * {margin: 0; padding: 0;}
 
-
+p{
+    font-family: montserrat;
+    color: #2C3E50;
+}
 /*estilo formulario*/
 #formulario {
 	width: 600px;
