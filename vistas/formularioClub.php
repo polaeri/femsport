@@ -1,5 +1,5 @@
 <?php ?>
-!DOCTYPE html>
+
 <!--
 AYUDAS 
 http://www.the-art-of-web.com/javascript/validate-password/
