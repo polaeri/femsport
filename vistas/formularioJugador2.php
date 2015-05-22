@@ -33,6 +33,10 @@ http://www.the-art-of-web.com/javascript/validate-password/
     
         <article>
            
+            <sidebar>
+          <form action="index.php" method="POST">
+                        <button type="submit" class="boton azul formaBoton "  name="accion" value="salir">SALIR</button>
+                    </form>
             </sidebar>
           
                 <form id="formulario" class="contact_form" action="index.php" method="POST">
