@@ -6,6 +6,8 @@ include 'modelo/Club.php';
 include 'modelo/Session.php';
 include 'modelo/Conexio.php';
 include 'modelo/ConexioCalendario.php';
+include 'funciones/selectAuto.php';
+
 if (isset($_POST["accion"])) {
     $accio = $_POST["accion"];
     switch ($accio) {
