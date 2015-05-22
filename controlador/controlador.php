@@ -18,7 +18,7 @@ if (isset($_POST["accion"])) {
         case "nuevoClub":
             include "vistas/formularioClub.php";
             break;
-        case "registroJugador":
+        case "Registrar":
             
             //COMPROBACION DE DATOS VACIOS 
             if (!isset($_POST['descripcion'])) {$_POST['descripcion'] = NULL;}

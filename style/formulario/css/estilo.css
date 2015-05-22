@@ -43,7 +43,7 @@
 /*buttons*/
 #formulario .action-button {
 	width: 100px;
-	background: #27AE60;
+	background: #2a8ad8;
 	font-weight: bold;
 	color: white;
 	border: 0 none;
@@ -51,10 +51,12 @@
 	cursor: pointer;
 	padding: 10px 5px;
 	margin: 10px 5px;
+        box-shadow: 0 5px 5px #364a8e, 0 9px 0 #25325e, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 15px rgba(255,255,255,0.4), inset 0 -2px 9px rgba(0,0,0,0.2);
 }
+
 #formulario .action-button:hover,#formulario .action-button:focus {
-	-webkit-box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
-	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+	background: #2a8ad8;
+    box-shadow: 0 5px 5px #364a8e, 0 9px 0 #25325e, 0px 9px 10px rgba(0,0,0,0.4), inset 0px 2px 9px rgba(255,255,255,0.2), inset 0 -2px 9px rgba(0,0,0,0.2);
 }
 /*headings*/
 .fs-title {
@@ -74,6 +76,7 @@
 	margin-bottom: 20px;
 	overflow: hidden; 
 	counter-reset: step; /*CSS contador para numerar los pasos, lo aprendi en http://www.w3schools.com/*/
+        
 }
 #progreso li {
 	list-style-type: none;
@@ -83,6 +86,7 @@
 	width: 33.33%;
 	float: left;
 	position: relative;
+        
 }
 #progreso li:before {
 	content: counter(step);

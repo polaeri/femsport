@@ -66,7 +66,7 @@ $(".previous").click(function(){
 	});
 });
 
-$(".accion").click(function(){
+$(".submit").click(function(){
 	return true;
 });
 
