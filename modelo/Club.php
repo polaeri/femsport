@@ -12,8 +12,9 @@ class Club {
     private $web;
     private $password;
     private $descripcion;
+    private $pistas = [];
 
-    function __construct($cif, $nombre, $telefono, $telefono2, $direccion, $email, $avatar, $web, $password, $descripcion) {
+    function __construct($cif, $nombre, $telefono, $telefono2, $direccion, $email, $avatar, $web, $password, $descripcion, $pistas) {
         $this->cif = $cif;
         $this->nombre = $nombre;
         $this->telefono = $telefono;
@@ -24,6 +25,9 @@ class Club {
         $this->web = $web;
         $this->password = $password;
         $this->descripcion = $descripcion;
+        foreach ($pistas as $key => $value) {
+            $this->pistas[$key] = $value;
+        }
     }
 
     function printClub() {
@@ -57,7 +61,7 @@ class Club {
         $conexio->modificarClub($this);
         $conexio->tancarConexio();
     }
-    
+
     function comprovarPassword($contrasena) {
         if ($contrasena === $this->password) {
             return true;

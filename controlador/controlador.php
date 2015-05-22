@@ -37,9 +37,40 @@ if (isset($_POST["accion"])) {
             if (!isset($_POST['descripcion'])) {$_POST['telefono2'] = NULL;}
             if (!isset($_POST['avatar'])){$_POST['avatar']= "style/avatars/defaultJugador.png";}
             
-            $club = new Club($_POST["cif"], $_POST["nombre"], $_POST["telefono"], $_POST["telefono2"], $_POST["direccion"], $_POST["email"], $_POST["avatar"], $_POST["web"], $_POST["password"], $_POST["descripcion"]);
+            $j = 0;
+            $arrayPistas = [];
+            
+            //FUTBOL 11
+            for ($i = 1; $i <= $_POST['futbol_11']; $i++) {
+                $j++;
+                $pista = new Pista($_POST["cif"], $j, "futbol_11", $i, "No disponible", "No disponible", true, 33);
+                $arrayPistas[$j] = $pista;
+            }
+            
+            //FUTBOL 7
+            for ($i = 1; $i <= $_POST['futbol_7']; $i++) {
+                $j++;
+                $pista = new Pista($_POST["cif"], $j, "futbol_7", $i, "No disponible", "No disponible", true, 21);
+                $arrayPistas[$j] = $pista;
+            }
+            
+            //FUTBOL 5
+            for ($i = 1; $i <= $_POST['futbol_5']; $i++) {
+                $j++;
+                $pista = new Pista($_POST["cif"], $j, "futbol_5", $i, "No disponible", "No disponible", true, 15);
+                $arrayPistas[$j] = $pista;
+            }
+            
+            //BASKET
+            for ($i = 1; $i <= $_POST['basket']; $i++) {
+                $j++;
+                $pista = new Pista($_POST["cif"], $j, "basket", $i, "No disponible", "No disponible", true, 15);
+                $arrayPistas[$j] = $pista;
+            }
+
+            $club = new Club($_POST["cif"], $_POST["nombre"], $_POST["telefono"], $_POST["telefono2"], $_POST["direccion"], $_POST["email"], $_POST["avatar"], $_POST["web"], $_POST["password"], $_POST["descripcion"], $arrayPistas);
             $club->guardarClub();
-             include 'vistas/registroCompletado.php';
+            include 'vistas/registroCompletado.php';
 
             //Añadir tablas Mysql del calendario
             $ConexioCalendario = new ConexioCalendario();
