@@ -35,7 +35,9 @@
                 <div class="container">
 
                     <form action="index.php" method="POST">
+
                         <button type="submit" class="boton azul formaBoton " name="accion" value="salir">SALIR</button>
+
                     </form>
 
                 </div>

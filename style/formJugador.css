@@ -12,7 +12,7 @@ and open the template in the editor.
 
 /* === Form Typography === */ 
 
-body { font: 14px/21px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif; } 
+//body { font: 14px/21px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif; } 
 
 .contact_form h2, .contact_form label { font-family: Georgia, Times, "Times New Roman", serif; } 
 
@@ -22,9 +22,9 @@ body { font: 14px/21px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sa
 
 .contact_form ul { width: 900px; list-style-type: none; list-style-position: outside; margin: 0px; padding: 0px;  } 
 
-.contact_form li { padding: 12px; border-bottom: 0px solid #eee; position: relative; } 
+//.contact_form li { padding: 12px; border-bottom: 0px solid #eee; position: relative; } 
 
-.contact_form li:first-child, .contact_form li:last-child { border-bottom: 0px solid #777; } 
+//.contact_form li:first-child, .contact_form li:last-child { border-bottom: 0px solid #777; } 
 
 /* === Form Header === */ 
 
@@ -36,7 +36,7 @@ body { font: 14px/21px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sa
 
 .contact_form label { width: 150px; margin-top: 3px; display: inline-block; float: left; padding: 3px;} 
 
-.contact_form input { height: 30px; width: 150px; padding: 5px 8px; margin: 10px} 
+.contact_form input { height: 30px; width: 150px; padding: 5px 8px; margin: 0px} 
 
 .contact_form textarea { padding: 8px; width: 300px; } 
 

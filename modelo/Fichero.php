@@ -15,11 +15,7 @@ class Fichero {
        
     }
 
-    function obrirFitxer($modificador) {
-        //Obrim fitxer per lectura. Si no es pot retornarà error
-        $this->ficheroAbierto = fopen($this->fichero, $modificador) or die("El fitxer no s'ha obert.");
-    }
-
+  
     //retornem el fitxer
     function getFitxer() {
         return $this->fichero;

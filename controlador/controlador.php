@@ -13,21 +13,31 @@ if (isset($_POST["accion"])) {
             include "vistas/selectRol.html";
             break;
         case "nuevoJugador":
-            include "vistas/formularioJugador.php";
+            include "vistas/formularioJugador2.php";
             break;
         case "nuevoClub":
             include "vistas/formularioClub.php";
             break;
         case "registroJugador":
+            
+            //COMPROBACION DE DATOS VACIOS 
+            if (!isset($_POST['descripcion'])) {$_POST['descripcion'] = NULL;}
+            if (!isset($_POST['avatar'])){$_POST['avatar']= "style/avatars/defaultJugador.png";}
+            
             $jugador = new Jugador($_POST['nombre'], $_POST['dni'], $_POST['apellidos'], $_POST['telefono'], $_POST['email'], $_POST['usuario'], 0, $_POST['pwd1'], $_POST['descripcion'], $_POST['avatar']);
-            $jugador->printJugador();
             $jugador->guardarJugador();
             include 'vistas/registroCompletado.php';
             break;
         case "registroClub":
+            
+            //COMPROBACION DE DATOS VACIOS 
+            if (!isset($_POST['descripcion'])) {$_POST['descripcion'] = NULL;}
+            if (!isset($_POST['descripcion'])) {$_POST['telefono2'] = NULL;}
+            if (!isset($_POST['avatar'])){$_POST['avatar']= "style/avatars/defaultJugador.png";}
+            
             $club = new Club($_POST["cif"], $_POST["nombre"], $_POST["telefono"], $_POST["telefono2"], $_POST["direccion"], $_POST["email"], $_POST["avatar"], $_POST["web"], $_POST["password"], $_POST["descripcion"]);
-            $club->printClub();
             $club->guardarClub();
+             include 'vistas/registroCompletado.php';
 
             //Añadir tablas Mysql del calendario
             $ConexioCalendario = new ConexioCalendario();
