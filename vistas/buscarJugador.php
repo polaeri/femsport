@@ -36,7 +36,13 @@ and open the template in the editor.
 
 
                 <div class="container">
+                    
                     <form action="index.php" method="POST">
+                        <button type="submit" class="boton anaranjado formaBoton "  name="accion" value="atrasJugador">ATRAS</button>
+                       
+                    </form>
+                    <form action="index.php" method="POST">
+                     
                         <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>
                     </form>
                 </div>

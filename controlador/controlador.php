@@ -77,6 +77,17 @@ if (isset($_POST["accion"])) {
             $sessio->destroy();
             include 'vistas/selectRol.html';
             break;
+        
+        case "atrasJugador":
+             $sessio = new Session();
+            include 'vistas/gestionJugador.php';
+            break;
+        
+         case "atrasClub":
+             $sessio = new Session();
+            include 'vistas/gestionClub.php';
+            break;
+     
         case "perfilClub":
             include 'vistas/perfilClub.php';
             break;
