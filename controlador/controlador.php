@@ -13,7 +13,7 @@ if (isset($_POST["accion"])) {
             include "vistas/selectRol.html";
             break;
         case "nuevoJugador":
-            include "vistas/formularioJugador.php";
+            include "vistas/formularioJugador2.php";
             break;
         case "nuevoClub":
             include "vistas/formularioClub.php";
