@@ -7,7 +7,7 @@
 
 /*estilo formulario*/
 #formulario {
-	width: 400px;
+	width: 600px;
 	margin: 50px auto;
 	text-align: center;
 	position: relative;
@@ -39,6 +39,7 @@
 	font-family: montserrat;
 	color: #2C3E50;
 	font-size: 13px;
+        text-align: center;
 }
 /*buttons*/
 #formulario .action-button {
@@ -60,14 +61,14 @@
 }
 /*headings*/
 .fs-title {
-	font-size: 15px;
+	font-size: 20px;
 	text-transform: uppercase;
 	color: #2C3E50;
 	margin-bottom: 10px;
 }
 .fs-subtitle {
 	font-weight: normal;
-	font-size: 13px;
+	font-size: 16px;
 	color: #666;
 	margin-bottom: 20px;
 }
@@ -82,7 +83,7 @@
 	list-style-type: none;
 	color: white;
 	text-transform: uppercase;
-	font-size: 9px;
+	font-size: 15px;
 	width: 33.33%;
 	float: left;
 	position: relative;

@@ -70,7 +70,7 @@ http://www.the-art-of-web.com/javascript/validate-password/
                                 <input type="file" name="avatar" placeholder="Imagen Perfil"/>
                                 <textarea name="descripcion" cols="40" rows="6" placeholder="Descripción"></textarea>
 				<input type="button" name="previous" class="previous action-button" value="Anterior" />
-                                <input type="submit" name='accion' value="Registrar" class="submit action-button" >Registrar</input>
+                                <input type="submit" name='accion' value="Registrar" class="submit action-button" />
             </fieldset>
                     </form>
               
