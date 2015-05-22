@@ -1,4 +1,6 @@
-<?php ?>
+<?php
+
+?>
 
 <!--
 AYUDAS 
@@ -69,10 +71,29 @@ http://www.the-art-of-web.com/javascript/validate-password/
                         </li> 
                         <li>
                             <input type="password" name="pwd2" placeholder="Confirmar contraseña" name="pdw2"  required /> 
-                        </li> 
+                        </li>  
                         <li>
                             <input type="file" name="avatar" placeholder="Imagen Perfil"/>
                         </li>
+                        
+                            Futbol 3:<select name="futbol_3"> <?php selectAuto(10); ?></select>                                 
+                                    
+                        
+                            Futbol 5:<select name="futbol_5"> <?php selectAuto(10); ?></select>                                 
+                                    
+                        
+                            Futbol 7:<select name="futbol_7"> <?php selectAuto(10); ?></select>                                 
+                                    
+                        
+                            Futbol 11:<select name="futbol_11"> <?php selectAuto(10); ?></select>                                 
+                                    
+                        
+                            Baloncesto:<select name="baloncesto"> <?php selectAuto(10); ?></select>                                 
+                                    
+                        
+                            Padel :<select name="padel"> <?php selectAuto(10); ?></select>                                 
+                                    
+                        
                         <li>
                             <textarea name="descripcion" value="descripcion" cols="40" rows="6" placeholder="Descripción"></textarea>  
                         </li>

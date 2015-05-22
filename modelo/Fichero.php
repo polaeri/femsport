@@ -31,7 +31,7 @@ class Fichero {
     function subirFichero() {
 
      
-        $rutaPadre = $rutaPadre . basename($_FILES['uploadedfile']['name']);
+        $rutaPadre = $rutaPadre . basename($_FILES['uploadedfile']);
         if (move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $rutaPadre)) {
             echo "El archivo " . basename($_FILES['uploadedfile']['name']) . " ha sido subido";
         } else {

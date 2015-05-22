@@ -13,7 +13,20 @@ class Conexio {
         $this->connexio->close();
     }
 
-//JUGADOR
+/////////////////////////
+//CONSULTAS DE JUGADOR///
+/////////////////////////
+ 
+    public function validarUsuarioJugador($usuario){
+        $senetenciaSql = "SELECT * FROM jugador WHERE '".$usuario."'";
+       if($this->connexio->query($senetenciaSql)){
+           
+           
+       };
+    }
+    
+    
+
     public function guardarJugador($dni, $nombre, $apellidos, $telefono, $email, $usuario, $reputacion, $contrasena, $descripcion, $avatar) {
         $sentenciaSql = "INSERT INTO jugador(dni, nombre, apellidos, telefono, email, usuario, reputacion, contrasena, descripcion, avatar) VALUES ('"
                 . $dni . "','" . $nombre . "','" . $apellidos . "','" . $telefono . "','" . $email . "','" . $usuario . "','" . $reputacion . "','" .
@@ -53,7 +66,9 @@ class Conexio {
                 "' WHERE dni = '" . $jugador->getDni() . "';";
         $this->connexio->query($sentenciaSql);
     }
-
+//////////////////////  
+//CONSULTAS DE CLUB///
+//////////////////////
     public function modificarClub($club) {
         $sentenciaSql = "UPDATE club SET nombre='" . $club->getNombre() .
                 "',telefono='" . $club->getTelefono() . "',telefono2='" . $club->getTelefono2() . "',direccion='" .
