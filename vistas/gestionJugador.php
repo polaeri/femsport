@@ -46,7 +46,7 @@ and open the template in the editor.
                 </div>
             </sidebar>
             <div class="content">
-                <h1 class="titol">
+                <h1 class="titol2">
                     <?php
                     $sessio = new Session();
                     $jugador = $sessio->getSession("jugador");

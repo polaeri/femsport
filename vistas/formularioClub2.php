@@ -81,19 +81,26 @@ http://www.the-art-of-web.com/javascript/validate-password/
                     <h2 class="fs-title">Información pistas disponibles</h2>
                     <h3 class="fs-subtitle">Paso 3</h3>
 
-                    <p>  Futbol 5: <select name="futbol_5"> <?php selectAuto(10); ?></select>   </p>   <br>           
+                    <p>Nº Campos de Futbol</p>
+                    <hr><br>
+                    <p> 5: <select name="futbol_5"> <?php selectAuto(10); ?></select>   &nbsp          
 
 
-                    <p> Futbol 7: <select name="futbol_7"> <?php selectAuto(10); ?></select>       </p>    <br>                  
+                   7: <select name="futbol_7"> <?php selectAuto(10); ?></select>   &nbsp                      
 
 
-                   <p> Futbol 11: <select name="futbol_11"> <?php selectAuto(10); ?></select>     </p>     <br>                            
+                    11: <select name="futbol_11"> <?php selectAuto(10); ?></select></p><br>                            
+
+                    <p>Nº Pistas de Basket</p>
+                    <hr><br>
+
+                   <p> <select name="basket"> <?php selectAuto(10); ?></select>      </p>     <br>                           
 
 
-                   <p> Basket: <select name="basket"> <?php selectAuto(10); ?></select>      </p>     <br>                           
-
-
-                   <p> Padel : <select name="padel"> <?php selectAuto(10); ?></select> </p>  <br> 
+                   <p> Nº Campos de Padel</p>
+                   <hr><br>
+                       
+                       <p><select name="padel"> <?php selectAuto(10); ?></select> </p>  <br> 
 
                     <input type="button" name="previous" class="previous action-button" value="Anterior" />
                     <input type="submit" name='accion' value="Registrarse" class="submit action-button" />

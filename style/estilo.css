@@ -7,6 +7,7 @@ and open the template in the editor.
     Created on : 13-may-2015, 19:46:16
     Author     : xavi
 */
+@import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900');
 
 body{
     background-image:url('../style/images/selectRol/intro2.jpg'); 
@@ -50,11 +51,27 @@ article .content{
     width:100%;
 }
 
-.titol{
-    font-family:sans-serif;
-    font-size:40px;
+h5{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 11pt; 
+    padding-left: 15px;
+    color: black;
 }
+.titol{
+    //font-family:sans-serif;
+    font-size:40px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.titol2{
+    //font-family:sans-serif;
+    font-size:20px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+h4{
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: center;
 
+} 
 sidebar{
     padding:30px;
     float:right;
@@ -116,6 +133,7 @@ li {
     font-size:20px;
     color: black;
     text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
     // text-shadow: 2px 2px 5px #000;
 }
 
@@ -123,6 +141,7 @@ li {
     font-size:20px;
     color: black;
     text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .perfil p{
@@ -131,10 +150,19 @@ li {
     margin-left: 20px;  
 }
 
+.perfil3 h2{
+
+    font-size:20px;
+    color: black;
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+
+}
 .perfil2,.perfil3 li{
     font-size:15px;
     color: black;
     margin-left: 20px;  
+
 
 }
 
@@ -220,7 +248,7 @@ hr{
     position: relative;
     border-bottom: 1px solid rgba(255,255,255,0.2);
     display: inline-block;
-    font-family: Arial, Helvetica, sans;
+    font-family: 'Source Sans Pro', sans-serif;
     text-shadow: 0px -1px 0px rgba(0,0,0,0.2);
     cursor: pointer;
 }
@@ -236,7 +264,7 @@ hr{
     position: relative;
     border-bottom: 1px solid rgba(255,255,255,0.2);
     display: inline-block;
-    font-family: Arial, Helvetica, sans;
+    font-family: 'Source Sans Pro', sans-serif;
     text-shadow: 0px -1px 0px rgba(0,0,0,0.2);
     cursor: pointer;
 }
@@ -253,7 +281,7 @@ hr{
     position: relative;
     border-bottom: 1px solid rgba(255,255,255,0.2);
     display: inline-block;
-    font-family: Arial, Helvetica, sans;
+    font-family: 'Source Sans Pro', sans-serif;
     text-shadow: 0px -1px 0px rgba(0,0,0,0.2);
     cursor: pointer;
 }
@@ -369,6 +397,29 @@ hr{
 
 .purpura:active {
     box-shadow: 0 2px 0 #42255e, 0px 4px 4px rgba(0,0,0,0.3), inset 0px 2px 5px rgba(0,0,0,0.2);
+}
+
+
+/*QUITAR FELCHA SELECT Y CAMBIAR APARIENCIA*/
+
+
+
+select{
+    //background: #eee url(../style/images/select.png);
+    //background-position: 280px right;
+    //background-repeat: no-repeat;
+    padding: 5px;
+    font-size: 16px;
+    border: 0;
+    border-radius: 3px;
+   // -webkit-appearance: none;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+select:hover{
+    background-color: #ddd;
 }
 
 

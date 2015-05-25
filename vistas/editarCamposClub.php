@@ -47,24 +47,15 @@ and open the template in the editor.
             <div class="content">
 
                 <div class="perfil3">
-                    <h2>Editar Información</h2>
+                    <h2>Editar Campos/Pistas</h2>
                     <hr>
                      <form action="index.php" method="POST" class="contact_form" id="contact_form" runat="server">
                     <div class="subperfil1" >
                    
-                        <ul>
-                            <?php
-                            $sessio = new Session();
-                            $club = $sessio->getSession("club");
-                            $club->printEditarClub();
-                            ?>         
+                        Mostras lista campos/pistas para poder editarlos      
                             </div>
                     
                         <div class="subperfil2">
-                        <input type="button" value="Actualizar Contraseña" id="mostrar">
-                        <input type="password" placeholder="Contraseña actual" id="contrasenaVieja" name="contrasenaVieja" hidden/>
-                        <input type="password" placeholder="Nueva contraseña" id="contrasenaNueva" name="contrasenaNueva"  hidden />
-                        <input type="password" placeholder="Confirmar nueva contraseña" id="contrasenaNueva2" name="contrasenaNueva2" hidden/>
                          </div>
                     <div class="subperfil3">
                       
@@ -73,15 +64,7 @@ and open the template in the editor.
                   
                     </div> 
                     </form>
-                    <script>
-                        $(document).ready(function () {
-                            $("#mostrar").click(function () {
-                                $("#contrasenaVieja").show();
-                                $("#contrasenaNueva").show();
-                                $("#contrasenaNueva2").show();
-                            });
-                        });
-                    </script>
+                   
                 </div>
         </article>
 

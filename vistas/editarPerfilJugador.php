@@ -11,9 +11,9 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link href="style/estilo.css" rel="stylesheet" type="text/css"/>
-        <link href="style/estilo.css" rel="stylesheet" type="text/css"/>
         <link href="style/form.css" rel="stylesheet" type="text/css"/>
         <script src="jquery-2.1.3.js" type="text/javascript"></script>
+        <link href="style/formJugador.css" rel="stylesheet" type="text/css"/>
 
 
     </head>
@@ -33,6 +33,11 @@ and open the template in the editor.
             <sidebar>
 
                 <div class="container">
+                    
+                     <form action="index.php" method="POST">
+                        <button type="submit" class="boton anaranjado formaBoton "  name="accion" value="atrasJugadorPerfil">ATRAS</button>
+                       
+                    </form>
 
                     <form action="index.php" method="POST">
                         <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>
@@ -47,18 +52,18 @@ and open the template in the editor.
                 <div class="perfil2">
                     <h2>Editar Información</h2>
                     <hr>
+                     <form action="index.php" method="POST" class="contact_form" id="contact_form">
                     <div class="subperfil1" >
-                        <form action="index.php" method="POST" class="contact_form" id="contact_form" runat="server">
-                            <ul> 
+                          
                             <?php
                             $sessio = new Session();
                             $jugador = $sessio->getSession("jugador");
                             $jugador->printEditarJugador();
                          ?>           
                     </div>
-                    <div class="subperfil2">
+                    <div class="subperfil2" id="formulario" class="contact_form" >
                         
-                       <input type="button" value="Actualizar Contraseña" id="mostrar" >
+                        <input type="button" value="Actualizar Contraseña" id="mostrar" />
                         <input type="password" placeholder="Contraseña actual" id="contrasenaVieja" name="contrasenaVieja" hidden/>
                         <input type="password" placeholder="Nueva contraseña" id="contrasenaNueva" name="contrasenaNueva"  hidden />
                         <input type="password" placeholder="Confirmar nueva contraseña" id="contrasenaNueva2" name="contrasenaNueva2" hidden/>

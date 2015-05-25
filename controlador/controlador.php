@@ -20,20 +20,24 @@ if (isset($_POST["accion"])) {
         case "nuevoClub":
             include "vistas/formularioClub2.php";
             break;
-            //REGISTRO DE JUGADOR
+        //REGISTRO DE JUGADOR
         case "Registrar":
-            
+
             //COMPROBACION DE DATOS VACIOS 
-            if (!isset($_POST['descripcion'])) {$_POST['descripcion'] = NULL;}
-            if (!isset($_POST['avatar'])){$_POST['avatar']= "style/avatars/defaultJugador.png";}
-            
+            if (!isset($_POST['descripcion'])) {
+                $_POST['descripcion'] = NULL;
+            }
+            if (!isset($_POST['avatar'])) {
+                $_POST['avatar'] = "style/avatars/defaultJugador.png";
+            }
+
             $jugador = new Jugador($_POST['nombre'], $_POST['dni'], $_POST['apellidos'], $_POST['telefono'], $_POST['email'], $_POST['usuario'], 0, $_POST['pwd1'], $_POST['descripcion'], $_POST['avatar']);
             $jugador->guardarJugador();
             include 'vistas/registroCompletado.php';
             break;
-            //REGISTRO DE CLUB
+        //REGISTRO DE CLUB
         case "Registrarse":
-            
+
             //COMPROBACION DE DATOS VACIOS 
             if (!isset($_POST['descripcion'])) {$_POST['descripcion'] = NULL;}
             if (!isset($_POST['descripcion'])) {$_POST['telefono2'] = NULL;}
@@ -85,7 +89,7 @@ if (isset($_POST["accion"])) {
             $club = $conexion->buscarClub($_POST["usuario"], $_POST["contrasena"]);
             if ($club !== null) {
                 $sessio->setSession("club", $conexion->buscarClub($_POST["usuario"], $_POST["contrasena"]));
-                $sessio->setSession("CIFclub",$_POST["usuario"]);
+                $sessio->setSession("CIFclub", $_POST["usuario"]);
                 include 'vistas/gestionClub.php';
             } else {
                 $jugador = $conexion->buscarJugador($_POST["usuario"], $_POST["contrasena"]);
@@ -112,17 +116,26 @@ if (isset($_POST["accion"])) {
             $sessio->destroy();
             include 'vistas/selectRol.html';
             break;
-        
+
         case "atrasJugador":
-             $sessio = new Session();
+            $sessio = new Session();
             include 'vistas/gestionJugador.php';
             break;
         
-         case "atrasClub":
-             $sessio = new Session();
+        case "atrasJugadorPerfil":
+            $sessio = new Session();
+            include 'vistas/perfilJugador.php';
+            break;
+
+        case "atrasClub":
+            $sessio = new Session();
             include 'vistas/gestionClub.php';
             break;
-     
+        case "atrasClubPerfil":
+            $sessio = new Session();
+            include 'vistas/perfilClub.php';
+            break;
+
         case "perfilClub":
             include 'vistas/perfilClub.php';
             break;
@@ -153,6 +166,10 @@ if (isset($_POST["accion"])) {
             break;
         case "editarPerfilClub":
             include 'vistas/editarPerfilClub.php';
+            break;
+        
+        case "editarCamposClub":
+            include 'vistas/editarCamposClub.php';
             break;
         case "cancelarEditarPerfilClub":
             include 'vistas/PerfilClub.php';

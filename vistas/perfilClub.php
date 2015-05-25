@@ -5,8 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link href="style/estilo.css" rel="stylesheet" type="text/css"/>
-        <link href="style/estilo.css" rel="stylesheet" type="text/css"/>
-
 
     </head>
     <body>
@@ -54,6 +52,16 @@
                     </p>
                     <form action="index.php" method="POST">
                         <p> <button name="accion" value="editarPerfilClub" class="boton2 verde formaBoton ">Editar</button></p>
+                    </form>
+                </div>
+                 <div class="perfil">
+                    <h2>Información Pistas/Campos</h2>
+                    <hr>
+                    <p>
+                        Mostrar lista de todos los campos y pistas
+                    </p>
+                    <form action="index.php" method="POST">
+                        <p> <button name="accion" value="editarCamposClub" class="boton2 verde formaBoton ">Editar</button></p>
                     </form>
                 </div>
             </div>
