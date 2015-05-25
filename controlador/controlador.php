@@ -142,6 +142,10 @@ if (isset($_POST["accion"])) {
         case "editarPerfilClub":
             include 'vistas/editarPerfilClub.php';
             break;
+        
+        case "editarCamposClub":
+            include 'vistas/editarCamposClub.php';
+            break;
         case "cancelarEditarPerfilClub":
             include 'vistas/PerfilClub.php';
             break;
