@@ -44,7 +44,16 @@
                 </div>
             </sidebar>
             <div class="content">
-                <h1 class="titol">Gestor Club</h1>
+                <h1 class="titol2">
+                
+                 <?php
+                    $sessio = new Session();
+                    $club = $sessio->getSession("club");
+                    echo "Gestor club " . $club->getNombre();
+                    ?>
+                    
+                
+                </h1>
 
 
 
