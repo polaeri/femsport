@@ -72,12 +72,13 @@ class Club {
     }
 
     function printEditarClub() {
-        echo "<li>Telefono: <input type='text' name='telefono' value='" . $this->telefono . "' ></li>";
-        echo "<li>Telefono2: <input type='text' name='telefono2' value='" . $this->telefono . "' ></li>";
-        echo "<li>Email: <input type='text' name='email' value='" . $this->email . "' ></li>";
-        echo "<li>Direccion: <input type='text' name='direccion' value='" . $this->direccion . "' ></li>";
-        echo "<li>Web: <input type='text' name='web' value='" . $this->web . "' ></li>";
-        echo "<li>Descripcion: <textarea cols='40' rows='6' name='descripcion' >$this->descripcion</textarea></li>";
+        echo "<input type='tel' name='telefono' pattern='^[9|8|7|6|5]\d{8}$' placeholder='Teléfono'required value='" . $this->telefono . "' >";
+        echo "<input type='tel' name='telefono2' pattern='^[9|8|7|6|5]\d{8}$' placeholder='Teléfono2'value='" . $this->telefono2 . "' >";
+        echo "<input type='email' name='email'pattern='^[-\w.]+@{1}[-a-z0-9]+[.]{1}[a-z]{2,5}$' required value='" . $this->email . "' >";
+        echo "<input type='text' name='direccion' placeholder='Dirección' pattern='[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}' required value='" . $this->direccion . "' >";      
+        echo "<input type='url' name='web' placeholder='Página Web'pattern='^http://www.[a-zA-Z0.9._-]{4,}$' required value='".$this->web . "' ></li>";
+        echo "<textarea name='descripcion'  cols='40' rows='6' placeholder='Descripción'>$this->descripcion</textarea>";
+       
     }
 
     function getCIF() {
