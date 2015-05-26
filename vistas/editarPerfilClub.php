@@ -62,9 +62,13 @@ and open the template in the editor.
                     
                         <div class="subperfil2">
                         <input type="button" value="Actualizar Contraseña" id="mostrar">
-                        <input type="password" placeholder="Contraseña actual" id="contrasenaVieja" name="contrasenaVieja" hidden/>
-                        <input type="password" placeholder="Nueva contraseña" id="contrasenaNueva" name="contrasenaNueva"  hidden />
-                        <input type="password" placeholder="Confirmar nueva contraseña" id="contrasenaNueva2" name="contrasenaNueva2" hidden/>
+                       
+                        <input type="password" placeholder="Contraseña actual" id="contrasenaVieja" name="contrasenaVieja" />
+                        
+                        <input type="password" placeholder="Nueva contraseña" name="contrasenaNueva" id="contrasenaNueva" onchange="form.contrasenaNueva2.pattern = this.value;" required hidden />
+                         <input type="password"  name="pwd2" placeholder="Confirmar nueva contraseña" name="contrasenaNueva2" id="contrasenaNueva2" required hidden /> 
+                         
+                        
                          </div>
                     <div class="subperfil3">
                       
