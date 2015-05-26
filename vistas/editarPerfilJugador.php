@@ -58,8 +58,14 @@ and open the template in the editor.
                             <?php
                             $sessio = new Session();
                             $jugador = $sessio->getSession("jugador");
-                            $jugador->printEditarJugador();
-                         ?>           
+                            echo $jugador->printEditarJugador();
+                            
+                            
+                                                     ?>          
+                        <input type="tel" name="telefono" placeholder="Telefono" pattern="^[9|8|7|6|5]\d{8}$" required /> 
+                       <input type="text" name="telefono" value="" pattern="^[0-5][0-9]{7}[A-Z]$"/>
+                         <input type="DNI" name="cif" placeholder="NIF" pattern="^[0-5][0-9]{7}[A-Z]$" required /> 
+                
                     </div>
                     <div class="subperfil2" id="formulario" class="contact_form" >
                         

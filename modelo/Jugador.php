@@ -46,10 +46,23 @@ class jugador {
     }
 
     function printEditarJugador() {
+        
+      /*  
+        $printJugador ='<input type="tel" name="telefono" placeholder="Telefono" value="' . $this->telefono . '" pattern="^[9|8|7|6|5]\d{8}$" required />'.
+                "<li>Email: <input type='text' name='email' value='" . $this->email . "' ></li>".
+                "<li>Descripcion: <textarea cols='40' rows='6' name='descripcion' >$this->descripcion</textarea></li>";
+        
+        return $printJugador;*/
+        
+        
+            
+           
+       
         //echo "<li>avatar: <input type='file' name='avatar'>" . $this->avatar . "</li>";
         //echo "<li>Nombre: <input type='text' name='nombre' value='" . $this->nombre . "' ></li>";
         //echo "<li>DNI: <input type='text' name='dni' value='" . $this->dni . "' ></li>";
         //echo "<li>Apellidos: <input type='text' name='apellidos' value='" . $this->apellidos . "' ></li>";
+       echo '<input type="tel" name="telefono" placeholder="Telefono" value="' . $this->telefono . '" pattern="^[9|8|7|6|5]\d{8}$" required />';
         echo "<li>Telefono: <input type='text' name='telefono' value='" . $this->telefono . "' ></li>";
         echo "<li>Email: <input type='text' name='email' value='" . $this->email . "' ></li>";
         //echo "<li>Usuario: <input type='text' name='usuario' value='" . $this->usuario . "' ></li>";

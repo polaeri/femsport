@@ -167,10 +167,11 @@ li {
 }
 
 .perfil{
+    margin-top: 40px;
     float: left;
     // background-color: #A4A4A4;
-    width: 300px;
-    height: 450px;
+    width: 1200px;
+    height: 600px;
     //border-style: solid;
     border-color: #0000ff;
     //-webkit-border-radius: 10px 10px;  /* Safari  */
@@ -185,6 +186,43 @@ li {
     border-radius: 35px 20px / 20px 35px;
 }
 
+.perfil .footer{
+    width: 1200px;
+    height: 100px;
+    background-color: red;
+    
+}
+.perfil1{
+    float: left;
+    // background-color: #A4A4A4;
+    width: 400px;
+    height: 600px;
+    //border-style: solid;
+    //border-color: #0000ff;
+    //-webkit-border-radius: 10px 10px;  /* Safari  */
+    // -moz-border-radius: 10px 10px;     /* Firefox */
+    //opacity: 0.9;
+    //margin-left: 10px;
+    //background-color:#ccc;
+    //background-image: -moz-radial-gradient(center 45deg,circle cover, #ccc, #333);
+    //background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%,800, from(#ccc), to(#333));
+    //background-image: radial-gradient(center 45deg,circle cover, #ccc, #333);
+    //-moz-border-radius: 35px 20px / 20px 35px;
+   // border-radius: 35px 20px / 20px 35px;
+}
+
+
+
+.perfil1 .avatar{
+    
+    margin-left: 10px;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+
+
+
 hr{
     border-color: #0000ff;
 
@@ -193,10 +231,10 @@ hr{
 .perfil2{
     float: left;
     background-color: #E6E6E6;
-    width: 800px;
-    height: 400px;
+    width: 1000px;
+    height: 600px;
     // border-style: solid;
-    border-color: #0000ff;
+   // border-color: #0000ff;
     -webkit-border-radius: 10px 10px;  /* Safari  */
     -moz-border-radius: 10px 10px;     /* Firefox */
     opacity: 0.8;

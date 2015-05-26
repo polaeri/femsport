@@ -40,7 +40,9 @@
 
             <div class="content">
 
-                <div class="perfil">
+                 <div class="perfil">
+                     
+                <div class="perfil1">
                     <h2>Información del Club</h2>
                     <hr>
                     <p>
@@ -54,7 +56,7 @@
                         <p> <button name="accion" value="editarPerfilClub" class="boton2 verde formaBoton ">Editar</button></p>
                     </form>
                 </div>
-                 <div class="perfil">
+                 <div class="perfil1">
                     <h2>Información Pistas/Campos</h2>
                     <hr>
                     <p>
@@ -64,8 +66,15 @@
                         <p> <button name="accion" value="editarCamposClub" class="boton2 verde formaBoton ">Editar</button></p>
                     </form>
                 </div>
+           
+                <div class="perfil1">
+                     <h2>.</h2>
+                    <hr>
+                
+                </div>
+                    
+                </div>
             </div>
-
         </article>
 
         <footer>Copyright ©FemSport</footer>
