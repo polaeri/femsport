@@ -211,6 +211,26 @@ li {
    // border-radius: 35px 20px / 20px 35px;
 }
 
+.perfil2{
+    float: left;
+    // background-color: #A4A4A4;
+    width: 700px;
+    height: 600px;
+    //border-style: solid;
+    //border-color: #0000ff;
+    //-webkit-border-radius: 10px 10px;  /* Safari  */
+    // -moz-border-radius: 10px 10px;     /* Firefox */
+    //opacity: 0.9;
+    //margin-left: 10px;
+    //background-color:#ccc;
+    //background-image: -moz-radial-gradient(center 45deg,circle cover, #ccc, #333);
+    //background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%,800, from(#ccc), to(#333));
+    //background-image: radial-gradient(center 45deg,circle cover, #ccc, #333);
+    //-moz-border-radius: 35px 20px / 20px 35px;
+   // border-radius: 35px 20px / 20px 35px;
+}
+
+
 
 
 .perfil1 .avatar{

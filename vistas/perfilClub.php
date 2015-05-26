@@ -63,6 +63,14 @@
                         Mostrar lista de todos los campos y pistas
                     </p>
                     <form action="index.php" method="POST">
+                        
+                         <p> <button name="accion" value="editarCamposClub" class="boton2 purpura formaBoton ">Futbol</button></p>
+                          <p> <button name="accion" value="editarCamposClub" class="boton2 purpura formaBoton ">Basket</button></p>
+                           <p> <button name="accion" value="editarCamposClub" class="boton2 purpura formaBoton ">Padel</button></p>
+                        
+                    </form>
+                    
+                    <form action="index.php" method="POST">
                         <p> <button name="accion" value="editarCamposClub" class="boton2 verde formaBoton ">Editar</button></p>
                     </form>
                 </div>
@@ -72,8 +80,7 @@
                     <hr>
                 
                 </div>
-                    
-                </div>
+                  
             </div>
         </article>
 
