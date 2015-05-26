@@ -26,9 +26,6 @@ class Club {
         $this->password = $password;
         $this->descripcion = $descripcion;
         $this->pistas = $pistas;
-        /*foreach ($pistas as $key => $value) {
-            $this->pistas[$key] = $value;
-        }*/
     }
 
     function printClub() {
@@ -75,10 +72,39 @@ class Club {
         echo "<input type='tel' name='telefono' pattern='^[9|8|7|6|5]\d{8}$' placeholder='Teléfono'required value='" . $this->telefono . "' >";
         echo "<input type='tel' name='telefono2' pattern='^[9|8|7|6|5]\d{8}$' placeholder='Teléfono2'value='" . $this->telefono2 . "' >";
         echo "<input type='email' name='email'pattern='^[-\w.]+@{1}[-a-z0-9]+[.]{1}[a-z]{2,5}$' required value='" . $this->email . "' >";
-        echo "<input type='text' name='direccion' placeholder='Dirección' pattern='[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}' required value='" . $this->direccion . "' >";      
-        echo "<input type='url' name='web' placeholder='Página Web'pattern='^http://www.[a-zA-Z0.9._-]{4,}$' required value='".$this->web . "' ></li>";
+        echo "<input type='text' name='direccion' placeholder='Dirección' pattern='[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}' required value='" . $this->direccion . "' >";
+        echo "<input type='url' name='web' placeholder='Página Web'pattern='^http://www.[a-zA-Z0.9._-]{4,}$' required value='" . $this->web . "' ></li>";
         echo "<textarea name='descripcion'  cols='40' rows='6' placeholder='Descripción'>$this->descripcion</textarea>";
-       
+    }
+
+    function existeFutbol() {
+        $conexio = new Conexio();
+
+        if ($conexio->existeFutbol($this->cif)) {
+            return "<p> <button name='accion' value='verPistasFutbol' class='boton2 purpura formaBoton'>Futbol</button></p>";
+        }
+
+        $conexio->tancarConexio();
+    }
+
+    function existeBasket() {
+        $conexio = new Conexio();
+
+        if ($conexio->existeBasket($this->cif)) {
+            return "<p> <button name='accion' value='verPistasBasket' class='boton2 purpura formaBoton'>Basket</button></p>";
+        }
+
+        $conexio->tancarConexio();
+    }
+
+    function existePadel() {
+        $conexio = new Conexio();
+
+        if ($conexio->existePadel($this->cif)) {
+            return "<p> <button name='accion' value='verPistasPadel' class='boton2 purpura formaBoton'>Padel</button></p>";
+        }
+
+        $conexio->tancarConexio();
     }
 
     function getCIF() {
@@ -119,6 +145,14 @@ class Club {
 
     function getDescripcion() {
         return $this->descripcion;
+    }
+    
+    function getPistas(){
+        return $this->pistas;
+    }
+    
+    function getPista($numero){
+        return $this->pistas[$numero];
     }
 
     function setCIF($cif) {

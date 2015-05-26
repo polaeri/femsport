@@ -1,4 +1,5 @@
 <?php
+
 class Pista {
 
     private $cifClub;
@@ -9,7 +10,7 @@ class Pista {
     private $descripcion;
     private $disponibilidad;
     private $maximoJugadores;
-    
+
     function __construct($cifClub, $tipo, $numeroTipo, $direccion, $descripcion, $disponibilidad, $maximoJugadores) {
         $this->cifClub = $cifClub;
         $this->tipo = $tipo;
@@ -19,7 +20,14 @@ class Pista {
         $this->disponibilidad = $disponibilidad;
         $this->maximoJugadores = $maximoJugadores;
     }
-    
+
+    function printPista() {
+        return "<br>CIF = " . $this->cifClub . "<br>ID = " . $this->id . "<br>TIPO = " . $this->tipo .
+                "<br>NUMERO DE TIPO = " . $this->numeroTipo . "<br>direccion = " . $this->direccion .
+                "<br>DESCRIPCION = " . $this->cifClub . "<br>DISPONIBILIDAD = " . $this->disponibilidad .
+                "<br>MAXIMOJUGADORES = " . $this->maximoJugadores;
+    }
+
     function getCifClub() {
         return $this->cifClub;
     }
@@ -31,7 +39,7 @@ class Pista {
     function getTipo() {
         return $this->tipo;
     }
-    
+
     function getNumeroTipo() {
         return $this->numeroTipo;
     }
@@ -63,7 +71,7 @@ class Pista {
     function setTipo($tipo) {
         $this->tipo = $tipo;
     }
-    
+
     function setNumeroTipo($numeroTipo) {
         $this->numeroTipo = $numeroTipo;
     }
@@ -83,6 +91,5 @@ class Pista {
     function setMaximoJugadores($maximoJugadores) {
         $this->maximoJugadores = $maximoJugadores;
     }
-
 
 }
