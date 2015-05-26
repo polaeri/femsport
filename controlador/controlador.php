@@ -195,6 +195,15 @@ if (isset($_POST["accion"])) {
                 include 'vistas/editarPerfilClub.php'; //enviar un mensaje de error (la contraseña no es correcta)
             }
             break;
+        case "verPistasFutbol":
+            include 'vistas/pistasFutbol.php';
+            break;
+        case "verPistasBasket":
+            include 'vistas/pistasBasket.php';
+            break;
+        case "verPistasPadel":
+            include 'vistas/pistasPadel.php';
+            break;
         default :
             echo 'HOLAMUNDO';
             break;
