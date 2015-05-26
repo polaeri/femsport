@@ -12,7 +12,7 @@ class ConexioCalendario {
         $this->connexioCal->close();
     }
 
-function registrarClub($cif,$email){
+function registrarClub($cif,$email,$pistas){
 	
 $nomClub=$cif;
 
@@ -62,14 +62,22 @@ $query_cat="CREATE TABLE IF NOT EXISTS ".$nomClub."_categories (
   chlabel varchar(40) NOT NULL DEFAULT 'approved',
   chmark varchar(10) NOT NULL DEFAULT '&#10003;',
   status tinyint(1) NOT NULL DEFAULT '0',
+  numero_tipo int(2) NOT NULL,
   PRIMARY KEY (category_id)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4;";	
-	
-$query_insertcat="INSERT INTO ".$nomClub."_categories (category_id, name, sequence, rpeat, approve, public, color, background, chbox, chlabel, chmark, status) VALUES
-(1, 'no cat', 1, 0, 0, 1, NULL, NULL, 0, 'approved', '&#10003;', 0),
-(2, 'PADEL', 2, 0, 0, 1, '', '#FFFF00', 0, '', 'âœ“', 0),
-(3, 'FUTBOL', 3, 0, 0, 1, '', '#00FF00', 0, '', 'âœ“', 0);";	
-	
+
+$this->connexioCal->query($query_cat);
+
+
+
+$i=1;
+foreach ($pistas as $key => $value) {
+    $query_insertcat="INSERT INTO ".$nomClub."_categories (category_id, name, sequence, rpeat, approve, public, color, background, chbox, chlabel, chmark, status) VALUES";
+    $query_insertcat.=" (".$i.", '".$value->getTipo()."_".$value->getNumeroTipo()."', 1, 0, 0, 1, NULL, NULL, 0, 'approved', '&#10003;', 0)";
+    $i++;
+    $this->connexioCal->query($query_insertcat);   
+}
+
 
 $query_settings="
 CREATE TABLE IF NOT EXISTS ".$nomClub."_settings (
@@ -184,11 +192,11 @@ INSERT INTO ".$nomClub."_users (user_id, user_name, password, temp_password, ema
 
 
 
-$this->connexioCal->query($query_cat);
+
 $this->connexioCal->query($query_events);
 $this->connexioCal->query($query_settings);
 $this->connexioCal->query($query_user);
-$this->connexioCal->query($query_insertcat);
+
 $this->connexioCal->query($query_insertsettings);
 $this->connexioCal->query($query_insertuser);
 

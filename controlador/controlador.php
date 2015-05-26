@@ -86,7 +86,7 @@ if (isset($_POST["accion"])) {
 
             //Añadir tablas Mysql del calendario
             $ConexioCalendario = new ConexioCalendario();
-            $ConexioCalendario->registrarClub($_POST["cif"], $_POST["email"]);
+            $ConexioCalendario->registrarClub($_POST["cif"], $_POST["email"], $arrayPistas);
 
             break;
         case "login":
