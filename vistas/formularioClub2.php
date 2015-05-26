@@ -67,6 +67,7 @@ http://www.the-art-of-web.com/javascript/validate-password/
                     <input type="text" name="nombre" placeholder="Nombre" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" required /> 
                     <input type="tel" name="telefono" placeholder="Telefono" pattern="^[9|8|7|6|5]\d{8}$" required /> 
                     <input type="tel" name="telefono2" placeholder="Telefono 2" pattern="^[9|8|7|6|5]\d{8}$"/> 
+                    <input type="text" name="direccion" placeholder="Dirección" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" required /> 
                     <input type="email" name="email"  placeholder="Correo electronico" pattern="^[-\w.]+@{1}[-a-z0-9]+[.]{1}[a-z]{2,5}$" required />
                     <span class="form_hint" >Formato correcto: "nombre@dominio.com"</span> 
                     <input type="url" name="web" placeholder="Página Web" value="http://" pattern="^http://www.[a-zA-Z0.9._-]{4,}$" required />

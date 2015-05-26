@@ -10,9 +10,8 @@ class Pista {
     private $disponibilidad;
     private $maximoJugadores;
     
-    function __construct($cifClub, $id, $tipo, $numeroTipo, $direccion, $descripcion, $disponibilidad, $maximoJugadores) {
+    function __construct($cifClub, $tipo, $numeroTipo, $direccion, $descripcion, $disponibilidad, $maximoJugadores) {
         $this->cifClub = $cifClub;
-        $this->id = $id;
         $this->tipo = $tipo;
         $this->numeroTipo = $numeroTipo;
         $this->direccion = $direccion;

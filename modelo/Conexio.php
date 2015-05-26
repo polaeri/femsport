@@ -16,16 +16,13 @@ class Conexio {
 /////////////////////////
 //CONSULTAS DE JUGADOR///
 /////////////////////////
- 
-    public function validarUsuarioJugador($usuario){
-        $senetenciaSql = "SELECT * FROM jugador WHERE '".$usuario."'";
-       if($this->connexio->query($senetenciaSql)){
-           
-           
-       };
+
+    public function validarUsuarioJugador($usuario) {
+        $senetenciaSql = "SELECT * FROM jugador WHERE '" . $usuario . "'";
+        if ($this->connexio->query($senetenciaSql)) {
+            
+        };
     }
-    
-    
 
     public function guardarJugador($dni, $nombre, $apellidos, $telefono, $email, $usuario, $reputacion, $contrasena, $descripcion, $avatar) {
         $sentenciaSql = "INSERT INTO jugador(dni, nombre, apellidos, telefono, email, usuario, reputacion, contrasena, descripcion, avatar) VALUES ('"
@@ -66,6 +63,7 @@ class Conexio {
                 "' WHERE dni = '" . $jugador->getDni() . "';";
         $this->connexio->query($sentenciaSql);
     }
+
 //////////////////////  
 //CONSULTAS DE CLUB///
 //////////////////////
@@ -79,11 +77,19 @@ class Conexio {
     }
 
     //CLUB
-    public function guardarClub($cif, $nombre, $telefono, $telefono2, $direccion, $email, $avatar, $web, $password, $descripcion) {
+    public function guardarClub($cif, $nombre, $telefono, $telefono2, $direccion, $email, $avatar, $web, $password, $descripcion, $pistas) {
         $sentenciaSql = "INSERT INTO club(cif, nombre, telefono, telefono2, direccion, email, avatar, web, password, descripcion) VALUES ('"
                 . $cif . "', '" . $nombre . "', '" . $telefono . "', '" . $telefono2 . "', '" . $direccion . "', '" . $email . "', '" . $avatar . "', '" .
                 $web . "', '" . $password . "', '" . $descripcion . "')";
         $this->connexio->query($sentenciaSql);
+        foreach ($pistas as $key => $value) {
+            $pista = $value;
+            $sentenciaSql = "INSERT INTO pista(cif_club, id, tipo, numeroTipo, direccion, descripcion, disponibilidad, maxJugadores) VALUES ('"
+                    . $pista->getCifClub() . "', NULL, '" . $pista->getTipo() . "', '" . $pista->getNumeroTipo() .
+                    "', '" . $pista->getDireccion() . "', '" . $pista->getDescripcion() . "', '" . $pista->getDisponibilidad() . "', '" .
+                    $pista->getMaximoJugadores() . "')";
+            $this->connexio->query($sentenciaSql);
+        }
     }
 
     public function buscarClub($cif, $password) {
@@ -101,8 +107,19 @@ class Conexio {
             $password = $vector["password"];
             $descripcion = $vector["descripcion"];
         }
+
+        //BUSQUEM LES PISTES DEL CLUB
+        $sentenciaSql2 = "SELECT * FROM pista WHERE cif_club = '" . $cif . "'";
+        $consulta2 = $this->connexio->query($sentenciaSql2);
+        $pistas = [];
+        $j = 0;
+        while ($vector = $consulta2->fetch_array(MYSQLI_ASSOC)) {
+            $pista = new Pista($vector['cif_club'], $vector['tipo'], $vector['numeroTipo'], $vector['direccion'], $vector['descripcion'], $vector['disponibilidad'], $vector['maxJugadores']);
+            $pistas[$j] = $pista;
+            $j++;
+        }
         if (isset($cif) && isset($nombre) && isset($telefono) && isset($telefono2) && isset($direccion) && isset($email) && isset($avatar) && isset($web) && isset($password) && isset($descripcion)) {
-            $club = new Club($cif, $nombre, $telefono, $telefono2, $direccion, $email, $avatar, $web, $password, $descripcion);
+            $club = new Club($cif, $nombre, $telefono, $telefono2, $direccion, $email, $avatar, $web, $password, $descripcion, $pistas);
             return $club;
         } else {
             return null;

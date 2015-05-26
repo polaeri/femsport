@@ -12,7 +12,7 @@ class Club {
     private $web;
     private $password;
     private $descripcion;
-    private $pistas = [];
+    private $pistas;
 
     function __construct($cif, $nombre, $telefono, $telefono2, $direccion, $email, $avatar, $web, $password, $descripcion, $pistas) {
         $this->cif = $cif;
@@ -25,9 +25,10 @@ class Club {
         $this->web = $web;
         $this->password = $password;
         $this->descripcion = $descripcion;
-        foreach ($pistas as $key => $value) {
+        $this->pistas = $pistas;
+        /*foreach ($pistas as $key => $value) {
             $this->pistas[$key] = $value;
-        }
+        }*/
     }
 
     function printClub() {
@@ -39,7 +40,7 @@ class Club {
 
     function guardarClub() {
         $conexio = new Conexio();
-        $conexio->guardarClub($this->cif, $this->nombre, $this->telefono, $this->telefono2, $this->direccion, $this->email, $this->avatar, $this->web, $this->password, $this->descripcion);
+        $conexio->guardarClub($this->cif, $this->nombre, $this->telefono, $this->telefono2, $this->direccion, $this->email, $this->avatar, $this->web, $this->password, $this->descripcion, $this->pistas);
         $conexio->tancarConexio();
     }
 
