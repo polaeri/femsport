@@ -139,37 +139,60 @@ class Conexio {
             return null;
         }
     }
-    
-    function existeFutbol($cif){
-        $sentenciaSql2 = "SELECT * FROM pista WHERE cif_club = '".$cif."' AND tipo = 'futbol_11' OR tipo = 'futbol_7' OR tipo = 'futbol_5'";
+
+    function mostrarClubs($deporte) {
+        $sentenciaSql = "SELECT *  FROM club";
+        $consulta = $this->connexio->query($sentenciaSql);
+        $clubs = [];
+        $i = 0;
+        while ($vector = $consulta->fetch_array(MYSQLI_ASSOC)) {
+            $cif = $vector["cif"];
+            $nombre = $vector["nombre"];
+            $telefono = $vector["telefono"];
+            $telefono2 = $vector["telefono2"];
+            $direccion = $vector["direccion"];
+            $email = $vector["email"];
+            $avatar = $vector["avatar"];
+            $web = $vector["web"];
+            $password = $vector["password"];
+            $descripcion = $vector["descripcion"];
+            $club = new Club($cif, $nombre, $telefono, $telefono2, $direccion, $email, $avatar, $web, $password, $descripcion, $pistas);
+            $clubs[$i] = $club;
+            $i++;
+        }
+        return $clubs;
+    }
+
+    function existeFutbol($cif) {
+        $sentenciaSql2 = "SELECT * FROM pista WHERE cif_club = '" . $cif . "' AND tipo = 'futbol_11' OR tipo = 'futbol_7' OR tipo = 'futbol_5'";
         $consulta2 = $this->connexio->query($sentenciaSql2);
         $auxiliar = false;
         while ($vector = $consulta2->fetch_array(MYSQLI_ASSOC)) {
-            if($vector['cif_club'] === $cif){
+            if ($vector['cif_club'] === $cif) {
                 $auxiliar = true;
             }
         }
         return $auxiliar;
     }
-    
-    function existeBasket($cif){
-        $sentenciaSql2 = "SELECT * FROM pista WHERE cif_club = '".$cif."' AND tipo = 'basket'";
+
+    function existeBasket($cif) {
+        $sentenciaSql2 = "SELECT * FROM pista WHERE cif_club = '" . $cif . "' AND tipo = 'basket'";
         $consulta2 = $this->connexio->query($sentenciaSql2);
         $auxiliar = false;
         while ($vector = $consulta2->fetch_array(MYSQLI_ASSOC)) {
-            if($vector['cif_club'] === $cif){
+            if ($vector['cif_club'] === $cif) {
                 $auxiliar = true;
             }
         }
         return $auxiliar;
     }
-    
-    function existePadel($cif){
-        $sentenciaSql2 = "SELECT * FROM pista WHERE cif_club = '".$cif."' AND tipo = 'padel'";
+
+    function existePadel($cif) {
+        $sentenciaSql2 = "SELECT * FROM pista WHERE cif_club = '" . $cif . "' AND tipo = 'padel'";
         $consulta2 = $this->connexio->query($sentenciaSql2);
         $auxiliar = false;
         while ($vector = $consulta2->fetch_array(MYSQLI_ASSOC)) {
-            if($vector['cif_club'] === $cif){
+            if ($vector['cif_club'] === $cif) {
                 $auxiliar = true;
             }
         }
