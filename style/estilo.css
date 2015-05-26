@@ -170,8 +170,8 @@ li {
     margin-top: 40px;
     float: left;
     // background-color: #A4A4A4;
-    width: 1200px;
-    height: 600px;
+    height:80%;
+    width:80%;
     //border-style: solid;
     border-color: #0000ff;
     //-webkit-border-radius: 10px 10px;  /* Safari  */
@@ -195,8 +195,8 @@ li {
 .perfil1{
     float: left;
     // background-color: #A4A4A4;
-    width: 400px;
-    height: 600px;
+    width: 40%;
+    height: 100%;
     //border-style: solid;
     //border-color: #0000ff;
     //-webkit-border-radius: 10px 10px;  /* Safari  */

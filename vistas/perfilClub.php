@@ -75,11 +75,7 @@
                     </form>
                 </div>
            
-                <div class="perfil1">
-                     <h2>.</h2>
-                    <hr>
                 
-                </div>
                   
             </div>
         </article>
