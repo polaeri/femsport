@@ -49,35 +49,35 @@ if (isset($_POST["accion"])) {
             //FUTBOL 11
             for ($i = 1; $i <= $_POST['futbol_11']; $i++) {
                 $j++;
-                $pista = new Pista($_POST["cif"], "futbol_11", $i, "No disponible", "No disponible", 1, 33);
+                $pista = new Pista($_POST["cif"], null, "futbol_11", $i, "No disponible", "No disponible", 1, 33);
                 $arrayPistas[$j] = $pista;
             }
             
             //FUTBOL 7
             for ($i = 1; $i <= $_POST['futbol_7']; $i++) {
                 $j++;
-                $pista = new Pista($_POST["cif"], "futbol_7", $i, "No disponible", "No disponible", 1, 21);
+                $pista = new Pista($_POST["cif"], null, "futbol_7", $i, "No disponible", "No disponible", 1, 21);
                 $arrayPistas[$j] = $pista;
             }
             
             //FUTBOL 5
             for ($i = 1; $i <= $_POST['futbol_5']; $i++) {
                 $j++;
-                $pista = new Pista($_POST["cif"], "futbol_5", $i, "No disponible", "No disponible", 1, 15);
+                $pista = new Pista($_POST["cif"], null, "futbol_5", $i, "No disponible", "No disponible", 1, 15);
                 $arrayPistas[$j] = $pista;
             }
             
             //BASKET
             for ($i = 1; $i <= $_POST['basket']; $i++) {
                 $j++;
-                $pista = new Pista($_POST["cif"], "basket", $i, "No disponible", "No disponible", 1, 15);
+                $pista = new Pista($_POST["cif"], null, "basket", $i, "No disponible", "No disponible", 1, 15);
                 $arrayPistas[$j] = $pista;
             }
             
             //PADEL
             for ($i = 1; $i <= $_POST['padel']; $i++) {
                 $j++;
-                $pista = new Pista($_POST["cif"], "padel", $i, "No disponible", "No disponible", 1, 15);
+                $pista = new Pista($_POST["cif"], null, "padel", $i, "No disponible", "No disponible", 1, 15);
                 $arrayPistas[$j] = $pista;
             }
             $club = new Club($_POST["cif"], $_POST["nombre"], $_POST["telefono"], $_POST["telefono2"], $_POST["direccion"], $_POST["email"], $_POST["avatar"], $_POST["web"], $_POST["pwd1"], $_POST["descripcion"], $arrayPistas);

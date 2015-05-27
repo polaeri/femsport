@@ -128,7 +128,7 @@ class Conexio {
         $pistas = [];
         $j = 0;
         while ($vector = $consulta2->fetch_array(MYSQLI_ASSOC)) {
-            $pista = new Pista($vector['cif_club'], $vector['tipo'], $vector['numeroTipo'], $vector['direccion'], $vector['descripcion'], $vector['disponibilidad'], $vector['maxJugadores']);
+            $pista = new Pista($vector['cif_club'], $vector['id'], $vector['tipo'], $vector['numeroTipo'], $vector['direccion'], $vector['descripcion'], $vector['disponibilidad'], $vector['maxJugadores']);
             $pistas[$j] = $pista;
             $j++;
         }

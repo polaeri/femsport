@@ -1,10 +1,3 @@
-
-
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>FemSport</title>
@@ -32,10 +25,10 @@ and open the template in the editor.
             <sidebar>
 
                 <div class="container">
-                    
-                     <form action="index.php" method="POST">
+
+                    <form action="index.php" method="POST">
                         <button type="submit" class="boton anaranjado formaBoton "  name="accion" value="atrasClubPerfil">ATRAS</button>
-                       
+
                     </form>
                     <form action="index.php" method="POST">
                         <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>
@@ -48,18 +41,31 @@ and open the template in the editor.
             <div class="content">
 
                 <div class="perfil3">
-                    <h2>Editar Información</h2>
+                    <h2>Editar Campos/Pistas</h2>
                     <hr>
-                     <?php
-        $sessio = new Session();
-        $club = $sessio->getSession("club");
-        for ($i = 0; $i < sizeof($club->getPistas()); $i++) {
-            $pista = $club->getPista($i);
-            if ($pista->getTipo() === 'basket') {
-                echo $pista->printPista();
-            }
-        }
-        ?>
+                    <form action="index.php" method="POST" class="contact_form" id="contact_form" runat="server">
+                        <div class="subperfil1" >
+                            <?php
+                            $sessio = new Session();
+                            $club = $sessio->getSession("club");
+                            for ($i = 0; $i < sizeof($club->getPistas()); $i++) {
+                                $pista = $club->getPista($i);
+                                if ($pista->getTipo() === 'basket') {
+                                    echo $pista->printPista();
+                                }
+                            }
+                            ?>
+                        </div>
+
+                        <div class="subperfil2">
+                        </div>
+                        <div class="subperfil3">
+
+                            <button name="accion" value="EditarPerfilPista" class="boton2 verde formaBoton ">Editar</button>
+
+                        </div> 
+                    </form>
+
                 </div>
         </article>
 
