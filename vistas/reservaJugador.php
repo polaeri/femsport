@@ -46,34 +46,33 @@
             </sidebar>
             <div class="content">
                 <br><br><br>
-                <select id="deporte">
-                    <option value="0">Escoje Deporte</option>
-                    <option value="futbol_11">Futbol 11</option>
-                    <option value="futbol_7">Futbol 7</option>
-                    <option value="futbol_5">Futbol 5</option>
-                    <option value="basket">Basket</option>
-                    <option value="padel">Padel</option>
-                </select>
-                <select id="clubs" hidden>                    
-                </select>
-                
-                <input type="date" id="fecha" name="fecha" hidden>
                 <form action="index.php" method="POST">
+                    <select name= "deporte" id="deporte">
+                        <option value="0">Escoje Deporte</option>
+                        <option value="futbol_11">Futbol 11</option>
+                        <option value="futbol_7">Futbol 7</option>
+                        <option value="futbol_5">Futbol 5</option>
+                        <option value="basket">Basket</option>
+                        <option value="padel">Padel</option>
+                    </select>
+                    <select name="club" id="clubs" hidden>                    
+                    </select>
+                    <input type="date" id="fecha" name="fecha" hidden>                
                     <button id="consultar" type="submit" name="accion" value="consultar" hidden>CONSULTAR</button>
                 </form>                
                 <script>
                     $(document).ready(function () {
-                        $("#deporte").change(function () {                            
+                        $("#deporte").change(function () {
                             opcio = $("#deporte").val();
-                            $.post("index.php", {accion: "mostrarClubs", eleccion: opcio }, function (data) {
+                            $.post("index.php", {accion: "mostrarClubs", eleccion: opcio}, function (data) {
                                 $("#clubs").html(data);
                             });
                             $("#clubs").show();
                         });
-                        $("#clubs").change(function () {                                                        
+                        $("#clubs").change(function () {
                             $("#fecha").show();
                         });
-                        $("#fecha").change(function () {                                                        
+                        $("#fecha").change(function () {
                             $("#consultar").show();
                         });
                     });

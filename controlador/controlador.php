@@ -236,9 +236,20 @@ if (isset($_POST["accion"])) {
             }
             break;
         case "consultar" :
-            include 'vistas/consultaHorario.php';
+            $conexioCalendario = new ConexioCalendario();
+            $horariosOcupados = $conexioCalendario->consultarHorarios($_POST["club"], $_POST["fecha"], $_POST["deporte"]);
+            foreach ($horariosOcupados as $key => $pistas) {
+                foreach ($pistas as $key2 => $value) {
+                    echo "<br>PISTA " . $key2;
+                    echo "<br>_______________________";
+                    echo "<br>INICIO = " . $value['inicio'];
+                    echo "<br>FINAL = " . $value['final'];
+                    echo "<br>PISTA = " . $value['pista'];
+                }
+            }
+            //include 'vistas/consultaHorario.php';
             break;
-        default :
+        default:
             echo 'HOLAMUNDO';
             break;
     }
