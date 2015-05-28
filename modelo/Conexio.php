@@ -13,24 +13,32 @@ class Conexio {
         $this->connexio->close();
     }
 
-/////////////////////////
-//CONSULTAS DE JUGADOR///
-/////////////////////////
+////////////////////////////////
+//CONSULTAS DE JUGADOR Y CLUB///
+///////////////////////////////
 
-    public function validarJugadorExistente($usuario,$dni){
-        $senetenciaSql = "SELECT * FROM jugador WHERE usuario='" . $usuario . "' OR dni = '".$dni."'";
+    public function validarJugadorExistente($usuario, $dni) {
+        $senetenciaSql = "SELECT * FROM jugador WHERE usuario='" . $usuario . "' OR dni = '" . $dni . "'";
         $comprobar = $this->connexio->query($senetenciaSql);
         if ($comprobar->num_rows > 0) {
-            return true;            
-        }
-        else{
+            return true;
+        } else {
             return false;
         }
-        
-        
+    }
+
+    public function validarClubExistente($cif) {
+        $senetenciaSql = "SELECT * FROM club WHERE cif='" . $cif ."'";
+        $comprobar2 = $this->connexio->query($senetenciaSql);
+        if ($comprobar2->num_rows > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 
+    
     public function guardarJugador($dni, $nombre, $apellidos, $telefono, $email, $usuario, $reputacion, $contrasena, $descripcion, $avatar) {
         $sentenciaSql = "INSERT INTO jugador(dni, nombre, apellidos, telefono, email, usuario, reputacion, contrasena, descripcion, avatar) VALUES ('"
                 . $dni . "','" . $nombre . "','" . $apellidos . "','" . $telefono . "','" . $email . "','" . $usuario . "','" . $reputacion . "','" .
@@ -148,7 +156,7 @@ class Conexio {
     }
 
     function mostrarClubs($deporte) {
-        $sentenciaSql = "SELECT * FROM club WHERE cif IN ( SELECT cif_club FROM pista WHERE tipo = '".$deporte."')";
+        $sentenciaSql = "SELECT * FROM club WHERE cif IN ( SELECT cif_club FROM pista WHERE tipo = '" . $deporte . "')";
         $consulta = $this->connexio->query($sentenciaSql);
         $clubs = [];
         $i = 0;
