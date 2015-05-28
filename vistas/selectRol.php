@@ -70,7 +70,7 @@ and open the template in the editor.
                                         
                                           /// DALE COLOR A ESTO IVAN
                                             if(isset( $errorInicio)){
-                                                echo  "<h4 bgcolor='red'>".$errorInicio."</h4>";
+                                                echo  "<div class='error'>".$errorInicio."</div>";
                                             }
                                         ?>
                                     </form>

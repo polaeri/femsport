@@ -10,7 +10,7 @@ and open the template in the editor.
 @import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900');
 
 body .club{
-    background-image:url('../style/images/fondos/estadio2.jpg');
+    background-image:url('../style/images/fondos/estadio.jpg');
     
 }
 
@@ -50,6 +50,7 @@ article{
     height:80vh;
     width:99vw;
     color:white;
+
 
 }
 
@@ -110,6 +111,11 @@ footer{
    // background: #fff;
     //background: rgba(255,255,255,0.95);
     
+}
+
+.error{
+    
+    color:red;
 }
 
 ul {
