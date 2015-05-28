@@ -12,12 +12,12 @@ class ConexioCalendario {
         $this->connexioCal->close();
     }
 
-function registrarClub($cif,$email,$pistas){
-	
-$nomClub=$cif;
+    function registrarClub($cif, $email, $pistas) {
 
-$query_events="
-CREATE TABLE IF NOT EXISTS ".$nomClub."_events (
+        $nomClub = $cif;
+
+        $query_events = "
+CREATE TABLE IF NOT EXISTS " . $nomClub . "_events (
   event_id int(8) unsigned NOT NULL AUTO_INCREMENT,
   event_type tinyint(1) unsigned NOT NULL DEFAULT '0',
   title varchar(64) DEFAULT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS ".$nomClub."_events (
   PRIMARY KEY (event_id)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6";
 
-$query_cat="CREATE TABLE IF NOT EXISTS ".$nomClub."_categories (
+        $query_cat = "CREATE TABLE IF NOT EXISTS " . $nomClub . "_categories (
   category_id int(4) unsigned NOT NULL AUTO_INCREMENT,
   name varchar(40) NOT NULL DEFAULT '',
   sequence int(2) unsigned NOT NULL DEFAULT '1',
@@ -64,36 +64,36 @@ $query_cat="CREATE TABLE IF NOT EXISTS ".$nomClub."_categories (
   status tinyint(1) NOT NULL DEFAULT '0',
   numero_tipo int(2) NOT NULL,
   PRIMARY KEY (category_id)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4;";	
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4;";
 
-$this->connexioCal->query($query_cat);
-
-
-
-$i=1;
-foreach ($pistas as $key => $value) {
-    $query_insertcat="INSERT INTO ".$nomClub."_categories (category_id, name, sequence, rpeat, approve, public, color, background, chbox, chlabel, chmark, status) VALUES";
-    $query_insertcat.=" (".$i.", '".$value->getTipo()."_".$value->getNumeroTipo()."', 1, 0, 0, 1, NULL, NULL, 0, 'approved', '&#10003;', 0)";
-    $i++;
-    $this->connexioCal->query($query_insertcat);   
-}
+        $this->connexioCal->query($query_cat);
 
 
-$query_settings="
-CREATE TABLE IF NOT EXISTS ".$nomClub."_settings (
+
+        $i = 1;
+        foreach ($pistas as $key => $value) {
+            $query_insertcat = "INSERT INTO " . $nomClub . "_categories (category_id, name, sequence, rpeat, approve, public, color, background, chbox, chlabel, chmark, status) VALUES";
+            $query_insertcat.=" (" . $i . ", '" . $value->getTipo() . "_" . $value->getNumeroTipo() . "', 1, 0, 0, 1, NULL, NULL, 0, 'approved', '&#10003;', 0)";
+            $i++;
+            $this->connexioCal->query($query_insertcat);
+        }
+
+
+        $query_settings = "
+CREATE TABLE IF NOT EXISTS " . $nomClub . "_settings (
   name varchar(15) NOT NULL DEFAULT '',
   value text,
   description text,
   PRIMARY KEY (name)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;";	
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
 
 
-$query_insertsettings="
-INSERT INTO ".$nomClub."_settings (name, value, description) VALUES
+        $query_insertsettings = "
+INSERT INTO " . $nomClub . "_settings (name, value, description) VALUES
 ('adminCronSum', '1', 'Send cron job summary to admin (0:no, 1:yes)'),
 ('backLinkUrl', '', 'Nav bar Back button URL (blank: no button, url: Back button)'),
-('calendarEmail', '".$email."', 'Sender in and receiver of email notifications'),
-('calendarTitle', '".$nomClub."', 'Calendar title displayed in the top bar'),
+('calendarEmail', '" . $email . "', 'Sender in and receiver of email notifications'),
+('calendarTitle', '" . $nomClub . "', 'Calendar title displayed in the top bar'),
 ('calendarUrl', 'http://localhost/lux/?cal=mycal', 'Calendar link (URL)'),
 ('catMenu', '1', 'Display category filter menu in options panel(0:no, 1:yes)'),
 ('chgEmailList', '', 'Recipient email addresses for calendar changes'),
@@ -166,9 +166,9 @@ INSERT INTO ".$nomClub."_settings (name, value, description) VALUES
 ('xField2', '', 'Label optional extra event field 2'),
 ('yearStart', '0', 'Start month in year view (1-12 or 0, 0:current month)');
 ";
-	
-	
-$query_user="CREATE TABLE IF NOT EXISTS  ".$nomClub."_users (
+
+
+        $query_user = "CREATE TABLE IF NOT EXISTS  " . $nomClub . "_users (
   user_id int(6) unsigned NOT NULL AUTO_INCREMENT,
   user_name varchar(32) NOT NULL DEFAULT '',
   password varchar(32) NOT NULL DEFAULT '',
@@ -184,26 +184,68 @@ $query_user="CREATE TABLE IF NOT EXISTS  ".$nomClub."_users (
   PRIMARY KEY (user_id)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;";
 
-$query_insertuser="
-INSERT INTO ".$nomClub."_users (user_id, user_name, password, temp_password, email, privs, login_0, login_1, login_cnt, language, color, status) VALUES
+        $query_insertuser = "
+INSERT INTO " . $nomClub . "_users (user_id, user_name, password, temp_password, email, privs, login_0, login_1, login_cnt, language, color, status) VALUES
 (1, 'Public Access', '', NULL, ' ', 1, '9999-00-00', '9999-00-00', 0, NULL, NULL, 0),
-(2, 'admin', '21232f297a57a5a743894a0e4a801fc3', NULL, '".$email."', 9, '2015-05-08', '2015-05-11', 35, NULL, NULL, 0);";
-	
+(2, 'admin', '21232f297a57a5a743894a0e4a801fc3', NULL, '" . $email . "', 9, '2015-05-08', '2015-05-11', 35, NULL, NULL, 0);";
 
 
 
 
-$this->connexioCal->query($query_events);
-$this->connexioCal->query($query_settings);
-$this->connexioCal->query($query_user);
 
-$this->connexioCal->query($query_insertsettings);
-$this->connexioCal->query($query_insertuser);
+        $this->connexioCal->query($query_events);
+        $this->connexioCal->query($query_settings);
+        $this->connexioCal->query($query_user);
 
-echo $this->connexioCal->error;
+        $this->connexioCal->query($query_insertsettings);
+        $this->connexioCal->query($query_insertuser);
 
+        echo $this->connexioCal->error;
+    }
 
+    function consultarHorarios($cif, $data, $tipo) {
+        $pistas = $this->buscarPistas($cif, $tipo);
+        $horariosOcupados = $this->buscarHorariosPistas($pistas, $data, $cif);
+        return $horariosOcupados;
+        /*foreach ($horariosOcupados as $key1 => $pistas) {
+            foreach ($pistas as $key2 => $value) {
+                echo "<br>PISTA " . $key2;
+                echo "<br>_______________________";
+                echo "<br>INICIO = " . $value['inicio'];
+                echo "<br>FINAL = " . $value['final'];
+                echo "<br>PISTA = " . $value['pista'];
+            }
+        }*/
+    }
 
-}
+    function buscarPistas($cif, $tipo) {
+        $sentenciaSql = "SELECT category_id FROM " . $cif . "_categories WHERE name LIKE '" . $tipo . "%'";
+        $consulta = $this->connexioCal->query($sentenciaSql);
+        $pistas = [];
+        $i = 0;
+        while ($vector = $consulta->fetch_array(MYSQLI_ASSOC)) {
+            $pistas[$i] = $vector['category_id'];
+            $i++;
+        }
+        return $pistas;
+    }
+
+    function buscarHorariosPistas($pistas, $data, $cif) {
+        $totalArrays = [];
+        $i = 0;
+        foreach ($pistas as $key => $value) {
+            $sentenciaSql = "SELECT s_time, e_time, category_id FROM " . $cif . "_events WHERE category_id = '" . $value . "' AND s_date = '" . $data . "' AND e_date = '9999-00-00'";
+            $consulta = $this->connexioCal->query($sentenciaSql);
+            $horasOcupadas = [];
+            $j = 0;
+            while ($vector = $consulta->fetch_array(MYSQLI_ASSOC)) {
+                $horasOcupadas[$j] = array("inicio" => $vector['s_time'], "final" => $vector['e_time'], "pista" => $vector['category_id']);
+                $j++;
+            }
+            $totalArrays[$i] = $horasOcupadas;
+            $i++;
+        }
+        return $totalArrays;
+    }
 
 }

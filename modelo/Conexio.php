@@ -148,7 +148,7 @@ class Conexio {
     }
 
     function mostrarClubs($deporte) {
-        $sentenciaSql = "SELECT *  FROM club";
+        $sentenciaSql = "SELECT * FROM club WHERE cif IN ( SELECT cif_club FROM pista WHERE tipo = '".$deporte."')";
         $consulta = $this->connexio->query($sentenciaSql);
         $clubs = [];
         $i = 0;

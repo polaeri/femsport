@@ -223,7 +223,46 @@ if (isset($_POST["accion"])) {
         case "verPistasPadel":
             include 'vistas/pistasPadel.php';
             break;
-        default :
+        case "mostrarClubs":
+            $sesion = new Session();
+            switch ($_POST["eleccion"]) {
+                case "futbol_11":
+                    $sesion->setSession("deporte", "futbol_11");
+                    include 'vistas/mostrarClubs.php';
+                    break;
+                case "futbol_7":
+                    $sesion->setSession("deporte", "futbol_7");
+                    include 'vistas/mostrarClubs.php';
+                    break;
+                case "futbol_5":
+                    $sesion->setSession("deporte", "futbol_5");
+                    include 'vistas/mostrarClubs.php';
+                    break;
+                case "basket":
+                    $sesion->setSession("deporte", "basket");
+                    include 'vistas/mostrarClubs.php';
+                    break;
+                case "padel":
+                    $sesion->setSession("deporte", "padel");
+                    include 'vistas/mostrarClubs.php';
+                    break;
+            }
+            break;
+        case "consultar" :
+            $conexioCalendario = new ConexioCalendario();
+            $horariosOcupados = $conexioCalendario->consultarHorarios($_POST["club"], $_POST["fecha"], $_POST["deporte"]);
+            foreach ($horariosOcupados as $key => $pistas) {
+                foreach ($pistas as $key2 => $value) {
+                    echo "<br>PISTA " . $key2;
+                    echo "<br>_______________________";
+                    echo "<br>INICIO = " . $value['inicio'];
+                    echo "<br>FINAL = " . $value['final'];
+                    echo "<br>PISTA = " . $value['pista'];
+                }
+            }
+            //include 'vistas/consultaHorario.php';
+            break;
+        default:
             echo 'HOLAMUNDO';
             break;
     }
