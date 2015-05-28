@@ -20,7 +20,7 @@ http://www.the-art-of-web.com/javascript/validate-password/
 <link href="style/formJugador.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-    
+    <div class="jugador">
      <header>
             <img src="style/images/selectRol/logoFemEsport2.png">
             <menu>
@@ -91,5 +91,7 @@ http://www.the-art-of-web.com/javascript/validate-password/
               
         </article>
      <footer>Copyright ©FemSport</footer>
+     </div>
+    </div>
 </body>
 </html>
