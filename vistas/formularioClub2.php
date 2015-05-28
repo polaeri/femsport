@@ -24,6 +24,7 @@ http://www.the-art-of-web.com/javascript/validate-password/
         <link href="style/formJugador.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+        <div class="club">
         <header>
             <img src="style/images/selectRol/logoFemEsport2.png">
             <menu>
