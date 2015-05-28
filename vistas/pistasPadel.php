@@ -40,11 +40,11 @@
 
             <div class="content">
 
-                <div class="perfil3">
+                <div class="perfil">
                     <h2>Editar Campos/Pistas</h2>
                     <hr>
                     <form action="index.php" method="POST" class="contact_form" id="contact_form" runat="server">
-                        <div class="subperfil1" >
+                        
                             <?php
                             $sessio = new Session();
                             $club = $sessio->getSession("club");
@@ -55,16 +55,11 @@
                                 }
                             }
                             ?>
-                        </div>
+                            
+                       
 
-                        <div class="subperfil2">
-                        </div>
-                        <div class="subperfil3">
 
-                            <button name="accion" value="cancelarEditarPerfilClub" class="boton2 colorRojo formaBoton ">Cancelar</button>
-                            <button name="accion" value="guardarEditarPerfilClub" class="boton2 verde formaBoton ">Guardar</button> 
-
-                        </div> 
+                      
                     </form>
 
                 </div>

@@ -70,19 +70,17 @@
                             ?>                            
                         </form>
 
-
-
                         <form action="index.php" method="POST">
                             <p> <button name="accion" value="editarCamposClub" class="boton2 verde formaBoton ">Editar</button></p>
                         </form>
                     </div>
 
 
-
+                </div>
                 </div>
         </article>
 
-        <footer>Copyright ©FemSport</footer>
+        <footer><br>Copyright ©FemSport</footer>
     </body>
 </html>
 

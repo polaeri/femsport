@@ -40,7 +40,7 @@
 
             <div class="content">
 
-                <div class="perfil3">
+                <div class="perfil">
                     <h2>Editar Campos/Pistas</h2>
                     <hr>
                     <form action="index.php" method="POST" class="contact_form" id="contact_form" runat="server">
