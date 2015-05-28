@@ -38,7 +38,16 @@ http://www.the-art-of-web.com/javascript/validate-password/
                         <button type="submit" class="boton azul formaBoton "  name="accion" value="salir">SALIR</button>
                     </form>
             </sidebar>
-          
+                
+                <?php if(isset($validar)){
+                    
+                    $validar=false;
+                    echo "<script language='JavaScript'>"; 
+                    echo "alert('Error. Vuelve a identificarte');"; 
+                    echo "</script>";
+                    $validar=false;
+                    
+                } ?>
                 <form id="formulario" class="contact_form" action="index.php" method="POST">
                         <!-- progreso -->
                         <ul id="progreso">
@@ -62,7 +71,9 @@ http://www.the-art-of-web.com/javascript/validate-password/
                                 <input type="text" name="nombre" placeholder="Nombre" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" required /> 
                                 <input type="text" name="apellidos" placeholder="Apellidos" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" required /> 
                                 <input type="DNI" name="dni" placeholder="DNI/NIF" pattern="^[0-5][0-9]{7}[A-Z]$" required /> 
-                                 <span class="form_hint" >Formato:"12345678A"</span> 
+                                 <span class="form_hint" >Formato:"12345678A"</span>
+                                 <input type="email" name="email" placeholder="Correo electronico" pattern="^[-\w.]+@{1}[-a-z0-9]+[.]{1}[a-z]{2,5}$" required />
+                                 <span class="form_hint" >Formato:"nombre@dominio.com"</span> 
                                  <input type="tel" name="telefono" placeholder="Telefono" pattern="^[9|8|7|6|5]\d{8}$" required /> 
                                 
                                 <input type="button" name="previous" class="previous action-button" value="Anterior" />

@@ -32,7 +32,7 @@ class jugador {
         "<br>Reputacion: " . $this->reputacion . "<br>Contraseña: " . $this->contrasena . "<br>Descripcion: " .
         $this->descripcion . "<br> Avatar:<img src= '" . $this->avatar."'>";
     }
-
+    
     function guardarJugador() {
         $conexio = new Conexio();
         $conexio->guardarJugador($this->dni, $this->nombre, $this->apellidos, $this->telefono, $this->email, $this->usuario, $this->reputacion, $this->contrasena, $this->descripcion, $this->avatar);
