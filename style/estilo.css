@@ -9,10 +9,18 @@ and open the template in the editor.
 */
 @import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900');
 
-body{
-    background-image:url('../style/images/fondos/pelota2.jpg');
+body .club{
+    background-image:url('../style/images/fondos/estadio2.jpg');
     
-   
+}
+
+body .jugador{
+    background-image:url('../style/images/fondos/pelota2.jpg');
+}
+
+body .rol{
+        background-image:url('../style/images/fondos/rol.jpg');
+    
 }
 
 header{
