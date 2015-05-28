@@ -31,6 +31,7 @@ and open the template in the editor.
 
     </head>
     <body>
+        <div class="rol">
         <header><img src="style/images/selectRol/logoFemEsport2.png">
         </header>
 
@@ -113,5 +114,6 @@ and open the template in the editor.
         </article>
 
         <footer>Copyright ©FemSport</footer>
+        </div>
     </body>
 </html>
