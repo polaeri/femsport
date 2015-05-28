@@ -41,7 +41,15 @@ http://www.the-art-of-web.com/javascript/validate-password/
                 </form>
             </sidebar>
 
-
+                <?php if(isset($validar)){
+                    
+                    $validar=false;
+                    echo "<script language='JavaScript'>"; 
+                    echo "alert('Error. Vuelve a identificarte');"; 
+                    echo "</script>";
+                    
+                    
+                } ?>
             <form id="formulario" class="contact_form" action="index.php" method="POST">
                 <!-- progreso -->
                 <ul id="progreso">
@@ -56,7 +64,7 @@ http://www.the-art-of-web.com/javascript/validate-password/
 
                     <h2 class="fs-title">Crear su cuenta</h2>
                     <h3 class="fs-subtitle">Paso 1</h3>
-                    <input type="DNI" name="cif" placeholder="NIF" pattern="^[0-5][0-9]{7}[A-Z]$" required /> 
+                    <input type="dni" name="cif" placeholder="CIF" pattern="^[0-5][0-9]{7}[A-Z]$" required /> 
                     <span class="form_hint" >Formato correcto: "12345678A"</span> 
                     <input type="password" placeholder="Contraseña" name="pwd1" onchange="form.pwd2.pattern = this.value;" required />
                     <input type="password"  name="pwd2" placeholder="Confirmar contraseña" name="pwd2"required /> 

@@ -67,16 +67,11 @@ and open the template in the editor.
                                         </div>
                                         
                                         <?php  
-//                                            if(isset($_SESSION['error1'])){
-//                                                echo "#myModal";
-//                                                echo "<font color='red'>".$_SESSION['error1']."</font>";
-//                                               
-//                                            }
-//                                            
-                                          //  function  elimiarError1(){ unset ($_SESSION['error1']);}
-                                            
-                                           
                                         
+                                          /// DALE COLOR A ESTO IVAN
+                                            if(isset( $errorInicio)){
+                                                echo  "<h4 bgcolor='red'>".$errorInicio."</h4>";
+                                            }
                                         ?>
                                     </form>
                                 </div>

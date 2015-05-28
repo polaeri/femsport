@@ -13,7 +13,7 @@ if (isset($_POST["accion"])) {
     $accio = $_POST["accion"];
     switch ($accio) {
         case "portada":
-            include "vistas/selectRol.html";
+            include "vistas/selectRol.php";
             break;
         case "nuevoJugador":
             include "vistas/formularioJugador2.php";
@@ -35,11 +35,12 @@ if (isset($_POST["accion"])) {
             $sessio = new Session();
             $conexion = new Conexio();
             $jugador = $conexion->validarJugadorExistente($_POST["usuario"], $_POST["dni"]);
+
+            //VALIDACION DE JUGADOR VALIDO PARA REGISTRAR
             if ($jugador) {
 
                 $validar = true;
                 include 'vistas/formularioJugador2.php';
-
                 break;
             } else {
                 $jugador = new Jugador($_POST['nombre'], $_POST['dni'], $_POST['apellidos'], $_POST['telefono'], $_POST['email'], $_POST['usuario'], 0, $_POST['pwd1'], $_POST['descripcion'], $_POST['avatar']);
@@ -99,9 +100,27 @@ if (isset($_POST["accion"])) {
                 $pista = new Pista($_POST["cif"], null, "padel", $i, "No disponible", "No disponible", 1, 15);
                 $arrayPistas[$j] = $pista;
             }
-            $club = new Club($_POST["cif"], $_POST["nombre"], $_POST["telefono"], $_POST["telefono2"], $_POST["direccion"], $_POST["email"], $_POST["avatar"], $_POST["web"], $_POST["pwd1"], $_POST["descripcion"], $arrayPistas);
-            $club->guardarClub();
-            include 'vistas/registroCompletado.php';
+
+
+
+
+            $sessio = new Session();
+            $conexion = new Conexio();
+            $clubComprobar = $conexion->validarClubExistente($_POST["cif"]);
+
+            //VALIDACION DE CLUB VALIDO PARA REGISTRAR
+            if ($clubComprobar) {
+
+                $validar = true;
+                include 'vistas/formularioClub2.php';
+                break;
+            } else {
+                $club = new Club($_POST["cif"], $_POST["nombre"], $_POST["telefono"], $_POST["telefono2"], $_POST["direccion"], $_POST["email"], $_POST["avatar"], $_POST["web"], $_POST["pwd1"], $_POST["descripcion"], $arrayPistas);
+                $club->guardarClub();
+                include 'vistas/registroCompletado.php';
+                break;
+            }
+
 
             //Añadir tablas Mysql del calendario
             $ConexioCalendario = new ConexioCalendario();
@@ -123,7 +142,8 @@ if (isset($_POST["accion"])) {
                     include 'vistas/gestionJugador.php';
                 } else {
                     //DANI REDIRECCIONA ESTO AL LOGIN CON EL MENSAJE DE USUARIO NO EXISTE
-                    echo 'EL USUARIO NO EXISTE';
+                    $errorInicio = "USUARIO/NIF 0 CONTRASEÑA INCORRECTOS";
+                    include 'vistas/selectRol.php';
                 }
             }
             break;
@@ -139,7 +159,7 @@ if (isset($_POST["accion"])) {
         case "salir":
             $sessio = new Session();
             $sessio->destroy();
-            include 'vistas/selectRol.html';
+            include 'vistas/selectRol.php';
             break;
 
         case "atrasJugador":
@@ -252,6 +272,7 @@ if (isset($_POST["accion"])) {
             $conexioCalendario = new ConexioCalendario();
             $horariosOcupados = $conexioCalendario->consultarHorarios($_POST["club"], $_POST["fecha"], $_POST["deporte"]);
             foreach ($horariosOcupados as $key => $pistas) {
+
                 foreach ($pistas as $key2 => $value) {
                     echo "<br>PISTA " . $key2;
                     echo "<br>_______________________";
@@ -260,6 +281,7 @@ if (isset($_POST["accion"])) {
                     echo "<br>PISTA = " . $value['pista'];
                 }
             }
+
             //include 'vistas/consultaHorario.php';
             break;
         default:
