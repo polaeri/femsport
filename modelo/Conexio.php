@@ -17,12 +17,19 @@ class Conexio {
 //CONSULTAS DE JUGADOR///
 /////////////////////////
 
-    public function validarUsuarioJugador($usuario) {
-        $senetenciaSql = "SELECT * FROM jugador WHERE '" . $usuario . "'";
-        if ($this->connexio->query($senetenciaSql)) {
-            
-        };
+    public function validarJugadorExistente($usuario,$dni){
+        $senetenciaSql = "SELECT * FROM jugador WHERE usuario='" . $usuario . "' OR dni = '".$dni."'";
+        $comprobar = $this->connexio->query($senetenciaSql);
+        if ($comprobar->num_rows > 0) {
+            return true;            
+        }
+        else{
+            return false;
+        }
+        
+        
     }
+
 
     public function guardarJugador($dni, $nombre, $apellidos, $telefono, $email, $usuario, $reputacion, $contrasena, $descripcion, $avatar) {
         $sentenciaSql = "INSERT INTO jugador(dni, nombre, apellidos, telefono, email, usuario, reputacion, contrasena, descripcion, avatar) VALUES ('"
