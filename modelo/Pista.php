@@ -23,10 +23,10 @@ class Pista {
     }
 
     function printPista() {
-        return "<br>CIF = " . $this->cifClub . "<br>ID = " . $this->id . "<br>TIPO = " . $this->tipo .
-                "<br>NUMERO DE TIPO = " . $this->numeroTipo . "<br>direccion = " . $this->direccion .
-                "<br>DESCRIPCION = " . $this->cifClub . "<br>DISPONIBILIDAD = " . $this->disponibilidad .
-                "<br>MAXIMOJUGADORES = " . $this->maximoJugadores;
+        return "<br>TIPO : " . $this->tipo .
+                "<br>NUMERO DE TIPO : " . $this->numeroTipo . "<br>direccion : " . $this->direccion .
+                "<br>DESCRIPCION : " . $this->descripcion . "<br>DISPONIBILIDAD : " . $this->disponibilidad ;
+                //"<br>MAXIMOJUGADORES : " . $this->maximoJugadores;
     }
 
     function getCifClub() {

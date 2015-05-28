@@ -89,7 +89,7 @@ http://www.the-art-of-web.com/javascript/validate-password/
 
                    7: <select name="futbol_7"> <?php selectAuto(10); ?></select>   &nbsp                      
 
-
+                   
                     11: <select name="futbol_11"> <?php selectAuto(10); ?></select></p><br>                            
 
                     <p>Nº Pistas de Basket</p>
