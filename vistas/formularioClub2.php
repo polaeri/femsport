@@ -82,7 +82,7 @@ http://www.the-art-of-web.com/javascript/validate-password/
                     <span class="form_hint" >Formato correcto: "nombre@dominio.com"</span> 
                     <input type="url" name="web" placeholder="Página Web" value="http://" maxlength="100"  pattern="^http://www.[a-zA-Z0.9._-]{4,}$" required />
                     <span class="form_hint" >Formato correcto: "http://www.dirección.com""</span> 
-                    <input type="file" name="avatar" placeholder="Imagen Perfil"/>
+                    <input type="file" name="avatar" accept="image/gif, image/jpeg, image/png" placeholder="Imagen Perfil"/>
                     <textarea name="descripcion" value="descripcion" cols="40" rows="6" maxlength="300" placeholder="Descripción"></textarea> 
 
                     <input type="button" name="previous" class="previous action-button" value="Anterior" />
