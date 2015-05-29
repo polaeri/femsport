@@ -277,7 +277,21 @@ if (isset($_POST["accion"])) {
             include 'vistas/consultaHorario.php';
             break;
         case "reservarPista":
-            
+            $sesion = new Session();
+            $jugador = $sesion->getSession('jugador');
+            $hora = $_POST['hora'];
+            $category_id = $_POST['category_id'];
+            $data = $sesion->getSession('data_club_reserva');
+            $club = $sesion->getSession('cif_club_reserva');
+            $usuario = $jugador->getUsuario();
+            $dni = $jugador->getDni();            
+            echo "<br>Hora = " . $hora;
+            echo "<br>Data = " . $data;
+            echo "<br>Club = " . $club;
+            echo "<br>Usuario = " . $usuario;
+            echo "<br>Dni = " . $dni;   
+            $array_PistesLliures = $sesion->getSession("array_PistesLliures");
+            echo "<br>Category_id = " . $array_PistesLliures[$category_id];
             break;
         default:
             echo 'HOLAMUNDO';

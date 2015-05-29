@@ -205,8 +205,9 @@ INSERT INTO " . $nomClub . "_users (user_id, user_name, password, temp_password,
 
     function consultarHorarios($cif, $data, $tipo) {
         $pistas = $this->buscarPistas($cif, $tipo);
+        $sessio = new Session();
+        $sessio->setSession("array_PistesLliures", $pistas);
         $horariosOcupados = $this->buscarHorariosPistas($pistas, $data, $cif);
-//        print_r($horariosOcupados);
         return $horariosOcupados;
     }
 
@@ -225,6 +226,9 @@ INSERT INTO " . $nomClub . "_users (user_id, user_name, password, temp_password,
     function buscarHorariosPistas($pistas, $data, $cif) {
         $totalArrays = [];
         $i = 0;
+        $sesion = new Session();
+        $sesion->setSession('cif_club_reserva', $cif);
+        $sesion->setSession('data_club_reserva', $data);
         foreach ($pistas as $key => $value) {
             $sentenciaSql = "SELECT s_time, e_time, category_id FROM " . $cif . "_events WHERE category_id = '" . $value . "' AND s_date = '" . $data . "' AND e_date = '9999-00-00'";
             $consulta = $this->connexioCal->query($sentenciaSql);
@@ -241,14 +245,15 @@ INSERT INTO " . $nomClub . "_users (user_id, user_name, password, temp_password,
     }
 
     function mostrarHorarios($horariosOcupados) {
-        //DA TANTAS VUELTAS COMO PISTAS HAY
         $numeroPista = 1;
         $totalPistas = 0;
+        $category_id = null;
         foreach ($horariosOcupados as $key => $pistas) {
             $totalPistas++;
         }
         if ($totalPistas > 0) {
-            foreach ($horariosOcupados as $key1 => $pistas) {
+            //DA TANTAS VUELTAS COMO PISTAS HAY            
+            foreach ($horariosOcupados as $key1 => $pistas) {                 
                 $arrayHoras = [];
                 for ($i = 0; $i <= 30; $i++) {
                     $arrayHoras[$i] = true;
@@ -269,12 +274,13 @@ INSERT INTO " . $nomClub . "_users (user_id, user_name, password, temp_password,
                             $arrayHoras[($j + 1)] = false;
                         }
                         $j++;
-                        $j++;
-                    }
-                }
+                        $j++;                        
+                    }                            
+                }                
                 //PRINTAMOS LOS SELECTS
                 echo "<h1>Pista " . $numeroPista . "</h1>";
-                echo "<select name='hora_pista_" . $numeroPista . "'>";
+                echo "<form action='index.php' method='POST'>";
+                echo "<select name='hora'>";
                 echo "<option value='null'>Elige horario</option>";
                 $j = 8;
                 for ($i = 0; $i < 29; $i++) {
@@ -295,6 +301,9 @@ INSERT INTO " . $nomClub . "_users (user_id, user_name, password, temp_password,
                     }
                 }
                 echo "</select>";
+                echo "<input type='hidden' name='category_id' value='".($numeroPista - 1)."'>";
+                echo "<button type='submit' class='boton azul formaBoton ' data-toggle='modal' data-target='#myModal' name='accion' value='reservarPista'>Confirmar</button>";
+                echo "</form>";
                 $numeroPista++;
             }
         } else {
