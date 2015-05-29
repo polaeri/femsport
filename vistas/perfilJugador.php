@@ -29,9 +29,6 @@ and open the template in the editor.
 
         <article>
             <sidebar>
-
-                <div class="container">
-
                     <form action="index.php" method="POST">
                         <button type="submit" class="boton anaranjado formaBoton "  name="accion" value="atrasJugador">ATRAS</button>
                        
@@ -40,16 +37,11 @@ and open the template in the editor.
                        
                         <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>
                     </form>
-
-                </div>
-
             </sidebar>
-
-            <div class="content">
+            <div class="contentJugador">
 
                 <div class="perfil">
-                    
-                
+                                   
                 <div class="perfil1">
                   
                     <h2>Información Personal</h2>

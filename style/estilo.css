@@ -10,9 +10,7 @@ and open the template in the editor.
 @import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900');
 
 body{
-    background-image:url('../style/images/fondos/pelota2.jpg');
-    
-   
+  
 }
 
 header{
@@ -38,23 +36,75 @@ menu{
     height: 3em;
     line-height: 3em;
 }
-article{
-    height:80vh;
+/*article{
+  height:80vh;
     width:99vw;
     color:white;
+     height:100%;
+    width:100%;
+}*/
 
-}
-
-article .content{
+article .contentRol{
+  
+   height:80vh;
+   width:99vw;
    // margin:80px;
-    margin-top: 60px;
-    padding:10px;
+    margin-left: 10px;
+    margin-top: 80px;
+    //padding:10px;
     background-color: rgba(0,0,0,0.3);
     border-radius:10px;
     font-size:19px;
-    height:100%;
-    width:100%;
+/*    height:100%;
+    width:100%;*/
      //background-image:url('../style/intro/img/one.jpg'); 
+    background-image:url('../style/images/fondos/estadio.jpg');
+}
+
+article .contentClub2{
+  
+   height:80vh;
+   width:99vw;
+   // margin:80px;
+    margin-left: 10px;
+    margin-top: 80px;
+    //padding:10px;
+    background-color: rgba(0,0,0,0.3);
+    border-radius:10px;
+    font-size:19px;
+/*    height:100%;
+    width:100%;*/
+     //background-image:url('../style/intro/img/one.jpg'); 
+    background-image:url('../style/images/fondos/rol.jpg');
+}
+
+article .contentJugador{
+  
+   height:80vh;
+   width:98vw;
+   // margin:80px;
+    margin-left: 0px;
+    margin-top: 80px;
+    //padding:10px;
+    background-color: rgba(0,0,0,0.3);
+    border-radius:10px;
+    font-size:19px;
+      background-image:url('../style/images/fondos/pelota2.jpg');
+}
+
+article .contentClub{
+    
+      height:140vh;
+      width:98vw;
+      margin-left: 10px;
+      margin-right: 10px;
+    //margin-top: 80px;
+    //padding:10px;
+      background-color: rgba(0,0,0,0.3);
+      border-radius:10px;
+      font-size:19px;
+      background-image:url('../style/images/fondos/estadio.jpg');
+ 
 }
 
 h5{
@@ -67,11 +117,16 @@ h5{
     //font-family:sans-serif;
     font-size:40px;
     font-family: 'Source Sans Pro', sans-serif;
+    color:white;
+    margin-left: 10px;
+  
 }
 .titol2{
     //font-family:sans-serif;
     font-size:20px;
     font-family: 'Source Sans Pro', sans-serif;
+    color:white;
+    margin-left: 10px;
 }
 h4{
     font-family: 'Source Sans Pro', sans-serif;
@@ -82,7 +137,7 @@ sidebar{
     margin-top: 40px;
     padding:30px;
     float:right;
-    width:10vw;
+    //width:10vw;
     height:75vh;
     max-width: 200px;
 }
@@ -102,6 +157,11 @@ footer{
    // background: #fff;
     //background: rgba(255,255,255,0.95);
     
+}
+
+.error{
+    
+    color:red;
 }
 
 ul {
@@ -180,45 +240,34 @@ li {
     font-size:15px;
     color: black;
     margin-left: 20px;  
-
-
 }
 
 .perfil{
-    margin-top: 40px;
+    margin-top: 20px;
     float: left;
-    // background-color: #A4A4A4;
-    height:100%;
+    height:90%;
     width:80%;
-    //border-style: solid;
     border-color: #0000ff;
-    //-webkit-border-radius: 10px 10px;  /* Safari  */
-    // -moz-border-radius: 10px 10px;     /* Firefox */
     opacity: 0.9;
     margin-left: 10px;
-    background-color:#ccc;
-    background-image: -moz-radial-gradient(center 45deg,circle cover, #ccc, #333);
-    background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%,800, from(#ccc), to(#333));
-    background-image: radial-gradient(center 45deg,circle cover, #ccc, #333);
+   background-color:#F2F2F2;
+    //background-image: -moz-radial-gradient(center 45deg,circle cover, #ccc, #333);
+    //background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%,800, from(#ccc), to(#333));
+    //background-image: radial-gradient(center 45deg,circle cover, #ccc, #333);
     -moz-border-radius: 35px 20px / 20px 35px;
-    border-radius: 35px 20px / 20px 35px;
-    
+    border-radius: 35px 20px / 20px 35px;  
 }
 
 .perfil .footer{
     width: 1200px;
     height: 100px;
     background-color: red;
-    
 }
 .perfil1{
     float: left;
-    // background-color: #A4A4A4;
     width: 30%;
     height: 100%;
-   
-}
-
+   }
 
 .perfil2{
     float: left;

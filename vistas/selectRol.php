@@ -69,7 +69,7 @@ and open the template in the editor.
                                         
                                           /// DALE COLOR A ESTO IVAN
                                             if(isset( $errorInicio)){
-                                                echo  "<h4 bgcolor='red'>".$errorInicio."</h4>";
+                                                echo  "<div class='error'>".$errorInicio."</div>";
                                             }
                                         ?>
                                     </form>
@@ -88,7 +88,7 @@ and open the template in the editor.
 
 
             </sidebar>
-            <div class="content">
+            <div class="contentRol">
                 <h1 class="titol">¡Registrate!</h1>
 
                 <div align="center">
@@ -108,5 +108,6 @@ and open the template in the editor.
         </article>
 
         <footer>Copyright ©FemSport</footer>
+        </div>
     </body>
 </html>
