@@ -29,7 +29,7 @@ http://www.the-art-of-web.com/javascript/validate-password/
             <img src="style/images/selectRol/logoFemEsport2.png">
             <menu>
                 <ul>
-                    <li><a href="#Aqui URL">Inicio</a></li>
+                    <li><a href="index.php">Inicio</a></li>
                 </ul>
             </menu>
         </header>

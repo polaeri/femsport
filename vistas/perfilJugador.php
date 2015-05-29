@@ -16,14 +16,12 @@ and open the template in the editor.
 
     </head>
     <body>
-        <header><img src="style/images/selectRol/logoFemEsport2.png">
-
+        < <header>
+            <img src="style/images/selectRol/logoFemEsport2.png">
             <menu>
                 <ul>
-                    <li><a href="#Aqui URL">Inicio</a></li>
-
+                    <li><a href="index.php">Inicio</a></li>
                 </ul>
-
             </menu>
         </header>
 
@@ -32,7 +30,7 @@ and open the template in the editor.
                     <form action="index.php" method="POST">
                         <button type="submit" class="boton anaranjado formaBoton "  name="accion" value="atrasJugador">ATRAS</button>
                        
-                    </form>
+                    </form><br>
                     <form action="index.php" method="POST">
                        
                         <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>
@@ -48,20 +46,28 @@ and open the template in the editor.
                     <hr>
                     
                     <div class="avatar">
-                       
+                        
                     </div>
-                    <p>
+                        
+                        
+                       
+                   
+                    <div class="datosPerfil">
+                    
                         <?php
                         $sessio = new Session();
                         $jugador = $sessio->getSession("jugador");
                         $jugador->printPerfilJugador();
                         ?>
-                    </p>
+                   
+                    </div> 
+                
+                    <div class="botonDatosPerfil"> 
                     <form action="index.php" method="POST">
                         <p> <button name="accion" value="editarPerfilJugador" class="boton2 verde formaBoton ">Editar</button></p>
                     </form>
                 </div>
-                
+                </div>
                 <div class="perfil1">
                     <h2>Historial Reservas</h2>
                     <hr>
