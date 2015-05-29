@@ -20,7 +20,6 @@ http://www.the-art-of-web.com/javascript/validate-password/
 <link href="style/formJugador.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-    <div class="jugador">
      <header>
             <img src="style/images/selectRol/logoFemEsport2.png">
             <menu>
@@ -34,11 +33,12 @@ http://www.the-art-of-web.com/javascript/validate-password/
         <article>
            
             <sidebar>
+                
           <form action="index.php" method="POST">
                         <button type="submit" class="boton azul formaBoton "  name="accion" value="salir">SALIR</button>
                     </form>
             </sidebar>
-                
+            <div class="contentJugador">
                 <?php if(isset($validar)){
                     
                     $validar=false;
@@ -89,7 +89,7 @@ http://www.the-art-of-web.com/javascript/validate-password/
                                 <input type="submit" name='accion' value="Registrar" class="submit action-button" />
             </fieldset>
                     </form>
-              
+              </div>
         </article>
      <footer>Copyright ©FemSport</footer>
      </div>

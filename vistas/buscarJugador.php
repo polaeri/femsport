@@ -21,22 +21,13 @@ and open the template in the editor.
             <menu>
                 <ul>
                     <li><a href="#Aqui URL">Inicio</a></li>
-
-
-
-
                 </ul>
-
-
             </menu>
         </header>
 
         <article>
             <sidebar>
 
-
-                <div class="container">
-                    
                     <form action="index.php" method="POST">
                         <button type="submit" class="boton anaranjado formaBoton "  name="accion" value="atrasJugador">ATRAS</button>
                        
@@ -45,12 +36,10 @@ and open the template in the editor.
                      
                         <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>
                     </form>
-                </div>
-
-                </div>
+                
             </sidebar>
-            <div class="content">
-                <h1 class="titol">¡Selecciona el deporte para buscar partidos en curso!</h1>
+            <div class="contentJugador">
+                <h1 class="titol2">¡Selecciona el deporte para buscar partidos en curso!</h1>
 
 
 

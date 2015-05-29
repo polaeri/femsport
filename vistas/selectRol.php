@@ -31,7 +31,6 @@ and open the template in the editor.
 
     </head>
     <body>
-        <div class="rol">
         <header><img src="style/images/selectRol/logoFemEsport2.png">
         </header>
 
@@ -89,7 +88,7 @@ and open the template in the editor.
 
 
             </sidebar>
-            <div class="content">
+            <div class="contentRol">
                 <h1 class="titol">¡Registrate!</h1>
 
                 <div align="center">

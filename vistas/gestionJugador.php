@@ -34,18 +34,13 @@ and open the template in the editor.
         <article>
             <sidebar>
 
-
-                <div class="container">
-
                     <form action="index.php" method="POST">
                         <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>
                     </form>
 
-                </div>
-
-                </div>
-            </sidebar>
-            <div class="content">
+             </sidebar>
+            <div class="contentJugador">
+                
                 <h1 class="titol2">
                     <?php
                     $sessio = new Session();
@@ -53,27 +48,18 @@ and open the template in the editor.
                     echo "Bienvenido " . $jugador->getUsuario();
                     ?>
                 </h1>
-
-
-
                 <div align="center">
                     <form method="POST" action="index.php">
                         <input class="especial" type="image" name="accion" value="perfilJugador" src="style/images/botonPerfilJugador.png" width="250px">
-                        &nbsp &nbsp &nbsp &nbsp &nbsp
+                        &nbsp &nbsp &nbsp &nbsp 
                         <input class="especial" type="image" name="accion" value="reservaJugador" src="style/images/ReservaJugador.png" width="250px">
-                        &nbsp &nbsp &nbsp &nbsp &nbsp
+                        &nbsp &nbsp &nbsp &nbsp 
                         <input class="especial" type="image" name="accion" value="buscaJugador" src="style/images/BuscaJugador.png" width="250px">
                     </form>
 
                 </div>
-
-
-            </div>
-
-
-
+           </div>
         </article>
-
         <footer>Copyright ©FemSport</footer>
     </body>
 </html>

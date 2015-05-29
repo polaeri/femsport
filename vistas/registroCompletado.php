@@ -32,12 +32,10 @@ http://www.the-art-of-web.com/javascript/validate-password/
 
         <article>
             <sidebar>
-                <div class="container">
-
-                 </div>
+              
             </sidebar>
             
-            <div class="content">
+            <div class="contentRol">
                 <center>
                 <h2>Registro Completo</h2>
                 <img src="style/images/completo.png" alt="" width="200px" height="200px"/>

@@ -18,32 +18,20 @@
             <menu>
                 <ul>
                     <li><a href="#Aqui URL">Inicio</a></li>
-
-
-
-
                 </ul>
-
-
             </menu>
         </header>
 
         <article>
             <sidebar>
 
-
-                <div class="container">
-                    
                     <form action="index.php" method="POST">
                      
                         <button type="submit" class="boton azul formaBoton "  name="accion" value="salir">SALIR</button>
                     </form>
 
-                </div>
-
-                </div>
             </sidebar>
-            <div class="content">
+            <div class="contentClub2">
                 <h1 class="titol2">
                 
                  <?php
