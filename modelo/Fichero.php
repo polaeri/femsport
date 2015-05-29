@@ -5,7 +5,7 @@
  */
 
 class Fichero {
-    private $rutaPadre = "img/avatar" ;
+    private $rutaPadre = "style/avatars/" ;
     private $fichero;
    
 
@@ -28,10 +28,11 @@ class Fichero {
         
         
     }
-    function subirFichero() {
-
-     
-        $rutaPadre = $rutaPadre . basename($_FILES['uploadedfile']);
+    function subirFichero($nombre) {
+        $var = explode(".", $_FILES['uploadedfile']);
+        
+        $extennsion =end($var);
+        $rutaPadre = $rutaPadre.$nombre.".".$extension;
         if (move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $rutaPadre)) {
             echo "El archivo " . basename($_FILES['uploadedfile']['name']) . " ha sido subido";
         } else {
