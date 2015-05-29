@@ -50,7 +50,7 @@ http://www.the-art-of-web.com/javascript/validate-password/
                 } ?>
                 <form id="formulario" class="contact_form" action="index.php" method="POST">
                     <!-- <span class="required_notification">* Datos Requeridos</span>" -->
-                        <!-- progreso -->
+                    <!-- progreso --><br>
                         <ul id="progreso">
                             <li class="active">Cuenta de usuario</li>
                             <li>Datos Personales</li>
