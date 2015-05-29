@@ -47,8 +47,7 @@ http://www.the-art-of-web.com/javascript/validate-password/
                     $validar=false;
                     echo "<script language='JavaScript'>"; 
                     echo "alert('Error. Vuelve a identificarte');"; 
-                    echo "</script>";
-                    
+                    echo "</script>";                    
                     
                 } ?>
             <form id="formulario" class="contact_form" action="index.php" method="POST">

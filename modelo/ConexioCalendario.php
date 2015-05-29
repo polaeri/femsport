@@ -206,16 +206,8 @@ INSERT INTO " . $nomClub . "_users (user_id, user_name, password, temp_password,
     function consultarHorarios($cif, $data, $tipo) {
         $pistas = $this->buscarPistas($cif, $tipo);
         $horariosOcupados = $this->buscarHorariosPistas($pistas, $data, $cif);
+//        print_r($horariosOcupados);
         return $horariosOcupados;
-        /*foreach ($horariosOcupados as $key1 => $pistas) {
-            foreach ($pistas as $key2 => $value) {
-                echo "<br>PISTA " . $key2;
-                echo "<br>_______________________";
-                echo "<br>INICIO = " . $value['inicio'];
-                echo "<br>FINAL = " . $value['final'];
-                echo "<br>PISTA = " . $value['pista'];
-            }
-        }*/
     }
 
     function buscarPistas($cif, $tipo) {
@@ -246,6 +238,57 @@ INSERT INTO " . $nomClub . "_users (user_id, user_name, password, temp_password,
             $i++;
         }
         return $totalArrays;
+    }
+
+    function mostrarHorarios($horariosOcupados) {
+        //DA TANTAS VUELTAS COMO PISTAS HAY
+        foreach ($horariosOcupados as $key1 => $pistas) {
+            $totalPista = sizeof($pistas);
+            $arrayHoras = [];
+            for ($i = 0; $i <= 30; $i++) {
+                $arrayHoras[$i] = true;
+            }
+            //DA TANTAS VUELTAS COMO RESERVAS EN LA PISTA HAY
+            foreach ($pistas as $key => $value) {
+                $j = 0;
+                for ($i = 8; $i <= 23; $i++) {
+                    if ($i < 10) {
+                        $horaInicio = ("0" . $i . ":00:00");
+                        $horaInicio2 = ("0" . $i . ":30:00");
+                    } else {
+                        $horaInicio = ($i . ":00:00");
+                        $horaInicio2 = ($i . ":30:00");
+                    }
+                    if ($value['inicio'] === $horaInicio || $value['inicio'] === $horaInicio2) {
+                        $arrayHoras[$j] = false;
+                        $arrayHoras[($j + 1)] = false;
+                    }
+                    $j++;
+                    $j++;
+                }
+            }
+            //PRINTAMOS LOS SELECTS
+            echo "<select>";
+            $j = 8;
+            for ($i = 0; $i <= 30; $i++) {
+                if ($arrayHoras[$i]) {
+                    if (!$arrayHoras[($i + 1)]) {
+                        echo "<option>NO</option>";
+                    } else if ($i % 2 == 0) {
+                        echo "<option>" . ($j . ":00") . "</option>";
+                    } else {
+                        echo "<option>" . ($j . ":30") . "</option>";
+                        $j++;
+                    }
+                } else {
+                    if ($i % 2 == 0) {
+                        $j++;
+                    }
+                    echo "<option>RESERVADA</option>";
+                }
+            }
+            echo "</select>";
+        }
     }
 
 }
