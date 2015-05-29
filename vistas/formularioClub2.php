@@ -51,6 +51,7 @@ http://www.the-art-of-web.com/javascript/validate-password/
                     
                 } ?>
             <form id="formulario" class="contact_form" action="index.php" method="POST">
+                <br>
                 <!-- progreso -->
                 <ul id="progreso">
                     <li class="active">Cuenta</li>
@@ -64,25 +65,25 @@ http://www.the-art-of-web.com/javascript/validate-password/
 
                     <h2 class="fs-title">Crear su cuenta</h2>
                     <h3 class="fs-subtitle">Paso 1</h3>
-                    <input type="dni" name="cif" placeholder="CIF" pattern="^[0-5][0-9]{7}[A-Z]$" required /> 
+                    <input type="dni" name="cif" placeholder="CIF" maxlength="9" pattern="^[0-5][0-9]{7}[A-Z]$" required /> 
                     <span class="form_hint" >Formato correcto: "12345678A"</span> 
-                    <input type="password" placeholder="Contraseña" name="pwd1" onchange="form.pwd2.pattern = this.value;" required />
-                    <input type="password"  name="pwd2" placeholder="Confirmar contraseña" name="pwd2"required /> 
+                    <input type="password" placeholder="Contraseña" name="pwd1" maxlength="20" onchange="form.pwd2.pattern = this.value;" required />
+                    <input type="password"  name="pwd2" placeholder="Confirmar contraseña" maxlength="20"name="pwd2"required /> 
                     <input type="button" name="next" class="next action-button" value="Siguiente" />
                 </fieldset>
                 <fieldset>
                     <h2 class="fs-title">Tus datos del club</h2>
                     <h3 class="fs-subtitle">Paso 2</h3>
-                    <input type="text" name="nombre" placeholder="Nombre" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" required /> 
-                    <input type="tel" name="telefono" placeholder="Telefono" pattern="^[9|8|7|6|5]\d{8}$" required /> 
-                    <input type="tel" name="telefono2" placeholder="Telefono 2" pattern="^[9|8|7|6|5]\d{8}$"/> 
-                    <input type="text" name="direccion" placeholder="Dirección" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" required /> 
-                    <input type="email" name="email"  placeholder="Correo electronico" pattern="^[-\w.]+@{1}[-a-z0-9]+[.]{1}[a-z]{2,5}$" required />
+                    <input type="text" name="nombre" placeholder="Nombre" maxlength="30" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" required /> 
+                    <input type="tel" name="telefono" placeholder="Telefono" maxlength="12" pattern="^[9|8|7|6|5]\d{8}$" required /> 
+                    <input type="tel" name="telefono2" placeholder="Telefono 2" maxlength="12" pattern="^[9|8|7|6|5]\d{8}$"/> 
+                    <input type="text" name="direccion" placeholder="Dirección" maxlength="80" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" required /> 
+                    <input type="email" name="email"  placeholder="Correo electronico" maxlength="50"  pattern="^[-\w.]+@{1}[-a-z0-9]+[.]{1}[a-z]{2,5}$" required />
                     <span class="form_hint" >Formato correcto: "nombre@dominio.com"</span> 
-                    <input type="url" name="web" placeholder="Página Web" value="http://" pattern="^http://www.[a-zA-Z0.9._-]{4,}$" required />
+                    <input type="url" name="web" placeholder="Página Web" value="http://" maxlength="100"  pattern="^http://www.[a-zA-Z0.9._-]{4,}$" required />
                     <span class="form_hint" >Formato correcto: "http://www.dirección.com""</span> 
                     <input type="file" name="avatar" placeholder="Imagen Perfil"/>
-                    <textarea name="descripcion" value="descripcion" cols="40" rows="6" placeholder="Descripción"></textarea> 
+                    <textarea name="descripcion" value="descripcion" cols="40" rows="6" maxlength="300" placeholder="Descripción"></textarea> 
 
                     <input type="button" name="previous" class="previous action-button" value="Anterior" />
                     <input type="button" name="next" class="next action-button" value="Siguiente" />

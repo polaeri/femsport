@@ -57,11 +57,17 @@ class jugador {
         //echo "<li>Nombre: <input type='text' name='nombre' value='" . $this->nombre . "' ></li>";
         //echo "<li>DNI: <input type='text' name='dni' value='" . $this->dni . "' ></li>";
         //echo "<li>Apellidos: <input type='text' name='apellidos' value='" . $this->apellidos . "' ></li>";
-       echo '<input type="tel" name="telefono" placeholder="Telefono" value="' . $this->telefono . '" pattern="^[9|8|7|6|5]\d{8}$" required />';
-        echo "<input type='text' name='telefono' value='" . $this->telefono . "' >";
-        echo "<input type='text' name='email' value='" . $this->email . "' >";
-        //echo "<li>Usuario: <input type='text' name='usuario' value='" . $this->usuario . "' ></li>";
-        //echo "<li>Reputacion: <input type='text' name='reputacion' value='" . $this->reputacion . "' ></li>";
+        
+        echo "<input type='text' name='usuario' placeholder='Nombre Usuario' value='" . $this->usuario . "' pattern='[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}' required>";
+        echo "<input type='text' name='nombre' placeholder='Nombre' value='" . $this->nombre . "' pattern='[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}' required />"; 
+        echo "<input type='text' name='apellidos' placeholder='Apellidos' value='" . $this->apellidos . "' pattern='[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}' required /> ";
+        echo "<input type='DNI' name='dni' placeholder='DNI/NIF' value='" . $this->dni . "' pattern='^[0-5][0-9]{7}[A-Z]$' required />"; 
+            echo" <span class='form_hint' >Formato:'12345678A'</span>";
+        echo '<input type="tel" name="telefono" placeholder="Telefono" value="' . $this->telefono . '" pattern="^[9|8|7|6|5]\d{8}$" required />';
+        echo "<input type='text' name='email' value='" . $this->email . "' placeholder='Correo electronico' pattern='^[-\w.]+@{1}[-a-z0-9]+[.]{1}[a-z]{2,5}$' required>";
+            echo "<span class='form_hint' >Formato:'nombre@dominio.com'</span>";
+        
+ 
         echo "<textarea cols='40' rows='6' name='descripcion' >$this->descripcion</textarea>";
     }
 
