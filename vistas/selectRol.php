@@ -71,13 +71,7 @@ and open the template in the editor.
                                            
                                         </div>
                                         
-                                        <?php  
                                         
-                                          /// DALE COLOR A ESTO IVAN
-                                            if(isset( $errorInicio)){
-                                                echo  "<div class='error'>".$errorInicio."</div>";
-                                            }
-                                        ?>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
@@ -106,10 +100,22 @@ and open the template in the editor.
                 </div>
                 <h4>Únete ya a nuestra comunidad para empezar a reservar partidos o participar en encuentros con otros usuarios. </h4>
                     <h4>Selecciona si eres un jugador o un club para registrarte.</h4>
+                    
+                    
+                    <?php  
+                                        
+                                          /// DALE COLOR A ESTO IVAN
+                                            if(isset( $errorInicio)){
+                                                
+                                                echo "<div class='error'>";
+                                                echo "<img src='style/images/error.png' width='40px' />&nbsp";
+                                                echo  "".$errorInicio."</div>";
+                                            }
+                                        ?>
 
             </div>
 
-
+            
 
         </article>
 
