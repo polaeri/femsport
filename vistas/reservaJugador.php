@@ -25,22 +25,20 @@
         <article>
             <sidebar>
 
-                    <form action="index.php" method="POST">
-                        <button type="submit" class="boton anaranjado formaBoton "  name="accion" value="atrasJugador">ATRAS</button>
-
-                    </form>
-                    <form action="index.php" method="POST">
-
-                        <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>
-                    </form>
+                <form action="index.php" method="POST">
+                    <button type="submit" class="boton anaranjado formaBoton "  name="accion" value="atrasJugador">ATRAS</button>
+                </form>
+                <form action="index.php" method="POST">
+                    <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>
+                </form>
 
             </sidebar>
             <div class="contentJugador">
                 <br>
-               
+
                 <form action="index.php" method="POST">
-                    
-                   
+
+
                     <img src="style/images/selectRol/jugador2.png" width="120px" height="120px"/>
                     <select name= "deporte" id="deporte">
                         <option value="0">Escoje Deporte</option>
@@ -50,15 +48,15 @@
                         <option value="basket">Basket</option>
                         <option value="padel">Padel</option>
                     </select>
-                  
+
                     <img src="style/images/selectRol/club.png" width="120px" height="120px"/>
                     <select name="club" id="clubs" hidden>                    
                     </select>
-                      
+
                     <img src="style/images/botonReservas.png" width="120px" height="120px"/>
-                       <input type="date" id="fecha" name="fecha" hidden>              
+                    <input type="date" id="fecha" name="fecha" hidden>              
                     <button id="consultar" type="submit" name="accion" value="consultar" hidden>CONSULTAR</button>
-                
+
                 </form>            
                 <script>
                     $(document).ready(function () {

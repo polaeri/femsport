@@ -117,14 +117,15 @@ if (isset($_POST["accion"])) {
             } else {
                 $club = new Club($_POST["cif"], $_POST["nombre"], $_POST["telefono"], $_POST["telefono2"], $_POST["direccion"], $_POST["email"], $_POST["avatar"], $_POST["web"], $_POST["pwd1"], $_POST["descripcion"], $arrayPistas);
                 $club->guardarClub();
+                //Añadir tablas Mysql del calendario
+                $ConexioCalendario = new ConexioCalendario();
+                $ConexioCalendario->registrarClub($_POST["cif"], $_POST["email"], $arrayPistas);
                 include 'vistas/registroCompletado.php';
                 break;
             }
 
 
-            //Añadir tablas Mysql del calendario
-            $ConexioCalendario = new ConexioCalendario();
-            $ConexioCalendario->registrarClub($_POST["cif"], $_POST["email"], $arrayPistas);
+
 
             break;
         case "login":
@@ -274,6 +275,9 @@ if (isset($_POST["accion"])) {
             $horariosOcupados = $conexioCalendario->consultarHorarios($_POST["club"], $_POST["fecha"], $_POST["deporte"]);
             $sesion->setSession("arrayHorariosOcupados", $horariosOcupados);
             include 'vistas/consultaHorario.php';
+            break;
+        case "reservarPista":
+            
             break;
         default:
             echo 'HOLAMUNDO';

@@ -32,11 +32,14 @@
             </sidebar>            
             <div class="content">
                 <br><br><br><br><br><br>
-                <?php
-                $conexioCalendario = new ConexioCalendario();
-                $sessio = new Session();
-                $conexioCalendario->mostrarHorarios($sessio->getSession('arrayHorariosOcupados'));
-                ?>
+                <form action="index.php" method="POST">
+                    <?php
+                    $conexioCalendario = new ConexioCalendario();
+                    $sessio = new Session();
+                    $conexioCalendario->mostrarHorarios($sessio->getSession('arrayHorariosOcupados'));
+                    ?>                
+                    <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="reservarPista">Confirmar</button>
+                </form>
             </div>
         </article>
         <footer>Copyright ©FemSport</footer>

@@ -242,52 +242,63 @@ INSERT INTO " . $nomClub . "_users (user_id, user_name, password, temp_password,
 
     function mostrarHorarios($horariosOcupados) {
         //DA TANTAS VUELTAS COMO PISTAS HAY
-        foreach ($horariosOcupados as $key1 => $pistas) {
-            $totalPista = sizeof($pistas);
-            $arrayHoras = [];
-            for ($i = 0; $i <= 30; $i++) {
-                $arrayHoras[$i] = true;
-            }
-            //DA TANTAS VUELTAS COMO RESERVAS EN LA PISTA HAY
-            foreach ($pistas as $key => $value) {
-                $j = 0;
-                for ($i = 8; $i <= 23; $i++) {
-                    if ($i < 10) {
-                        $horaInicio = ("0" . $i . ":00:00");
-                        $horaInicio2 = ("0" . $i . ":30:00");
-                    } else {
-                        $horaInicio = ($i . ":00:00");
-                        $horaInicio2 = ($i . ":30:00");
-                    }
-                    if ($value['inicio'] === $horaInicio || $value['inicio'] === $horaInicio2) {
-                        $arrayHoras[$j] = false;
-                        $arrayHoras[($j + 1)] = false;
-                    }
-                    $j++;
-                    $j++;
+        $numeroPista = 1;
+        $totalPistas = 0;
+        foreach ($horariosOcupados as $key => $pistas) {
+            $totalPistas++;
+        }
+        if ($totalPistas > 0) {
+            foreach ($horariosOcupados as $key1 => $pistas) {
+                $arrayHoras = [];
+                for ($i = 0; $i <= 30; $i++) {
+                    $arrayHoras[$i] = true;
                 }
-            }
-            //PRINTAMOS LOS SELECTS
-            echo "<select>";
-            $j = 8;
-            for ($i = 0; $i <= 30; $i++) {
-                if ($arrayHoras[$i]) {
-                    if (!$arrayHoras[($i + 1)]) {
-                        echo "<option>NO</option>";
-                    } else if ($i % 2 == 0) {
-                        echo "<option>" . ($j . ":00") . "</option>";
-                    } else {
-                        echo "<option>" . ($j . ":30") . "</option>";
+                //DA TANTAS VUELTAS COMO RESERVAS EN LA PISTA HAY
+                foreach ($pistas as $key => $value) {
+                    $j = 0;
+                    for ($i = 8; $i <= 23; $i++) {
+                        if ($i < 10) {
+                            $horaInicio = ("0" . $i . ":00:00");
+                            $horaInicio2 = ("0" . $i . ":30:00");
+                        } else {
+                            $horaInicio = ($i . ":00:00");
+                            $horaInicio2 = ($i . ":30:00");
+                        }
+                        if ($value['inicio'] === $horaInicio || $value['inicio'] === $horaInicio2) {
+                            $arrayHoras[$j] = false;
+                            $arrayHoras[($j + 1)] = false;
+                        }
+                        $j++;
                         $j++;
                     }
-                } else {
-                    if ($i % 2 == 0) {
-                        $j++;
-                    }
-                    echo "<option>RESERVADA</option>";
                 }
+                //PRINTAMOS LOS SELECTS
+                echo "<h1>Pista " . $numeroPista . "</h1>";
+                echo "<select name='hora_pista_" . $numeroPista . "'>";
+                echo "<option value='null'>Elige horario</option>";
+                $j = 8;
+                for ($i = 0; $i < 29; $i++) {
+                    if ($arrayHoras[$i]) {
+                        if (!$arrayHoras[($i + 1)]) {
+                            echo "<option value = 'null'>NO</option>";
+                        } else if ($i % 2 == 0) {
+                            echo "<option value = '" . ($j . ":00") . "'>" . ($j . ":00") . "</option>";
+                        } else {
+                            echo "<option value = '" . ($j . ":30") . "'>" . ($j . ":30") . "</option>";
+                            $j++;
+                        }
+                    } else {
+                        if ($i % 2 == 0) {
+                            $j++;
+                        }
+                        echo "<option value = 'null'>RESERVADA</option>";
+                    }
+                }
+                echo "</select>";
+                $numeroPista++;
             }
-            echo "</select>";
+        } else {
+            echo "<h1>NO HI HA PISTES</h1>";
         }
     }
 
