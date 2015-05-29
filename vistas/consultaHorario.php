@@ -29,10 +29,13 @@
                     </form>
                 </div>
                 </div>
-            </sidebar>
+            </sidebar>            
             <div class="content">
+                <br><br><br><br><br><br>
                 <?php
-                
+                $conexioCalendario = new ConexioCalendario();
+                $sessio = new Session();
+                $conexioCalendario->mostrarHorarios($sessio->getSession('arrayHorariosOcupados'));
                 ?>
             </div>
         </article>
