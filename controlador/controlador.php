@@ -276,6 +276,9 @@ if (isset($_POST["accion"])) {
             $sesion->setSession("arrayHorariosOcupados", $horariosOcupados);
             include 'vistas/consultaHorario.php';
             break;
+        case "reservarPista":
+            
+            break;
         default:
             echo 'HOLAMUNDO';
             break;

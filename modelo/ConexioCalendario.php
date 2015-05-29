@@ -274,23 +274,24 @@ INSERT INTO " . $nomClub . "_users (user_id, user_name, password, temp_password,
                 }
                 //PRINTAMOS LOS SELECTS
                 echo "<h1>Pista " . $numeroPista . "</h1>";
-                echo "<select>";
+                echo "<select name='hora_pista_" . $numeroPista . "'>";
+                echo "<option value='null'>Elige horario</option>";
                 $j = 8;
                 for ($i = 0; $i < 29; $i++) {
                     if ($arrayHoras[$i]) {
                         if (!$arrayHoras[($i + 1)]) {
-                            echo "<option>NO</option>";
+                            echo "<option value = 'null'>NO</option>";
                         } else if ($i % 2 == 0) {
-                            echo "<option>" . ($j . ":00") . "</option>";
+                            echo "<option value = '" . ($j . ":00") . "'>" . ($j . ":00") . "</option>";
                         } else {
-                            echo "<option>" . ($j . ":30") . "</option>";
+                            echo "<option value = '" . ($j . ":30") . "'>" . ($j . ":30") . "</option>";
                             $j++;
                         }
                     } else {
                         if ($i % 2 == 0) {
                             $j++;
                         }
-                        echo "<option>RESERVADA</option>";
+                        echo "<option value = 'null'>RESERVADA</option>";
                     }
                 }
                 echo "</select>";
