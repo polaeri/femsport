@@ -61,7 +61,7 @@ http://www.the-art-of-web.com/javascript/validate-password/
                         <fieldset>
                             <h2 class="fs-title">Crear su cuenta</h2>
                             <h3 class="fs-subtitle">Paso 1</h3>
-                                <input type="text" name="usuario" placeholder="Nombre Usuario" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" required /> 
+                                <input type="text" name="usuario" placeholder="Nombre Usuario" placeholder="Nombre Usuario" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" required /> 
                                 <input type="password" placeholder="Contraseña" name="pwd1" onchange="form.pwd2.pattern = this.value;" required />
                                 <input type="password"  name="pwd2" placeholder="Confirmar contraseña" name="pwd2"required /> 
                                 <input type="button" name="next" class="next action-button" value="Siguiente" />
