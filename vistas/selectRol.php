@@ -31,7 +31,13 @@ and open the template in the editor.
 
     </head>
     <body>
-        <header><img src="style/images/selectRol/logoFemEsport2.png">
+        <header>
+            <img src="style/images/selectRol/logoFemEsport2.png">
+            <menu>
+                <ul>
+                    <li><a href="index.php">Inicio</a></li>
+                </ul>
+            </menu>
         </header>
 
         <article>

@@ -18,17 +18,14 @@ and open the template in the editor.
     <body>
         <header><img src="style/images/selectRol/logoFemEsport2.png">
 
+            <header>
+            <img src="style/images/selectRol/logoFemEsport2.png">
             <menu>
                 <ul>
-                    <li><a href="#Aqui URL">Inicio</a></li>
-
-
-
-
+                    <li><a href="index.php">Inicio</a></li>
                 </ul>
-
-
             </menu>
+        </header>
         </header>
 
         <article>
@@ -39,6 +36,7 @@ and open the template in the editor.
                     </form>
 
              </sidebar>
+            
             <div class="contentJugador">
                 
                 <h1 class="titol2">

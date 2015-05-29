@@ -7,7 +7,16 @@ and open the template in the editor.
     Created on : 13-may-2015, 19:46:16
     Author     : xavi
 */
+
+
+
 @import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900');
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
 
 body{
   
@@ -50,7 +59,7 @@ article .contentRol{
    width:99vw;
    // margin:80px;
     margin-left: 10px;
-    margin-top: 80px;
+    margin-top: 100px;
     //padding:10px;
     background-color: rgba(0,0,0,0.3);
     border-radius:10px;
@@ -81,10 +90,10 @@ article .contentClub2{
 article .contentJugador{
   
    height:80vh;
-   width:98vw;
+   width:99vw;
    // margin:80px;
-    margin-left: 0px;
-    margin-top: 80px;
+    margin-left: 10px;
+margin-top: 100px;
     //padding:10px;
     background-color: rgba(0,0,0,0.3);
     border-radius:10px;
@@ -95,7 +104,7 @@ article .contentJugador{
 article .contentClub{
     
       height:140vh;
-      width:98vw;
+      width:99vw;
       margin-left: 10px;
       margin-right: 10px;
     //margin-top: 80px;
@@ -127,12 +136,26 @@ h5{
     font-family: 'Source Sans Pro', sans-serif;
     color:white;
     margin-left: 10px;
+    margin-top: 10px;
 }
 h4{
     font-family: 'Source Sans Pro', sans-serif;
+    
     text-align: center;
+}
 
-} 
+.datosPerfil{
+     font-family: 'Source Sans Pro', sans-serif;
+     font-size:20px;
+     margin-left: 10px;
+}
+
+.botonDatosPerfil{
+    margin-left: 30px;
+    margin-top: 50px;
+    bottom: 0;
+   
+}
 sidebar{
     margin-top: 40px;
     padding:30px;
@@ -186,6 +209,7 @@ a:hover {
     text-decoration:none;   
     //background-color:#3366FF;
 }
+
 
 a:link   
 {   
@@ -277,11 +301,8 @@ li {
     
 }
 
-
-
-
 .perfil1 .avatar{
-    
+    margin-top: 10px;
     margin-left: 10px;
     width: 100px;
     height: 100px;
@@ -291,6 +312,7 @@ li {
 
 
 hr{
+    margin-top: 10px;
     border-color: #0000ff;
 
 }

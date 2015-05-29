@@ -18,14 +18,12 @@ and open the template in the editor.
 
     </head>
     <body>
-        <header><img src="style/images/selectRol/logoFemEsport2.png">
-
+         <header>
+            <img src="style/images/selectRol/logoFemEsport2.png">
             <menu>
                 <ul>
-                    <li><a href="#Aqui URL">Inicio</a></li>
-
+                    <li><a href="index.php">Inicio</a></li>
                 </ul>
-
             </menu>
         </header>
 
@@ -36,6 +34,7 @@ and open the template in the editor.
                         <button type="submit" class="boton anaranjado formaBoton "  name="accion" value="atrasJugadorPerfil">ATRAS</button>
                        
                     </form>
+                <br>
 
                     <form action="index.php" method="POST">
                         <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>
@@ -59,9 +58,7 @@ and open the template in the editor.
                             
                             
                                                      ?>          
-                        <input type="tel" name="telefono" placeholder="Telefono" pattern="^[9|8|7|6|5]\d{8}$" required /> 
-                       <input type="text" name="telefono" value="" pattern="^[0-5][0-9]{7}[A-Z]$"/>
-                         <input type="DNI" name="cif" placeholder="NIF" pattern="^[0-5][0-9]{7}[A-Z]$" required /> 
+                        
                 
                     </div>
                     <div class="subperfil2" id="formulario" class="contact_form" >

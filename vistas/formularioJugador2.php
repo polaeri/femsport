@@ -24,11 +24,10 @@ http://www.the-art-of-web.com/javascript/validate-password/
             <img src="style/images/selectRol/logoFemEsport2.png">
             <menu>
                 <ul>
-                    <li><a href="#Aqui URL">Inicio</a></li>
+                    <li><a href="index.php">Inicio</a></li>
                 </ul>
             </menu>
         </header>
-    
     
         <article>
            
@@ -50,7 +49,7 @@ http://www.the-art-of-web.com/javascript/validate-password/
                 } ?>
                 <form id="formulario" class="contact_form" action="index.php" method="POST">
                     <!-- <span class="required_notification">* Datos Requeridos</span>" -->
-                        <!-- progreso -->
+                    <!-- progreso --><br>
                         <ul id="progreso">
                             <li class="active">Cuenta de usuario</li>
                             <li>Datos Personales</li>
@@ -83,7 +82,7 @@ http://www.the-art-of-web.com/javascript/validate-password/
                         <fieldset>
                             <h2 class="fs-title">Detalles Personales</h2>
                             <h3 class="fs-subtitle">Paso 3</h3>
-                                <input type="file" name="avatar" placeholder="Imagen Perfil"/>
+                                <input type="file" name="avatar" accept="image/gif, image/jpeg, image/png" placeholder="Imagen Perfil"/>
                                 <textarea name="descripcion" cols="40" rows="6" placeholder="Descripción"></textarea>
 				<input type="button" name="previous" class="previous action-button" value="Anterior" />
                                 <input type="submit" name='accion' value="Registrar" class="submit action-button" />
