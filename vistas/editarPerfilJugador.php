@@ -45,23 +45,21 @@ and open the template in the editor.
 
             <div class="contentJugador">
 
-                <div class="perfil">
+                 <div class="perfil">
                     <h2>Editar Información</h2>
                     <hr>
-                     <form action="index.php" method="POST" class="contact_form" id="contact_form">
-                    <div class="subperfil1" >
-                          
+                     <form action="index.php" method="POST" class="contact_form" id="contact_form" runat="server">
+                    <div class="subperfilClub" >
+                   
                             <?php
                             $sessio = new Session();
                             $jugador = $sessio->getSession("jugador");
                             echo $jugador->printEditarJugador();
-                            
-                            
-                                                     ?>          
-                        
-                
+                                   ?>          
+                    
                     </div>
-                    <div class="subperfil2" id="formulario" class="contact_form" >
+                         
+                     <div class="subperfil2">
                         
                         <input type="button" value="Actualizar Contraseña" id="mostrar" />
                         <input type="password" placeholder="Contraseña actual" id="contrasenaVieja" name="contrasenaVieja" hidden/>

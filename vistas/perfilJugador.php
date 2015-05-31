@@ -72,6 +72,7 @@ and open the template in the editor.
                     <h2>Historial Reservas</h2>
                     <hr>
                     
+                    
                 </div>
                 
                  <div class="perfil1">
