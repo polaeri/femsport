@@ -31,8 +31,8 @@ class Club {
     function printClub() {
         echo "CLUB<br>CIF: " . $this->cif . "<br>Nombre:" . $this->nombre . "<br>Telefono: " . $this->telefono .
         "<br>Telefono 2: " . $this->telefono2 . "<br>Direccion: " . $this->direccion . "<br>Email: " .
-        $this->email . "<br>Avatar: " . $this->avatar . "<br>Web: " . $this->web . "<br>Password: " .
-        $this->password . "<br>Descripcion: " . $this->descripcion . "<br>";
+        $this->email . "<br>Avatar: " . $this->avatar . "<br>Web: " . $this->web .// "<br>Password: " .
+        /*$this->password . */"<br>Descripcion: " . $this->descripcion . "<br>";
     }
 
     function guardarClub() {

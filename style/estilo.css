@@ -8,19 +8,15 @@ and open the template in the editor.
     Author     : xavi
 */
 
-
-
 @import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900');
 
 
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-  
-}
+body{}
 
 header{
     position: fixed; 
@@ -34,10 +30,12 @@ header{
     line-height: 3em;
     box-shadow: 0 0 0.15em 0 rgba(0,0,0,0.1);
 }
+
 header img{
     width:15%;
     margin-left:10px;
 }
+
 menu{
     position: absolute;
     right: 0.5em;
@@ -52,68 +50,50 @@ menu{
      height:100%;
     width:100%;
 }*/
-
 article .contentRol{
-  
-   height:80vh;
-   width:99vw;
-   // margin:80px;
+    height:80vh;
+    width:99vw;
     margin-left: 10px;
     margin-top: 100px;
-    //padding:10px;
     background-color: rgba(0,0,0,0.3);
     border-radius:10px;
     font-size:19px;
-/*    height:100%;
-    width:100%;*/
-     //background-image:url('../style/intro/img/one.jpg'); 
     background-image:url('../style/images/fondos/estadio.jpg');
 }
 
 article .contentClub2{
-  
-   height:80vh;
-   width:99vw;
-   // margin:80px;
+    height:80vh;
+    width:99vw;
     margin-left: 10px;
     margin-top: 80px;
-    //padding:10px;
     background-color: rgba(0,0,0,0.3);
     border-radius:10px;
     font-size:19px;
-/*    height:100%;
-    width:100%;*/
-     //background-image:url('../style/intro/img/one.jpg'); 
     background-image:url('../style/images/fondos/rol.jpg');
 }
 
 article .contentJugador{
-  
-   height:80vh;
-   width:99vw;
-   // margin:80px;
+    height:80vh;
+    width:99vw;
     margin-left: 10px;
-margin-top: 100px;
-    //padding:10px;
+    margin-top: 100px;
     background-color: rgba(0,0,0,0.3);
     border-radius:10px;
     font-size:19px;
-      background-image:url('../style/images/fondos/pelota2.jpg');
+    background-image:url('../style/images/fondos/pelota2.jpg');
 }
 
 article .contentClub{
-    
-      height:140vh;
-      width:99vw;
-      margin-left: 10px;
-      margin-right: 10px;
-    //margin-top: 80px;
-    //padding:10px;
-      background-color: rgba(0,0,0,0.3);
-      border-radius:10px;
-      font-size:19px;
-      background-image:url('../style/images/fondos/estadio.jpg');
- 
+
+    height:140vh;
+    width:99vw;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: rgba(0,0,0,0.3);
+    border-radius:10px;
+    font-size:19px;
+    background-image:url('../style/images/fondos/estadio.jpg');
+
 }
 
 h3{
@@ -129,49 +109,46 @@ h5{
     color: black;
 }
 .titol{
-    //font-family:sans-serif;
     font-size:40px;
     font-family: 'Source Sans Pro', sans-serif;
     color:white;
     margin-left: 10px;
-  
 }
+
 .titol2{
-    //font-family:sans-serif;
     font-size:20px;
     font-family: 'Source Sans Pro', sans-serif;
     color:white;
     margin-left: 10px;
     margin-top: 10px;
 }
+
 h4{
     font-family: 'Source Sans Pro', sans-serif;
-    
     text-align: center;
 }
 
 .datosPerfil{
-     font-family: 'Source Sans Pro', sans-serif;
-     font-size:20px;
-     margin-left: 10px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size:20px;
+    margin-left: 10px;
 }
 
 .botonDatosPerfil{
     margin-left: 30px;
     margin-top: 50px;
     bottom: 0;
-   
 }
+
 sidebar{
     margin-top: 40px;
     padding:30px;
     float:right;
-    //width:10vw;
     height:75vh;
     max-width: 200px;
 }
+
 footer{
-    
     text-align: center;
     width:200px;
     height:5vh;
@@ -180,12 +157,8 @@ footer{
     position: fixed;
     bottom: 0;
     left: 0;
-    //height: 50px;
     background-color: black;
     width: 100%;
-   // background: #fff;
-    //background: rgba(255,255,255,0.95);
-    
 }
 
 
@@ -196,6 +169,7 @@ ul {
     margin: 0;
     list-style-type: none;
 }
+
 a {
     float: left;
     width: 8em;
@@ -208,8 +182,7 @@ a {
 a:hover {
     cursor:pointer;
     color:white;
-    text-decoration:none;   
-    //background-color:#3366FF;
+    text-decoration:none;
 }
 
 
@@ -238,7 +211,6 @@ li {
     color: black;
     text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
-    // text-shadow: 2px 2px 5px #000;
 }
 
 .perfil2 h2{
@@ -255,7 +227,6 @@ li {
 }
 
 .perfil3 h2{
-
     font-size:20px;
     color: black;
     text-align: center;
@@ -276,10 +247,7 @@ li {
     border-color: #0000ff;
     opacity: 0.9;
     margin-left: 10px;
-   background-color:#F2F2F2;
-    //background-image: -moz-radial-gradient(center 45deg,circle cover, #ccc, #333);
-    //background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%,800, from(#ccc), to(#333));
-    //background-image: radial-gradient(center 45deg,circle cover, #ccc, #333);
+    background-color:#F2F2F2;
     -moz-border-radius: 35px 20px / 20px 35px;
     border-radius: 35px 20px / 20px 35px;  
 }
@@ -293,14 +261,11 @@ li {
     float: left;
     width: 30%;
     height: 100%;
-   }
+}
 
 .perfil2{
     float: left;
-    // background-color: #A4A4A4;
     width: 100%;
-    
-    
 }
 
 .perfil1 .avatar{
@@ -311,17 +276,10 @@ li {
     background-color: red;
 }
 
-
-
 hr{
     margin-top: 10px;
     border-color: #0000ff;
-
 }
-
-
-
-
 
 .subperfilClub{
     float: left;
@@ -329,6 +287,7 @@ hr{
     margin-left: 10px;
     overflow:scroll;height:500px;width:500px;
 }
+
 .subperfil2{
     float: left;
     width: 300px;
@@ -519,7 +478,7 @@ select{
     font-size: 16px;
     border: 0;
     border-radius: 3px;
-   // -webkit-appearance: none;
+    // -webkit-appearance: none;
     -webkit-transition: all 0.4s;
     -moz-transition: all 0.4s;
     transition: all 0.4s;
@@ -543,65 +502,65 @@ http://www.jankoatwarpspeed.com/css-message-boxes-for-different-message-types/
 */
 
 .info, .success, .warning, .error, .validation {
-border: 1px solid;
-margin: 10px 0px;
-padding:15px 10px 15px 50px;
-background-repeat: no-repeat;
-background-position: 10px center;
-width: 50%;
-margin: auto;
+    border: 1px solid;
+    margin: 10px 0px;
+    padding:15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    width: 50%;
+    margin: auto;
 }
 
 .errorFormJug{
-border: 1px solid;
-margin: 10px 0px;
-padding:15px 10px 15px 50px;
-background-repeat: no-repeat;
-background-position: 10px center;
-width: 50%;
-margin: auto;
-margin-top: 410px;
-color: #D8000C;
-background-color: #FFBABA;
-background-image: url('../style/images/error.png)');
-text-align: center;
+    border: 1px solid;
+    margin: 10px 0px;
+    padding:15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    width: 50%;
+    margin: auto;
+    margin-top: 410px;
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('../style/images/error.png)');
+    text-align: center;
 }
 
 .errorFormClub{
-border: 1px solid;
-margin: 10px 0px;
-padding:15px 10px 15px 50px;
-background-repeat: no-repeat;
-background-position: 10px center;
-width: 50%;
-margin: auto;
-margin-top: 410px;
-color: #D8000C;
-background-color: #FFBABA;
-background-image: url('../style/images/error.png)');
-text-align: center;
+    border: 1px solid;
+    margin: 10px 0px;
+    padding:15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    width: 50%;
+    margin: auto;
+    margin-top: 410px;
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('../style/images/error.png)');
+    text-align: center;
 }
 
 .info {
-color: #00529B;
-background-color: #BDE5F8;
-background-image: url('info.png');
+    color: #00529B;
+    background-color: #BDE5F8;
+    background-image: url('info.png');
 }
 .success {
-color: #4F8A10;
-background-color: #DFF2BF;
-background-image:url('success.png');
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    background-image:url('success.png');
 }
 .warning {
-color: #9F6000;
-background-color: #FEEFB3;
-background-image: url('warning.png');
+    color: #9F6000;
+    background-color: #FEEFB3;
+    background-image: url('warning.png');
 }
 .error {
-color: #D8000C;
-background-color: #FFBABA;
-background-image: url('../style/images/error.png)');
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('../style/images/error.png)');
 
-text-align: center;
+    text-align: center;
 }
 

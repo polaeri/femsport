@@ -33,13 +33,13 @@ http://www.the-art-of-web.com/javascript/validate-password/
 
             <sidebar>
 
-                <form action="index.php" method="POST">
+                <form action="index.php" method="POST" >
                     <button type="submit" class="boton azul formaBoton "  name="accion" value="salir">SALIR</button>
                 </form>
             </sidebar>
             <div class="contentJugador">
 
-                <form id="formulario" class="contact_form" action="index.php" method="POST">
+                 <form id="formulario" class="contact_form" action="index.php" method="POST" enctype="multipart/form-data">
                     <!-- <span class="required_notification">* Datos Requeridos</span>" -->
                     <!-- progreso --><br>
                     <ul id="progreso">
