@@ -280,9 +280,10 @@ if (isset($_POST["accion"])) {
             $sesion = new Session();
             $hora = $_POST['hora'];
             $pista = $_POST['category_id'];
+            echo $pista;
             $reservaPista = array("hora" => $hora, "pista" => $pista);
             $sesion->setSession("reservaPista", $reservaPista);
-            include 'vistas/reservaJugador2.php';
+           // include 'vistas/reservaJugador2.php';
             break;
         case "reservarPista2":
             $sesion = new Session();
@@ -302,6 +303,26 @@ if (isset($_POST["accion"])) {
             $conexioCalendario = new ConexioCalendario();
             $conexioCalendario->insertarReserva($hora, $data, $club, $usuario, $dni, $category_id, $email);
             $reserva = new Reserva(null, $totalJugadores, $data, date("Y-m-d"), true, $privacidad, $maximo_jugadores, $dni, $club . $pista);
+            break;
+        case "buscaBasket":           
+            $conexio = new Conexio();
+            $conexio->mostrarPartidos("basket");
+            break;
+        case "buscaPadel":
+           $conexio = new Conexio();
+           $conexio->mostrarPartidos("padel");
+            break; 
+        case "buscaFutbol11":
+           $conexio = new Conexio();
+           $conexio->mostrarPartidos("futbol11");
+            break;
+        case "buscaFutbol7":
+          $conexio = new Conexio();
+          $conexio->mostrarPartidos("futbol7"); 
+            break;
+        case "buscaFutbol5":
+            $conexio = new Conexio();
+            $conexio->mostrarPartidos("futbol5");
             break;
         default:
             echo 'HOLAMUNDO';

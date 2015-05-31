@@ -51,6 +51,7 @@
                     <div id="cuantos" hidden>
                         Cuantos?
                         <select id="jugadores" name="jugadoresRestantes">
+                            <option value=null>Nº Jugadores</option>
                             <?php
                             for ($i = 1; $i < 10; $i++) {
                                 echo "<option>" . $i . "</option>";
@@ -58,7 +59,7 @@
                             ?> 
                         </select>
                     </div>
-                    <button id="consultar" type="submit" name="accion" value="consultar" hidden>RESERVAR</button>
+                    <button id="consultar" type="submit" name="accion" value="consultar" >RESERVAR</button>
 
                 </form>          
             </div>
@@ -68,13 +69,15 @@
         </article>
         <script>
             $(document).ready(function () {
-                        
-                        if (document.getElementById("privado").checked){
-                            $("#cuantos").show();
-                        }else{
-                            $("#cuantos").hide();
-                        }
-                    });
+                $('#privado').change(function () {
+                    if ($("#privado").is(':checked')) {
+                        $('#cuantos').show();
+                    } else {
+                        $('#cuantos').hide();
+
+                    }
+                })
+            });
         </script>
 
         <footer>Copyright ©FemSport</footer>

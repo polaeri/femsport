@@ -47,18 +47,15 @@ and open the template in the editor.
                     <form method="POST" action="index.php">
 
 
-                        <input class="especial" type="image" name="accion" value="nuevoJugador" src="style/images/iconoDeportes/basket.png" width="100px">
+                        <input class="especial" type="image" name="accion" value="buscaBasket" src="style/images/iconoDeportes/basket.png" width="150px">
                         &nbsp &nbsp &nbsp &nbsp &nbsp
-                        <input class="especial" type="image" name="accion" value="nuevoClub" src="style/images/iconoDeportes/padel.png" width="100px">
+                        <input class="especial" type="image" name="accion" value="buscaPadel" src="style/images/iconoDeportes/padel.png" width="150px">
                         &nbsp &nbsp &nbsp &nbsp &nbsp
-
-                        <input class="especial" type="image" name="accion" value="nuevoClub" src="style/images/iconoDeportes/tenis.png" width="100px">
+                        <input class="especial" type="image" name="accion" value="buscaFutbol11" src="style/images/iconoDeportes/futbol11.png" width="150px">
                         &nbsp &nbsp &nbsp &nbsp &nbsp
-                        <input class="especial" type="image" name="accion" value="nuevoClub" src="style/images/iconoDeportes/futbol11.png" width="100px">
+                        <input class="especial" type="image" name="accion" value="buscaFutbol7" src="style/images/iconoDeportes/futbol7.png" width="150px">
                         &nbsp &nbsp &nbsp &nbsp &nbsp
-                        <input class="especial" type="image" name="accion" value="nuevoClub" src="style/images/iconoDeportes/futbol7.png" width="100px">
-                        &nbsp &nbsp &nbsp &nbsp &nbsp
-                        <input class="especial" type="image" name="accion" value="nuevoClub" src="style/images/iconoDeportes/futbol5.png" width="100px">
+                        <input class="especial" type="image" name="accion" value="buscaFutbol5" src="style/images/iconoDeportes/futbol5.png" width="150px">
                     </form>
                 </div>
 
