@@ -253,7 +253,7 @@ INSERT INTO " . $nomClub . "_users (user_id, user_name, password, temp_password,
         }
         if ($totalPistas > 0) {
             //DA TANTAS VUELTAS COMO PISTAS HAY            
-            foreach ($horariosOcupados as $key1 => $pistas) {                 
+            foreach ($horariosOcupados as $key1 => $pistas) {
                 $arrayHoras = [];
                 for ($i = 0; $i <= 30; $i++) {
                     $arrayHoras[$i] = true;
@@ -274,9 +274,9 @@ INSERT INTO " . $nomClub . "_users (user_id, user_name, password, temp_password,
                             $arrayHoras[($j + 1)] = false;
                         }
                         $j++;
-                        $j++;                        
-                    }                            
-                }                
+                        $j++;
+                    }
+                }
                 //PRINTAMOS LOS SELECTS
                 echo "<h1>Pista " . $numeroPista . "</h1>";
                 echo "<form action='index.php' method='POST'>";
@@ -301,7 +301,7 @@ INSERT INTO " . $nomClub . "_users (user_id, user_name, password, temp_password,
                     }
                 }
                 echo "</select>";
-                echo "<input type='hidden' name='category_id' value='".($numeroPista - 1)."'>";
+                echo "<input type='hidden' name='category_id' value='" . ($numeroPista - 1) . "'>";
                 echo "<button type='submit' class='boton azul formaBoton ' data-toggle='modal' data-target='#myModal' name='accion' value='reservarPista'>Siguiente</button>";
                 echo "</form>";
                 $numeroPista++;
@@ -310,21 +310,37 @@ INSERT INTO " . $nomClub . "_users (user_id, user_name, password, temp_password,
             echo "<h1>NO HI HA PISTES</h1>";
         }
     }
-    
-    function insertarReserva($hora,$data,$club,$usuario,$dni,$category_id,$email){
-        
-        $hora_final_1 = (substr($hora, 0,2));
-        $hora_final_2 = intval($hora_final_1);
-        $hora_final_3= $hora_final_2+1;
-        $hora_final=$hora_final_3.":00:00";
-       
-        
-        
-        $sentenciaSQL="INSERT INTO 12345678P_events (event_id, event_type, title, description, xfield1, xfield2, category_id, venue, user_id, editor, approved, private, checked, s_date, e_date, x_dates, s_time, e_time, r_type, r_interval, r_period, r_month, r_until, notify, not_mail, a_datetime, m_datetime, status) VALUES
-(NULL , 0, '".$usuario."_".$dni."', '', '', '', '".$category_id."', '', 2, '', 0, 0, NULL, '".$data."', '9999-00-00', NULL, '".$hora."', '".$hora_final."', 0, 0, 0, 0, '9999-00-00', -1, '".$email."', '2015-00-0 00:00:00', '9999-00-00 00:00:00', 0);";
-        
-        $this->connexioCal->query($sentenciaSQL);
 
+    function insertarReserva($hora, $data, $club, $usuario, $dni, $category_id, $email) {
+
+        if (substr($hora, 3, 1) == "3") {
+            $hora_final_1 = (substr($hora, 0, 2));
+            $hora_final_2 = intval($hora_final_1);
+            $hora_final_3 = $hora_final_2 + 1;
+            $hora_final = $hora_final_3 . ":30:00";
+        } else {
+            $hora_final_1 = (substr($hora, 0, 2));
+            $hora_final_2 = intval($hora_final_1);
+            $hora_final_3 = $hora_final_2 + 1;
+            $hora_final = $hora_final_3 . ":00:00";
+        }
+
+
+
+
+        $sentenciaSQL = "INSERT INTO 12345678P_events (event_id, event_type, title, description, xfield1, xfield2, category_id, venue, user_id, editor, approved, private, checked, s_date, e_date, x_dates, s_time, e_time, r_type, r_interval, r_period, r_month, r_until, notify, not_mail, a_datetime, m_datetime, status) VALUES
+(NULL , 0, '" . $usuario . "_" . $dni . "', '', '', '', '" . $category_id . "', '', 2, '', 0, 0, NULL, '" . $data . "', '9999-00-00', NULL, '" . $hora . "', '" . $hora_final . "', 0, 0, 0, 0, '9999-00-00', -1, '" . $email . "', '2015-00-0 00:00:00', '9999-00-00 00:00:00', 0);";
+
+        $this->connexioCal->query($sentenciaSQL);
+    }
+
+    function buscarNombrePista($cif, $category_id) {
+        $sentenciaSql = "SELECT name FROM " . $cif . "_categories WHERE category_id = '" . $category_id . "'";
+        $consulta = $this->connexioCal->query($sentenciaSql);
+        while ($vector = $consulta->fetch_array(MYSQLI_ASSOC)) {
+            $name = $vector['name'];
+        }
+        return $name;
     }
 
 }

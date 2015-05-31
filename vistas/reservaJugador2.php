@@ -41,25 +41,23 @@
                     Cuantos jugadores sois?
                     <select id="jugadores" name="numJugadores">
                         <?php
-                        for ($i = 1; $i < 20; $i++) {
+                        $sesion = new Session();
+                        $sesion;
+                        $array = $sesion->getSession("reservaPista");
+                        $maximoJugadores = $array['maximoJugadores'];
+                        for ($i = 1; $i < $maximoJugadores; $i++) {
                             echo "<option>" . $i . "</option>";
                         }
                         ?> 
                     </select><br>
                     Quieres que otros jugadores puedan participar en tu partido?<br>
-                    <input type="checkbox" name="privado" value="Privado" id="privado"> Partido abierto<br>
+                    <input type="checkbox" name="privado" value="Privado" id="privado"> Partido público<br>
                     <div id="cuantos" hidden>
                         Cuantos?
-                        <select id="jugadores" name="jugadoresRestantes">
-                            <option value=null>Nº Jugadores</option>
-                            <?php
-                            for ($i = 1; $i < 10; $i++) {
-                                echo "<option>" . $i . "</option>";
-                            }
-                            ?> 
+                        <select id="invitados" name="invitados">                            
                         </select>
                     </div>
-                    <button id="consultar" type="submit" name="accion" value="consultar" >RESERVAR</button>
+                    <button id="consultar" type="submit" name="accion" value="reservarPista2">RESERVAR</button>
 
                 </form>          
             </div>
@@ -71,15 +69,24 @@
             $(document).ready(function () {
                 $('#privado').change(function () {
                     if ($("#privado").is(':checked')) {
+                        opcio = $("#jugadores").val();
+                        $.post("index.php", {accion: "maximoJugadores", total: opcio}, function (data) {
+                            $("#invitados").html(data);
+                        });
                         $('#cuantos').show();
                     } else {
                         $('#cuantos').hide();
 
                     }
-                })
+                });
+                $('#jugadores').change(function () {
+                    opcio = $("#jugadores").val();
+                    $.post("index.php", {accion: "maximoJugadores", total: opcio}, function (data) {
+                        $("#invitados").html(data);
+                    });
+                });
             });
         </script>
-
         <footer>Copyright ©FemSport</footer>
     </body>
 </html>

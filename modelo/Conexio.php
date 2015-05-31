@@ -214,43 +214,46 @@ class Conexio {
 
     function guardarReserva($totalJugadores, $fechaPartido, $fechaReserva, $estado, $privacidad, $maxJugadores, $dni, $idPista) {
 
-        $sentenciaSql = "INSERT INTO  `femsport`.`datos_reserva` (
-id ,
-total_jugadores ,
-fecha_partido ,
-fecha_reserva ,
-estado ,
-privacidad ,
-maximo_jugadores ,
-dni_jugador_responsable ,
-id_pista
-)
-VALUES (
-NULL ,  '" . $totalJugadores . "',  '" . $fechaPartido . "',  '" . $fechaReserva . "',  '" . $estado . "',  '" . $privacidad . "',  '" . $maxJugadores . "',  '" . $dni . "',  '" . $idPista . "'
+        $sentenciaSql = "INSERT INTO datos_reserva (id , total_jugadores , fecha_partido , fecha_reserva , estado , privacidad , maximo_jugadores , dni_jugador_responsable , id_pista )VALUES ( NULL ,  '" . $totalJugadores . "',  '" . $fechaPartido . "',  '" . $fechaReserva . "',  '" . $estado . "',  '" . $privacidad . "',  '" . $maxJugadores . "',  '" . $dni . "',  '" . $idPista . "'
 )";
 
         $this->connexio->query($sentenciaSql);
+        echo $this->connexio->error;
     }
 
     function mostrarPartidos($deporte) {
 
-        switch ($deporte) {
-            case "basket":
-                $sentenciaSql = "SELECT fecha_partido,estado,id_pista,total_jugadores FROM datos_reserva WHERE total_jugadores < maximo_jugadores";
-                break;
-            case "padel":
+        $sentenciaSql = "SELECT id FROM pista WHERE tipo = '" . $deporte . "'";
+        $consulta1 = $this->connexio->query($sentenciaSql);
+        $i = 0;
+        $reservas = [];
+        while ($vector = $consulta1->fetch_array(MYSQLI_ASSOC)) {
+            $sentenciaSql2 = "SELECT * FROM datos_reserva WHERE total_jugadores < maximo_jugadores AND privacidad = '1' AND id_pista = '" . $vector['id'] . "'";
+            $consulta2 = $this->connexio->query($sentenciaSql2);
+            while ($vectorReserva = $consulta2->fetch_array(MYSQLI_ASSOC)) {
+                if (isset($vectorReserva['id'])) {
+                    $reserva = new Reserva($vectorReserva['id'], $vectorReserva['total_jugadores'], $vectorReserva['fecha_partido'], $vectorReserva['fecha_reserva'], $vectorReserva['estado'], $vectorReserva['privacidad'], $vectorReserva['maximo_jugadores'], $vectorReserva['dni_jugador_responsable'], $vectorReserva['id_pista']);
+                    $reservas[$i] = $reserva;
+                }
+            }
 
-                break;
-            case "futbol11":
 
-                break;
-            case "futbol7":
-
-                break;
-            case "futbol5":
-
-                break;
+            $i++;
         }
+        if ($reservas) {
+            return $reservas;
+        } else {
+            return null;
+        }
+    }
+
+    function buscarPista($cifClub, $pista, $numeroTipo) {
+        $sentenciaSql = "SELECT id FROM pista WHERE cif_club = '" . $cifClub . "' AND tipo = '" . $pista . "' AND numeroTipo = '" . $numeroTipo . "'";
+        $consulta = $this->connexio->query($sentenciaSql);
+        while ($vector = $consulta->fetch_array(MYSQLI_ASSOC)) {
+            $id = $vector["id"];
+        }
+        return $id;
     }
 
 }

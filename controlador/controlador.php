@@ -9,6 +9,7 @@ include 'modelo/ConexioCalendario.php';
 include 'funciones/selectAuto.php';
 include 'modelo/Pista.php';
 include 'modelo/Fichero.php';
+include 'modelo/Reserva.php';
 
 if (isset($_POST["accion"])) {
     $accio = $_POST["accion"];
@@ -31,15 +32,11 @@ if (isset($_POST["accion"])) {
             }
             if (!isset($_FILES['avatar']["name"])) {
                 $_FILES['avatar'] = "style/avatars/defaultJugador.png";
-               
-                
-            }
-            else {
+            } else {
 
                 $var = $_FILES["avatar"]["name"];
                 $ficheroSubir = new Fichero($var);
                 $nombreFichero = $ficheroSubir->nombreFichero($_POST['usuario']);
-               
             }
 
             $sessio = new Session();
@@ -54,10 +51,10 @@ if (isset($_POST["accion"])) {
                 break;
             } else {
                 $jugador = new Jugador($_POST['nombre'], $_POST['dni'], $_POST['apellidos'], $_POST['telefono'], $_POST['email'], $_POST['usuario'], 0, $_POST['pwd1'], $_POST['descripcion'], $nombreFichero);
-                
-                $ficheroSubir->subirFichero($nombreFichero);                
+
+                $ficheroSubir->subirFichero($nombreFichero);
                 $jugador->guardarJugador();
-                
+
                 include 'vistas/registroCompletado.php';
                 break;
             }
@@ -291,54 +288,136 @@ if (isset($_POST["accion"])) {
             break;
         case "reservarPista":
             $sesion = new Session();
+            $conexioCalendario = new ConexioCalendario();
+            $cif_club = $sesion->getSession('cif_club_reserva');
             $hora = $_POST['hora'];
             $pista = $_POST['category_id'];
-            echo $pista;
-            $reservaPista = array("hora" => $hora, "pista" => $pista);
+            $array_PistesLliures = $sesion->getSession("array_PistesLliures");
+            $category_id = $array_PistesLliures[$pista];
+            $nombre_pista = $conexioCalendario->buscarNombrePista($cif_club, $category_id);
+            $sesion->setSession("resPista", $category_id);
+            $sesion->setSession("nombrePista", $nombre_pista);
+            $tipo = substr($nombre_pista, 0, 5);
+            $maxJugadores = 0;
+            switch ($tipo) {
+                case 'futbo':
+                    echo "FUTBOL = ";
+                    if (substr($nombre_pista, 7, 1) == '5') {
+                        $maxJugadores = 15;
+                    } else if (substr($nombre_pista, 7, 1) === '7') {
+                        $maxJugadores = 21;
+                    } else if (substr($nombre_pista, 7, 1) === '11') {
+                        $maxJugadores = 33;
+                    }
+                    break;
+                case 'baske':
+                    $maxJugadores = 15;
+                    break;
+                case 'padel':
+                    $maxJugadores = 6;
+                    break;
+            }
+            $reservaPista = array("hora" => $hora, "pista" => $pista, "maximoJugadores" => $maxJugadores);
             $sesion->setSession("reservaPista", $reservaPista);
-           // include 'vistas/reservaJugador2.php';
+            include 'vistas/reservaJugador2.php';
             break;
         case "reservarPista2":
             $sesion = new Session();
+            $conexion = new Conexio();
+            $conexioCalendario = new ConexioCalendario();
             $jugador = $sesion->getSession('jugador');
             $reservaPista = $sesion->getSession("reservaPista");
             $hora = $reservaPista["hora"];
-            $pista = $reservaPista["pista"];
             $data = $sesion->getSession('data_club_reserva');
             $club = $sesion->getSession('cif_club_reserva');
             $usuario = $jugador->getUsuario();
             $dni = $jugador->getDni();
             $email = $jugador->getEmail();
-            $array_PistesLliures = $sesion->getSession("array_PistesLliures");
-            $category_id = $array_PistesLliures[$pista];
-            
-            
-            $conexioCalendario = new ConexioCalendario();
-            $conexioCalendario->insertarReserva($hora, $data, $club, $usuario, $dni, $category_id, $email);
-            $reserva = new Reserva(null, $totalJugadores, $data, date("Y-m-d"), true, $privacidad, $maximo_jugadores, $dni, $club . $pista);
+            $array = $sesion->getSession("reservaPista");
+            if (isset($_POST["privado"])) {
+                $publico = true;
+                $maximoJugadores = $_POST['numJugadores'] + $_POST['invitados'];
+            } else {
+                $publico = false;
+                $maximoJugadores = $array['maximoJugadores'];
+            }
+
+            //Buscamos el ID de la pista de la BBDD FemSport
+            $nombre_pista = $sesion->getSession("nombrePista");
+            $tipo = substr($nombre_pista, 0, 5);
+            $numeroTipo = substr($nombre_pista, -1);
+            switch ($tipo) {
+                case 'futbo':
+                    if (substr($nombre_pista, 7, 1) == '5') {
+                        $nombrePista = "futbol_5";
+                    } else if (substr($nombre_pista, 7, 1) === '7') {
+                        $nombrePista = "futbol_7";
+                    } else if (substr($nombre_pista, 7, 1) === '11') {
+                        $nombrePista = "futbol_11";
+                    }
+                    break;
+                case 'baske':
+                    $nombrePista = "basket";
+                    break;
+                case 'padel':
+                    $nombrePista = "padel";
+                    break;
+            }
+
+            $categor_id = $sesion->getSession('resPista');
+
+
+            $id = $conexion->buscarPista($club, $nombrePista, $numeroTipo);
+
+            $conexioCalendario->insertarReserva($hora, $data, $club, $usuario, $dni, $categor_id, $email);
+            $reserva = new Reserva(null, $_POST['numJugadores'], $data . " " . $hora . ":00", date("Y-m-d"), true, $publico, $maximoJugadores, $dni, $id);
+            $reserva->guardarReserva();
+            //print_r($reserva);
+            echo "RESERVA GUARDADA OK!";
             break;
-        case "buscaBasket":           
+        case "buscaBasket":
             $conexio = new Conexio();
-            $conexio->mostrarPartidos("basket");
+            $reservas = $conexio->mostrarPartidos("basket");
+            $sessio = new Session();
+            $sessio->setSession("arrayDisponibles", $reservas);
+            include "vistas/mostrarPartidos.php";
             break;
         case "buscaPadel":
-           $conexio = new Conexio();
-           $conexio->mostrarPartidos("padel");
-            break; 
+            $conexio = new Conexio();
+            $reservas = $conexio->mostrarPartidos("padel");
+            print_r($reservas);
+            $sessio = new Session();
+            $sessio->setSession("arrayDisponibles", $reservas);
+            include "vistas/mostrarPartidos.php";
+            break;
         case "buscaFutbol11":
-           $conexio = new Conexio();
-           $conexio->mostrarPartidos("futbol11");
+            $conexio = new Conexio();
+            $reservas = $conexio->mostrarPartidos("futbol11");
+            $sessio = new Session();
+            $sessio->setSession("arrayDisponibles", $reservas);
+            include "vistas/mostrarPartidos.php";
             break;
         case "buscaFutbol7":
-          $conexio = new Conexio();
-          $conexio->mostrarPartidos("futbol7"); 
+            $conexio = new Conexio();
+            $reservas = $conexio->mostrarPartidos("futbol7");
+            $sessio = new Session();
+            $sessio->setSession("arrayDisponibles", $reservas);
+            include "vistas/mostrarPartidos.php";
             break;
         case "buscaFutbol5":
             $conexio = new Conexio();
-            $conexio->mostrarPartidos("futbol5");
+            $reservas = $conexio->mostrarPartidos("futbol5");
+            $sessio = new Session();
+            $sessio->setSession("arrayDisponibles", $reservas);
+            include "vistas/mostrarPartidos.php";
+            break;
+        case 'maximoJugadores':
+            $sesion = new Session();
+            $reservas = $sesion->setSession("maximoJugadores", $_POST['total']);
+            include 'vistas/maximoJugadores.php';
             break;
         default:
-            echo 'HOLAMUNDO';
+            echo 'Error controlador';
             break;
     }
 } else {
