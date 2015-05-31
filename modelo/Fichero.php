@@ -5,12 +5,10 @@
  */
 
 class Fichero {
-    private $rutaPadre = "style/avatars/" ;
-    private $fichero;
    
 
     function __construct($nombreFichero) {        
-        $this->setFitxer($nombreFichero);
+       
        
        
     }
@@ -22,19 +20,20 @@ class Fichero {
     }
 
     //SUBIR IMAGEN
-    function validacionImg(){
-        
-        
-        
-        
-    }
-    function subirFichero($nombre) {
-        $var = explode(".", $_FILES['uploadedfile']);
-        
-        $extennsion =end($var);
+    
+   function nombreFichero($nombre){
+        $rutaPadre = "style/avatars/" ;
+        $var = explode(".", $_FILES['avatar']['name']);        
+        $extension =end($var);
         $rutaPadre = $rutaPadre.$nombre.".".$extension;
-        if (move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $rutaPadre)) {
-            echo "El archivo " . basename($_FILES['uploadedfile']['name']) . " ha sido subido";
+        return $rutaPadre;
+       
+   }
+    
+    function subirFichero($nombre) {
+       
+        if (move_uploaded_file($_FILES['avatar']['tmp_name'], $nombre)) {
+            echo " ha sido subido";
         } else {
             echo "Ha ocurrido un error, trate de nuevo!";
         }

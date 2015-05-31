@@ -44,6 +44,7 @@ class Conexio {
                 . $dni . "','" . $nombre . "','" . $apellidos . "','" . $telefono . "','" . $email . "','" . $usuario . "','" . $reputacion . "','" .
                 $contrasena . "','" . $descripcion . "','" . $avatar . "')";
         $this->connexio->query($sentenciaSql);
+       
     }
 
     public function buscarJugador($usuario, $contrasena) {

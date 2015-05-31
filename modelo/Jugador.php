@@ -60,7 +60,7 @@ class jugador {
     }
 
     function printPerfilJugador() {
-        echo "<br> Avatar: " . $this->avatar . "<br> Nombre: " . $this->nombre . "<br>DNI: " . $this->dni .
+        echo "<br> Avatar:<img src='".$this->avatar."'/> <br> Nombre: " . $this->nombre . "<br>DNI: " . $this->dni .
         "<br>Apellidos:" . $this->apellidos . "<br>Telefono: " . $this->telefono . "<br>Email: " .
         $this->email . "<br>Usuario: " . $this->usuario . "<br>Reputacion: " . $this->reputacion .
         "<br>Descripcion: " . $this->descripcion;

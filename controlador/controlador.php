@@ -8,6 +8,7 @@ include 'modelo/Conexio.php';
 include 'modelo/ConexioCalendario.php';
 include 'funciones/selectAuto.php';
 include 'modelo/Pista.php';
+include 'modelo/Fichero.php';
 
 if (isset($_POST["accion"])) {
     $accio = $_POST["accion"];
@@ -28,23 +29,35 @@ if (isset($_POST["accion"])) {
             if (!isset($_POST['descripcion'])) {
                 $_POST['descripcion'] = NULL;
             }
-            if (!isset($_POST['avatar'])) {
-                $_POST['avatar'] = "style/avatars/defaultJugador.png";
+            if (!isset($_FILES['avatar']["name"])) {
+                $_FILES['avatar'] = "style/avatars/defaultJugador.png";
+               
+                
+            }
+            else {
+
+                $var = $_FILES["avatar"]["name"];
+                $ficheroSubir = new Fichero($var);
+                $nombreFichero = $ficheroSubir->nombreFichero($_POST['usuario']);
+               
             }
 
             $sessio = new Session();
             $conexion = new Conexio();
-            $jugador = $conexion->validarJugadorExistente($_POST["usuario"], $_POST["dni"]);
+            $jugadorValidar = $conexion->validarJugadorExistente($_POST["usuario"], $_POST["dni"]);
 
             //VALIDACION DE JUGADOR VALIDO PARA REGISTRAR
-            if ($jugador) {
+            if ($jugadorValidar) {
 
                 $validar = true;
                 include 'vistas/formularioJugador2.php';
                 break;
             } else {
-                $jugador = new Jugador($_POST['nombre'], $_POST['dni'], $_POST['apellidos'], $_POST['telefono'], $_POST['email'], $_POST['usuario'], 0, $_POST['pwd1'], $_POST['descripcion'], $_POST['avatar']);
+                $jugador = new Jugador($_POST['nombre'], $_POST['dni'], $_POST['apellidos'], $_POST['telefono'], $_POST['email'], $_POST['usuario'], 0, $_POST['pwd1'], $_POST['descripcion'], $nombreFichero);
+                
+                $ficheroSubir->subirFichero($nombreFichero);                
                 $jugador->guardarJugador();
+                
                 include 'vistas/registroCompletado.php';
                 break;
             }
