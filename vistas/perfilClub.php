@@ -8,14 +8,12 @@
 
     </head>
     <body>
-        <header><img src="style/images/selectRol/logoFemEsport2.png">
-
+        <header>
+            <img src="style/images/selectRol/logoFemEsport2.png">
             <menu>
                 <ul>
-                    <li><a href="#Aqui URL">Inicio</a></li>
-
+                    <li><a href="index.php">Inicio</a></li>
                 </ul>
-
             </menu>
         </header>
 
@@ -25,7 +23,7 @@
                     <form action="index.php" method="POST">
                         <button type="submit" class="boton anaranjado formaBoton "  name="accion" value="atrasClub">ATRAS</button>
 
-                    </form>
+                    </form><br>
 
                     <form action="index.php" method="POST">
                         <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>
@@ -40,36 +38,75 @@
                     <div class="perfil1">
                         <h2>Información del Club</h2>
                         <hr>
-                        <p>
+                        
+                        <div class="avatar">
+                        
+                        </div><br>
+                         <div class="datosPerfil">
                             <?php
                             $sessio = new Session();
                             $club = $sessio->getSession("club");
                             $club->printClub();
                             ?>
-                        </p>
+                        </div>
+                        <div class="botonDatosPerfil"> 
                         <form action="index.php" method="POST">
                             <p> <button name="accion" value="editarPerfilClub" class="boton2 verde formaBoton ">Editar</button></p>
                         </form>
+                             </div>
                     </div>
                     <div class="perfil1">
                         <h2>Información Pistas/Campos</h2>
                         <hr>
-                        <p>
-                            Mostrar lista de todos los campos y pistas
-                        </p>
+                        <br><br>
+                        <center>
                         <form action="index.php" method="POST">                            
                             <?php
                             echo $club->existeFutbol();
+                            echo"<br>";
                             echo $club->existeBasket();
+                            echo"<br>";
                             echo $club->existePadel();
+                            echo"<br>";echo"<br>";
                             ?>                            
                         </form>
-
+                       
                         <form action="index.php" method="POST">
                             <p> <button name="accion" value="editarCamposClub" class="boton2 verde formaBoton ">Editar</button></p>
-                        </form>
+                        </form> </center>
                     </div>
+                    <div class="perfil1">
+                         <h2>Insertar Nuevas Pistas/Campos</h2>
+                         <hr><br>
+                         <center>
+                        <h3>Nº Campos de Futbol</h3>
+                    <br>
+                    <p> 5: <select name="futbol_5"> <?php selectAuto(10); ?></select>   &nbsp     
 
+
+                        7: <select name="futbol_7"> <?php selectAuto(10); ?></select>  &nbsp
+                   
+                    11: <select name="futbol_11"> <?php selectAuto(10); ?></select></p><br>                            
+
+                    <h3>Nº Pistas de Basket</h3>
+                    <br>
+
+                   <p> <select name="basket"> <?php selectAuto(10); ?></select>      </p>     <br>                           
+
+
+                   <h3> Nº Campos de Padel</h3>
+                   <br>
+                       
+                       <p><select name="padel"> <?php selectAuto(10); ?></select> </p>  <br> 
+                        
+                       
+                       
+                            <p> <button name="accion" value="editarCamposClub" class="boton2 verde formaBoton ">Insertar</button></p>
+                            <br>
+                       <p>Este modulo actualmente desactivado</p>
+                         </center>
+                         
+                    </div>
 
                 </div>
                 </div>

@@ -10,41 +10,37 @@
 
     </head>
     <body>
-        <header><img src="style/images/selectRol/logoFemEsport2.png">
-
+        <header>
+            <img src="style/images/selectRol/logoFemEsport2.png">
             <menu>
                 <ul>
-                    <li><a href="#Aqui URL">Inicio</a></li>
-
+                    <li><a href="index.php">Inicio</a></li>
                 </ul>
-
             </menu>
         </header>
 
         <article>
             <sidebar>
 
-                <div class="container">
-
                     <form action="index.php" method="POST">
                         <button type="submit" class="boton anaranjado formaBoton "  name="accion" value="atrasClubPerfil">ATRAS</button>
 
-                    </form>
+                    </form><br>
                     <form action="index.php" method="POST">
                         <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>
                     </form>
 
-                </div>
 
             </sidebar>
 
-            <div class="content">
+            <div class="contentClub2">
 
                 <div class="perfil">
                     <h2>Editar Campos/Pistas</h2>
                     <hr>
                     <form action="index.php" method="POST" class="contact_form" id="contact_form" runat="server">
-                        <div class="subperfil1" >
+                        <div class="subperfilClub" >
+                             <div class="datosPerfil">
                             <?php
                             $sessio = new Session();
                             $club = $sessio->getSession("club");
@@ -52,9 +48,12 @@
                                 $pista = $club->getPista($i);
                                 if ($pista->getTipo() === 'basket') {
                                     echo $pista->printPista();
+                                    echo "<br>";
                                 }
                             }
                             ?>
+                            
+                             </div>
                         </div>
 
                         <div class="subperfil2">

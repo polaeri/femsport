@@ -13,14 +13,15 @@
 
     </head>
     <body>
-        <header><img src="style/images/selectRol/logoFemEsport2.png">
-
+       <header>
+            <img src="style/images/selectRol/logoFemEsport2.png">
             <menu>
                 <ul>
-                    <li><a href="#Aqui URL">Inicio</a></li>
+                    <li><a href="index.php">Inicio</a></li>
                 </ul>
             </menu>
         </header>
+       
 
         <article>
             <sidebar>
@@ -39,11 +40,8 @@
                     $club = $sessio->getSession("club");
                     echo "Gestor club " . $club->getNombre();
                     ?>
-                    
-                
+                   
                 </h1>
-
-
 
                 <div align="center">
                     <form method="POST" action="index.php">
@@ -69,7 +67,7 @@
                                     
                                     <iframe src="calendario/index.php" width="900px" height="600px">
                                     </iframe>
-                                    
+                                 
                                     
                                 </div>
                                 <div class="modal-footer">

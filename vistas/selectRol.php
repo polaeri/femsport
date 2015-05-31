@@ -108,7 +108,7 @@ and open the template in the editor.
                                             if(isset( $errorInicio)){
                                                 
                                                 echo "<div class='error'>";
-                                                echo "<img src='style/images/error.png' width='40px' />&nbsp";
+                                                echo "<img src='style/images/error.png' width='20px' />&nbsp";
                                                 echo  "".$errorInicio."</div>";
                                             }
                                         ?>

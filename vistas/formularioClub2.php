@@ -42,14 +42,7 @@ http://www.the-art-of-web.com/javascript/validate-password/
                 </form>
             </sidebar>
             <div class="contentClub">
-                <?php if(isset($validar)){
-                    
-                    $validar=false;
-                    echo "<script language='JavaScript'>"; 
-                    echo "alert('Error. Vuelve a identificarte');"; 
-                    echo "</script>";                    
-                    
-                } ?>
+                
             <form id="formulario" class="contact_form" action="index.php" method="POST">
                 <br>
                 <!-- progreso -->
@@ -118,6 +111,15 @@ http://www.the-art-of-web.com/javascript/validate-password/
                 </fieldset>
             </form>
 
+
+                <?php if(isset($validar)){
+                    
+                    $validar=false;
+                    echo "<div class='errorFormJug'>";
+                    echo "<img src='style/images/error.png' width='40px' />&nbsp";
+                    echo "Error. Vuelve a identificarte</div>"; 
+                    
+                } ?>
 
         </div> 
     </article>
