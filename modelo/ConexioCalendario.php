@@ -94,14 +94,14 @@ INSERT INTO " . $nomClub . "_settings (name, value, description) VALUES
 ('backLinkUrl', '', 'Nav bar Back button URL (blank: no button, url: Back button)'),
 ('calendarEmail', '" . $email . "', 'Sender in and receiver of email notifications'),
 ('calendarTitle', '" . $nomClub . "', 'Calendar title displayed in the top bar'),
-('calendarUrl', 'http://localhost/lux/?cal=mycal', 'Calendar link (URL)'),
+('calendarUrl', 'http://localhost/lux/', 'Calendar link (URL)'),
 ('catMenu', '1', 'Display category filter menu in options panel(0:no, 1:yes)'),
 ('chgEmailList', '', 'Recipient email addresses for calendar changes'),
 ('chgNofDays', '1', 'Number of days to look back for calendar changes'),
 ('colsToShow', '3', 'Number of months to show per row in year view'),
 ('cookieExp', '30', 'Number of days before a Remember Me cookie expires'),
 ('dateFormat', 'd.m.y', 'Date format: yyyy-mm-dd (y:yyyy, m:mm, d:dd)'),
-('defaultView', '2', 'Calendar view at start-up (1:year, 2:month, 3:work month, 4:week, 5:work week 6:day, 7:upcoming, 8:changes)'),
+('defaultView', '4', 'Calendar view at start-up (1:year, 2:month, 3:work month, 4:week, 5:work week 6:day, 7:upcoming, 8:changes)'),
 ('details4All', '1', 'Show event details to x users (0:none, 1:all, 2:logged-in users)'),
 ('DMdFormat', 'WD d M', 'Date format: weekday dd month (WD:weekday d:dd, M:month)'),
 ('DMdyFormat', 'WD d M y', 'Date format: weekday dd month yyyy (WD:weekday d:dd, M:month, y:yyyy)'),
@@ -116,7 +116,7 @@ INSERT INTO " . $nomClub . "_settings (name, value, description) VALUES
 ('evtTemplUpc', '12345', 'Event fields and order of fields in upcoming events view'),
 ('icsExport', '0', 'Daily export of events in iCal format (0:no 1:yes)'),
 ('langMenu', '0', 'Display ui-language selection menu in options panel (0:no, 1:yes)'),
-('language', 'English', 'Default user interface language'),
+('language', 'espanol', 'Default user interface language'),
 ('lcVersion', '3.2.3', 'LuxCal Version Number'),
 ('lookaheadDays', '14', 'Days to look ahead in upcoming view, todo list and RSS feeds'),
 ('mailServer', '1', 'Mail server (0:mail disabled, 1:PHP mail, 2:SMTP mail)'),
@@ -302,7 +302,7 @@ INSERT INTO " . $nomClub . "_users (user_id, user_name, password, temp_password,
                 }
                 echo "</select>";
                 echo "<input type='hidden' name='category_id' value='".($numeroPista - 1)."'>";
-                echo "<button type='submit' class='boton azul formaBoton ' data-toggle='modal' data-target='#myModal' name='accion' value='reservarPista'>Confirmar</button>";
+                echo "<button type='submit' class='boton azul formaBoton ' data-toggle='modal' data-target='#myModal' name='accion' value='reservarPista'>Siguiente</button>";
                 echo "</form>";
                 $numeroPista++;
             }
@@ -314,18 +314,17 @@ INSERT INTO " . $nomClub . "_users (user_id, user_name, password, temp_password,
     function insertarReserva($hora,$data,$club,$usuario,$dni,$category_id,$email){
         
         $hora_final_1 = (substr($hora, 0,2));
-        echo "HORA FINAL 1: ".$hora_final_1;
         $hora_final_2 = intval($hora_final_1);
         $hora_final_3= $hora_final_2+1;
         $hora_final=$hora_final_3.":00:00";
+       
         
         
         $sentenciaSQL="INSERT INTO 12345678P_events (event_id, event_type, title, description, xfield1, xfield2, category_id, venue, user_id, editor, approved, private, checked, s_date, e_date, x_dates, s_time, e_time, r_type, r_interval, r_period, r_month, r_until, notify, not_mail, a_datetime, m_datetime, status) VALUES
-(NULL , 0, '".$usuario."_".$dni."', '', '', '', 1, '', 2, '', 0, 0, NULL, '".$data."', '9999-00-00', NULL, '".$hora."', '".$hora_final."', 0, 0, 0, 0, '9999-00-00', -1, '".$email."', '2015-00-0 00:00:00', '9999-00-00 00:00:00', 0);";
+(NULL , 0, '".$usuario."_".$dni."', '', '', '', '".$category_id."', '', 2, '', 0, 0, NULL, '".$data."', '9999-00-00', NULL, '".$hora."', '".$hora_final."', 0, 0, 0, 0, '9999-00-00', -1, '".$email."', '2015-00-0 00:00:00', '9999-00-00 00:00:00', 0);";
         
         $this->connexioCal->query($sentenciaSQL);
-        echo $this->connexioCal->error;
-        echo "HORA FINAL:".$hora_final;
+
     }
 
 }

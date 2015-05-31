@@ -278,22 +278,30 @@ if (isset($_POST["accion"])) {
             break;
         case "reservarPista":
             $sesion = new Session();
-            $jugador = $sesion->getSession('jugador');
             $hora = $_POST['hora'];
             $pista = $_POST['category_id'];
+            $reservaPista = array("hora" => $hora, "pista" => $pista);
+            $sesion->setSession("reservaPista", $reservaPista);
+            include 'vistas/reservaJugador2.php';
+            break;
+        case "reservarPista2":
+            $sesion = new Session();
+            $jugador = $sesion->getSession('jugador');
+            $reservaPista = $sesion->getSession("reservaPista");
+            $hora = $reservaPista["hora"];
+            $pista = $reservaPista["pista"];
             $data = $sesion->getSession('data_club_reserva');
             $club = $sesion->getSession('cif_club_reserva');
             $usuario = $jugador->getUsuario();
             $dni = $jugador->getDni();
-            $email = $jugador ->getEmail();
+            $email = $jugador->getEmail();
             $array_PistesLliures = $sesion->getSession("array_PistesLliures");
             $category_id = $array_PistesLliures[$pista];
             
-            $conexioCalendario = new ConexioCalendario();
-           
-            $conexioCalendario->insertarReserva($hora, $data, $club, $usuario, $dni, $category_id, $email);
-              
             
+            $conexioCalendario = new ConexioCalendario();
+            $conexioCalendario->insertarReserva($hora, $data, $club, $usuario, $dni, $category_id, $email);
+            $reserva = new Reserva(null, $totalJugadores, $data, date("Y-m-d"), true, $privacidad, $maximo_jugadores, $dni, $club . $pista);
             break;
         default:
             echo 'HOLAMUNDO';
