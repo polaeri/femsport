@@ -280,18 +280,20 @@ if (isset($_POST["accion"])) {
             $sesion = new Session();
             $jugador = $sesion->getSession('jugador');
             $hora = $_POST['hora'];
-            $category_id = $_POST['category_id'];
+            $pista = $_POST['category_id'];
             $data = $sesion->getSession('data_club_reserva');
             $club = $sesion->getSession('cif_club_reserva');
             $usuario = $jugador->getUsuario();
-            $dni = $jugador->getDni();            
-            echo "<br>Hora = " . $hora;
-            echo "<br>Data = " . $data;
-            echo "<br>Club = " . $club;
-            echo "<br>Usuario = " . $usuario;
-            echo "<br>Dni = " . $dni;   
+            $dni = $jugador->getDni();
+            $email = $jugador ->getEmail();
             $array_PistesLliures = $sesion->getSession("array_PistesLliures");
-            echo "<br>Category_id = " . $array_PistesLliures[$category_id];
+            $category_id = $array_PistesLliures[$pista];
+            
+            $conexioCalendario = new ConexioCalendario();
+           
+            $conexioCalendario->insertarReserva($hora, $data, $club, $usuario, $dni, $category_id, $email);
+              
+            
             break;
         default:
             echo 'HOLAMUNDO';
