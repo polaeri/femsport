@@ -143,7 +143,7 @@ if (isset($_POST["accion"])) {
                     include 'vistas/gestionJugador.php';
                 } else {
                     //DANI REDIRECCIONA ESTO AL LOGIN CON EL MENSAJE DE USUARIO NO EXISTE
-                    $errorInicio = "Error al iniciar sesión, por favor inserte los datos correctos";
+                    $errorInicio = "Error al iniciar sesión, no coincide el usuario o contraseña";
                     include 'vistas/selectRol.php';
                 }
             }

@@ -16,7 +16,7 @@ and open the template in the editor.
 
     </head>
     <body>
-        < <header>
+         <header>
             <img src="style/images/selectRol/logoFemEsport2.png">
             <menu>
                 <ul>
