@@ -373,7 +373,7 @@ if (isset($_POST["accion"])) {
             $id = $conexion->buscarPista($club, $nombrePista, $numeroTipo);
 
             $conexioCalendario->insertarReserva($hora, $data, $club, $usuario, $dni, $categor_id, $email);
-            $reserva = new Reserva(null, $_POST['numJugadores'], $data . " " . $hora . ":00", date("Y-m-d"), true, $publico, $maximoJugadores, $dni, $id);
+            $reserva = new Reserva(null, $_POST['numJugadores'], $data . " " . $hora . ":00", date("Y-m-d"), true, $publico, $maximoJugadores, $dni, $id, $club);
 
             $reserva->guardarReserva();
             include "vistas/reservaRealizada.php";
@@ -423,6 +423,15 @@ if (isset($_POST["accion"])) {
             $sesion = new Session();
             $reservas = $sesion->setSession("maximoJugadores", $_POST['total']);
             include 'vistas/maximoJugadores.php';
+            break;
+        case "nuevoJugadorEvento":
+            $conexio = new Conexio();
+            $reserva = $conexio->buscarReserva($_POST['id_reserva']);
+            $conexio->tancarConexio();
+            $totalJugadores = $reserva->getTotalJugadores() + 1;
+            $reserva->setTotalJugadores($totalJugadores);
+            $reserva->actualizarReserva();
+            echo 'Reserva realizada';
             break;
         default:
             echo 'Error controlador';
