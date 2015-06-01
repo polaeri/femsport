@@ -373,7 +373,8 @@ if (isset($_POST["accion"])) {
             $reserva = new Reserva(null, $_POST['numJugadores'], $data . " " . $hora . ":00", date("Y-m-d"), true, $publico, $maximoJugadores, $dni, $id);
             
             $reserva->guardarReserva();
-            echo "RESERVA GUARDADA OK!";
+            include "vistas/reservaRealizada.php";
+            
             break;
         case "buscaBasket":
             $conexio = new Conexio();

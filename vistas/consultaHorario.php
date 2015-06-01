@@ -14,7 +14,7 @@
 
             <menu>
                 <ul>
-                    <li><a href="#Aqui URL">Inicio</a></li>
+                    <li><a href="index.php">Inicio</a></li>
                 </ul>
             </menu>
         </header>
@@ -23,21 +23,25 @@
                 <div class="container">
                     <form action="index.php" method="POST">
                         <button type="submit" class="boton anaranjado formaBoton "  name="accion" value="atrasJugador">ATRAS</button>
-                    </form>
+                    </form><br>
                     <form action="index.php" method="POST">
                         <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>
-                    </form>
+                   
                 </div>
                 </div>
             </sidebar>            
-            <div class="content">
-                <br><br><br><br><br><br>
-
+            <div class="contentJugador">
+                <br>
+                 <h3 class="titol2">Selecciona la hora de la pista deseada</h3>
+                 <br>
+                <div class="subperfilhorario">
                 <?php
                 $conexioCalendario = new ConexioCalendario();
                 $sessio = new Session();
                 $conexioCalendario->mostrarHorarios($sessio->getSession('arrayHorariosOcupados'));                
-                ?>                                
+                ?>
+                    
+                    </div>
             </div>
         </article>
         <footer>Copyright ©FemSport</footer>
