@@ -8,7 +8,10 @@ and open the template in the editor.
     Author     : xavi
 */
 
+
+
 @import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900');
+
 
 
 * {
@@ -271,9 +274,15 @@ li {
 .perfil1 .avatar{
     margin-top: 10px;
     margin-left: 10px;
-    width: 100px;
-    height: 100px;
-    background-color: red;
+    width: 150px;
+    height: 150px;
+    
+}
+
+.avatar img{
+    
+    width: 150px;
+    height: 150px;    
 }
 
 hr{
