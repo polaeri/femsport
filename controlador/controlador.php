@@ -31,14 +31,18 @@ if (isset($_POST["accion"])) {
             if (!isset($_POST['descripcion'])) {
                 $_POST['descripcion'] = NULL;
             }
-            if (isset($_FILES['avatar']['error']) == 4) {
-                $nombreFichero = "style/avatars/defaultJugador.png";
-            } else {
 
 
-                $var = $_FILES["avatar"]["name"];
-                $ficheroSubir = new Fichero($var);
-                $nombreFichero = $ficheroSubir->nombreFichero($_POST['usuario']);
+            if (isset($_FILES['avatar'])) {
+                if ($_FILES['avatar']['error'] == "4") {
+                    $nombreFichero = "style/avatars/defaultJugador.png";
+                } else {
+
+
+                    $var = $_FILES["avatar"]["name"];
+                    $ficheroSubir = new Fichero($var);
+                    $nombreFichero = $ficheroSubir->nombreFichero($_POST['usuario']);
+                }
             }
 
             $sessio = new Session();
@@ -53,14 +57,21 @@ if (isset($_POST["accion"])) {
                 break;
             } else {
                 $jugador = new Jugador($_POST['nombre'], $_POST['dni'], $_POST['apellidos'], $_POST['telefono'], $_POST['email'], $_POST['usuario'], 0, $_POST['pwd1'], $_POST['descripcion'], $nombreFichero);
-                if (isset($_FILES['avatar']['error']) != 4) {
-                    $ficheroSubir->subirFichero($nombreFichero);
-                    $jugador->guardarJugador();
-                    include 'vistas/registroCompletado.php';
-                    break;
+                
+                if (isset($_FILES['avatar'])) {
+                    
+                    if ($_FILES['avatar']['error'] == "0") {
+                        
+                        $var = $_FILES["avatar"]["name"];
+                        $ficheroSubir = new Fichero($var);
+                        $nombreFichero = $ficheroSubir->nombreFichero($_POST['usuario']);
+                        $ficheroSubir->subirFichero($nombreFichero);
+                    }
                 }
             }
 
+            $jugador->guardarJugador();
+            include 'vistas/registroCompletado.php';
             break;
 
         //REGISTRO DE CLUB
