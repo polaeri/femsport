@@ -17,13 +17,13 @@ class Conexio {
 //CONSULTAS DE JUGADOR Y CLUB///
 ///////////////////////////////
 
-    public function validarJugadorExistente($usuario, $dni) {
-        $senetenciaSql = "SELECT * FROM jugador WHERE usuario='" . $usuario . "' OR dni = '" . $dni . "'";
+   public function validarJugadorExistente($campo,$validacion) {
+        $senetenciaSql = "SELECT * FROM jugador WHERE ".$campo."='" . $validacion. "'";
         $comprobar = $this->connexio->query($senetenciaSql);
         if ($comprobar->num_rows > 0) {
-            return true;
+            return 1;
         } else {
-            return false;
+            return 0;
         }
     }
 

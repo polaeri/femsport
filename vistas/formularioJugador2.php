@@ -84,14 +84,35 @@ http://www.the-art-of-web.com/javascript/validate-password/
                 </form>
 
                 
-                <?php if(isset($validar)){
-                    
-                    $validar=false;
+                <?php
+                if (isset($jugadorValidar)) {
+                   
                     echo "<div class='errorFormJug'>";
-                    echo "<img src='style/images/error.png' width='40px' />&nbsp";
-                    echo "Error. Vuelve a identificarte</div>"; 
                     
-                } ?>
+                    if (substr($jugadorValidar, 0, -2) == 1) {
+                        echo "<img src='style/images/error.png' width='20px' />&nbsp";
+                        echo "Error de nombre de Usuario duplicado<br>";
+                    }
+
+                    if (substr($jugadorValidar, -2, 1) == 1) {
+                        echo "<img src='style/images/error.png' width='20px' />&nbsp";
+                        echo "Error de DNI duplicado<br>";
+                    }
+                    if (substr($jugadorValidar, -1) == 1) {
+                        echo "<img src='style/images/error.png' width='20px' />&nbsp";
+                        echo "Error de EMAIL duplicado<br>";
+                    }
+                    echo "</div>";
+//                    echo "<div class='errorFormJug'>";
+//                    echo "<img src='style/images/error.png' width='40px' />&nbsp";
+//                    echo "Error. Vuelve a identificarte</div>";
+                   
+                     $jugadorValidar = "000";
+                }
+                ?>
+
+
+
 
 
             </div>

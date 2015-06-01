@@ -11,6 +11,7 @@ include 'modelo/Pista.php';
 include 'modelo/Fichero.php';
 include 'modelo/Reserva.php';
 
+
 if (isset($_POST["accion"])) {
     $accio = $_POST["accion"];
     switch ($accio) {
@@ -30,9 +31,10 @@ if (isset($_POST["accion"])) {
             if (!isset($_POST['descripcion'])) {
                 $_POST['descripcion'] = NULL;
             }
-            if (!isset($_FILES['avatar']["name"])) {
-                $_FILES['avatar'] = "style/avatars/defaultJugador.png";
+            if (isset($_FILES['avatar']['error']) == 4) {
+                $nombreFichero = "style/avatars/defaultJugador.png";
             } else {
+
 
                 $var = $_FILES["avatar"]["name"];
                 $ficheroSubir = new Fichero($var);
@@ -41,24 +43,25 @@ if (isset($_POST["accion"])) {
 
             $sessio = new Session();
             $conexion = new Conexio();
-            $jugadorValidar = $conexion->validarJugadorExistente($_POST["usuario"], $_POST["dni"]);
-
-            //VALIDACION DE JUGADOR VALIDO PARA REGISTRAR
-            if ($jugadorValidar) {
-
-                $validar = true;
+            $jugadorValidar = $conexion->validarJugadorExistente("usuario", $_POST["usuario"]);
+            $jugadorValidar = $jugadorValidar . $conexion->validarJugadorExistente('dni', $_POST["dni"]);
+            $jugadorValidar = $jugadorValidar . $conexion->validarJugadorExistente("email", $_POST["email"]);
+            
+//            VALIDACION DE JUGADOR VALIDO PARA REGISTRAR
+            if ($jugadorValidar != "000") { 
                 include 'vistas/formularioJugador2.php';
                 break;
             } else {
                 $jugador = new Jugador($_POST['nombre'], $_POST['dni'], $_POST['apellidos'], $_POST['telefono'], $_POST['email'], $_POST['usuario'], 0, $_POST['pwd1'], $_POST['descripcion'], $nombreFichero);
-
-                $ficheroSubir->subirFichero($nombreFichero);
-                $jugador->guardarJugador();
-
-                include 'vistas/registroCompletado.php';
-                break;
+                if (isset($_FILES['avatar']['error']) != 4) {
+                    $ficheroSubir->subirFichero($nombreFichero);
+                    $jugador->guardarJugador();
+                    include 'vistas/registroCompletado.php';
+                    break;
+                }
             }
-
+            
+            break;
 
         //REGISTRO DE CLUB
         case "Registrarse":
@@ -371,7 +374,7 @@ if (isset($_POST["accion"])) {
 
             $conexioCalendario->insertarReserva($hora, $data, $club, $usuario, $dni, $categor_id, $email);
             $reserva = new Reserva(null, $_POST['numJugadores'], $data . " " . $hora . ":00", date("Y-m-d"), true, $publico, $maximoJugadores, $dni, $id);
-            
+
             $reserva->guardarReserva();
             include "vistas/reservaRealizada.php";
             
