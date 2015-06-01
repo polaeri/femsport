@@ -32,6 +32,7 @@ header{
 }
 
 header img{
+    margin-top: 10px;
     width:15%;
     margin-left:10px;
 }
@@ -54,7 +55,7 @@ article .contentRol{
     height:80vh;
     width:99vw;
     margin-left: 10px;
-    margin-top: 100px;
+    margin-top: 90px;
     background-color: rgba(0,0,0,0.3);
     border-radius:10px;
     font-size:19px;
@@ -76,7 +77,7 @@ article .contentJugador{
     height:80vh;
     width:99vw;
     margin-left: 10px;
-    margin-top: 100px;
+    margin-top: 90px;
     background-color: rgba(0,0,0,0.3);
     border-radius:10px;
     font-size:19px;
