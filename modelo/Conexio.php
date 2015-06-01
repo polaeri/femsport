@@ -233,11 +233,9 @@ class Conexio {
                 if (isset($vectorReserva['id'])) {
                     $reserva = new Reserva($vectorReserva['id'], $vectorReserva['total_jugadores'], $vectorReserva['fecha_partido'], $vectorReserva['fecha_reserva'], $vectorReserva['estado'], $vectorReserva['privacidad'], $vectorReserva['maximo_jugadores'], $vectorReserva['dni_jugador_responsable'], $vectorReserva['id_pista']);
                     $reservas[$i] = $reserva;
+                    $i++;
                 }
-            }
-
-
-            $i++;
+            }            
         }
         if ($reservas) {
             return $reservas;

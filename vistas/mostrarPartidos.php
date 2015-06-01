@@ -33,21 +33,17 @@
                 </form>
 
             </sidebar>
-            <div class="contentJugador">
-            
-           <?php 
-            $sessio = new Session();
-            $reservas=$sessio->getSession("arrayDisponibles");
-            
-            for ($i=0;$i<=sizeof($reservas);$i++){
-            
-                $reservas[$i]->printReserva();
-            }
-            
-            
-            ?>
-          
-
+            <div class="contentJugador">                
+                <?php
+                $sessio = new Session();
+                $reservas = $sessio->getSession("arrayDisponibles");
+                echo "<h1>Eventos de " . $sessio->getSession("deporteBuscado") . "</h1>";
+                foreach ($reservas as $key => $value) {
+                    echo "<form action='index.php' method='POST'>";
+                    echo $value->printReserva();
+                    echo "</form>";
+                }
+                ?>                
             </div>
 
 
