@@ -26,7 +26,7 @@ class Reserva {
     
     function guardarReserva(){
         $conexio = new Conexio();
-        $conexio->guardarReserva($this->totalJugadores, $this->fecha_partido, $this->fecha_reserva, $this->estado, $this->privacidad, $this->maximo_jugadores, $this->maximo_jugadores, $this->id_pista);
+        $conexio->guardarReserva($this->totalJugadores, $this->fecha_partido, $this->fecha_reserva, $this->estado, $this->privacidad, $this->maximo_jugadores, $this->dni_jugador_responsable, $this->id_pista);
         $conexio->tancarConexio();       
     }
 

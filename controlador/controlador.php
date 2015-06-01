@@ -371,8 +371,8 @@ if (isset($_POST["accion"])) {
 
             $conexioCalendario->insertarReserva($hora, $data, $club, $usuario, $dni, $categor_id, $email);
             $reserva = new Reserva(null, $_POST['numJugadores'], $data . " " . $hora . ":00", date("Y-m-d"), true, $publico, $maximoJugadores, $dni, $id);
+            
             $reserva->guardarReserva();
-            //print_r($reserva);
             echo "RESERVA GUARDADA OK!";
             break;
         case "buscaBasket":
