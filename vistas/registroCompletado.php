@@ -37,9 +37,10 @@ http://www.the-art-of-web.com/javascript/validate-password/
             
             <div class="contentRol">
                 <center>
-                <h2>Registro Completo</h2>
+               
                 <img src="style/images/completo.png" alt="" width="200px" height="200px"/>
                 <br>
+                <div class="success">Registro Completo</div>
                   <!-- Trigger the modal with a button -->
                     <button type="button" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal">LOGIN</button>
 

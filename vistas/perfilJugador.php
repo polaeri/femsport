@@ -47,11 +47,14 @@ and open the template in the editor.
                     
                     <div class="avatar">
                         
+                        <?php
+                        $sessio = new Session();
+                        $jugador = $sessio->getSession("jugador");
+                        $jugador->printAvatarJugador();
+                        ?>
+                        
                     </div>
-                        
-                        
-                       
-                   
+                                       
                     <div class="datosPerfil">
                     
                         <?php

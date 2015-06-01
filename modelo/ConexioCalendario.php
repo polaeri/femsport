@@ -278,7 +278,7 @@ INSERT INTO " . $nomClub . "_users (user_id, user_name, password, temp_password,
                     }
                 }
                 //PRINTAMOS LOS SELECTS
-                echo "<h1>Pista " . $numeroPista . "</h1>";
+                echo "<h3 class='titol2'>Pista " . $numeroPista . "</h3>";
                 echo "<form action='index.php' method='POST'>";
                 echo "<select name='hora'>";
                 echo "<option value='null'>Elige horario</option>";
@@ -307,7 +307,7 @@ INSERT INTO " . $nomClub . "_users (user_id, user_name, password, temp_password,
                 $numeroPista++;
             }
         } else {
-            echo "<h1>NO HI HA PISTES</h1>";
+            echo "<h1>No hay pistas disponibles</h1>";
         }
     }
 

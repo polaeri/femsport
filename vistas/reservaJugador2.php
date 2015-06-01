@@ -7,7 +7,8 @@
         <link href="style/estilo.css" rel="stylesheet" type="text/css"/>
         <link href="style/estilo.css" rel="stylesheet" type="text/css"/>
         <script src="jquery-2.1.3.js" type="text/javascript"></script>
-        <link href="../style/formJugador.css" rel="stylesheet" type="text/css"/>
+        <link href="style/formJugador.css" rel="stylesheet" type="text/css"/>
+        
 
     </head>
     <body>
@@ -27,19 +28,20 @@
 
                 <form action="index.php" method="POST">
                     <button type="submit" class="boton anaranjado formaBoton "  name="accion" value="atrasJugador">ATRAS</button>
-                </form>
+                </form><br>
                 <form action="index.php" method="POST">
                     <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>
                 </form>
 
             </sidebar>
             <div class="contentJugador">
+                <div class="perfil">
                 <br>
-                Estamos a punto de completar la reserva:
+                <h3 class="titol3">Estamos a punto de completar la reserva:</h3><br>
 
                 <form action="index.php" method="POST">
-                    Cuantos jugadores sois?
-                    <select id="jugadores" name="numJugadores">
+                    <h3 class="titol3"> ¿Cuántos jugadores sois?</h3><br>
+                    &nbsp <select id="jugadores" name="numJugadores">
                         <?php
                         $sesion = new Session();
                         $sesion;
@@ -49,20 +51,20 @@
                             echo "<option>" . $i . "</option>";
                         }
                         ?> 
-                    </select><br>
-                    Quieres que otros jugadores puedan participar en tu partido?<br>
-                    <input type="checkbox" name="privado" value="Privado" id="privado"> Partido público<br>
-                    <div id="cuantos" hidden>
-                        Cuantos?
-                        <select id="invitados" name="invitados">                            
+                    </select><br><br>
+                    <h3 class="titol3">¿ Quieres que otros jugadores puedan participar en tu partido?</h3><br>
+                    &nbsp <input type="checkbox" name="privado" value="Privado" id="privado"> <br>
+                    <h3 class="titol3">Partido público</h3>  &nbsp <div id="cuantos" hidden>
+                        <h3 class="titol3">¿Cuantos?</h3><br>
+                       &nbsp  <select id="invitados" name="invitados">                            
                         </select>
-                    </div>
+                    </div><br><br>
                     <button id="consultar" type="submit" name="accion" value="reservarPista2">RESERVAR</button>
 
                 </form>          
             </div>
 
-
+</div>
 
         </article>
         <script>

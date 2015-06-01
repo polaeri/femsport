@@ -26,7 +26,6 @@ and open the template in the editor.
                 </ul>
             </menu>
         </header>
-        </header>
         <img src="../style/images/completo.png" alt=""/>
 
         <article>

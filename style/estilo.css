@@ -8,7 +8,10 @@ and open the template in the editor.
     Author     : xavi
 */
 
+
+
 @import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900');
+
 
 
 * {
@@ -122,6 +125,21 @@ h5{
     color:white;
     margin-left: 10px;
     margin-top: 10px;
+}
+
+.titol3{
+    margin-left: 15px;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: black;
+    font-size: 15pt; 
+}
+
+.titol4{
+  
+    font-family: 'Source Sans Pro', sans-serif;
+    color:  white;
+    font-size: 50pt;
+    border:1px solid #F00; 
 }
 
 h4{
@@ -272,9 +290,15 @@ li {
 .perfil1 .avatar{
     margin-top: 10px;
     margin-left: 10px;
-    width: 100px;
-    height: 100px;
-    background-color: red;
+    width: 150px;
+    height: 150px;
+    
+}
+
+.avatar img{
+    
+    width: 150px;
+    height: 150px;    
 }
 
 hr{
@@ -282,11 +306,11 @@ hr{
     border-color: #0000ff;
 }
 
-.subperfilClub{
+.subperfilhorario{
     float: left;
     width: 400px;
     margin-left: 10px;
-    overflow:scroll;height:500px;width:500px;
+    overflow:scroll;height:500px;width:600px;
 }
 
 .subperfil2{
@@ -319,6 +343,8 @@ hr{
     text-shadow: 0px -1px 0px rgba(0,0,0,0.2);
     cursor: pointer;
 }
+
+
 .boton2 {
     text-decoration: none;
     color: #fff;
@@ -551,6 +577,7 @@ http://www.jankoatwarpspeed.com/css-message-boxes-for-different-message-types/
     color: #4F8A10;
     background-color: #DFF2BF;
     background-image:url('success.png');
+    text-align: center;
 }
 .warning {
     color: #9F6000;
