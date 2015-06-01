@@ -38,16 +38,17 @@
                 $sessio = new Session();
                 $reservas = $sessio->getSession("arrayDisponibles");
                 echo "<h1>Eventos de " . $sessio->getSession("deporteBuscado") . "</h1>";
-                foreach ($reservas as $key => $value) {
-                    echo "<form action='index.php' method='POST'>";
-                    echo $value->printReserva();
-                    echo "</form>";
+                if (isset($reservas)) {
+                    foreach ($reservas as $key => $value) {
+                        echo "<form action='index.php' method='POST'>";
+                        echo $value->printReserva();
+                        echo "</form>";
+                    }
+                } else {
+                    echo "<h2>No hay eventos disponibles</h2>";
                 }
                 ?>                
             </div>
-
-
-
         </article>
 
         <footer>Copyright ©FemSport</footer>

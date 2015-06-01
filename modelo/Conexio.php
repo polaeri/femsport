@@ -17,8 +17,8 @@ class Conexio {
 //CONSULTAS DE JUGADOR Y CLUB///
 ///////////////////////////////
 
-   public function validarJugadorExistente($campo,$validacion) {
-        $senetenciaSql = "SELECT * FROM jugador WHERE ".$campo."='" . $validacion. "'";
+    public function validarJugadorExistente($campo, $validacion) {
+        $senetenciaSql = "SELECT * FROM jugador WHERE " . $campo . "='" . $validacion . "'";
         $comprobar = $this->connexio->query($senetenciaSql);
         if ($comprobar->num_rows > 0) {
             return 1;
@@ -153,6 +153,15 @@ class Conexio {
         }
     }
 
+    function buscarNomClub($cif) {
+        $sentenciaSql = "SELECT nombre FROM club WHERE cif = '" . $cif . "'";
+        $consulta = $this->connexio->query($sentenciaSql);
+        while ($vector = $consulta->fetch_array(MYSQLI_ASSOC)) {
+            $nombre = $vector['nombre'];
+        }
+        return $nombre;
+    }
+
     function mostrarClubs($deporte) {
         $sentenciaSql = "SELECT * FROM club WHERE cif IN ( SELECT cif_club FROM pista WHERE tipo = '" . $deporte . "')";
         $consulta = $this->connexio->query($sentenciaSql);
@@ -222,7 +231,7 @@ class Conexio {
 
     function mostrarPartidos($deporte) {
 
-        $sentenciaSql = "SELECT id FROM pista WHERE tipo = '" . $deporte . "'";
+        $sentenciaSql = "SELECT id, cif_club FROM pista WHERE tipo = '" . $deporte . "'";
         $consulta1 = $this->connexio->query($sentenciaSql);
         $i = 0;
         $reservas = [];
@@ -231,11 +240,11 @@ class Conexio {
             $consulta2 = $this->connexio->query($sentenciaSql2);
             while ($vectorReserva = $consulta2->fetch_array(MYSQLI_ASSOC)) {
                 if (isset($vectorReserva['id'])) {
-                    $reserva = new Reserva($vectorReserva['id'], $vectorReserva['total_jugadores'], $vectorReserva['fecha_partido'], $vectorReserva['fecha_reserva'], $vectorReserva['estado'], $vectorReserva['privacidad'], $vectorReserva['maximo_jugadores'], $vectorReserva['dni_jugador_responsable'], $vectorReserva['id_pista']);
+                    $reserva = new Reserva($vectorReserva['id'], $vectorReserva['total_jugadores'], $vectorReserva['fecha_partido'], $vectorReserva['fecha_reserva'], $vectorReserva['estado'], $vectorReserva['privacidad'], $vectorReserva['maximo_jugadores'], $vectorReserva['dni_jugador_responsable'], $vectorReserva['id_pista'], $vector['cif_club']);
                     $reservas[$i] = $reserva;
                     $i++;
                 }
-            }            
+            }
         }
         if ($reservas) {
             return $reservas;
@@ -251,6 +260,38 @@ class Conexio {
             $id = $vector["id"];
         }
         return $id;
+    }
+
+    function buscarReserva($id) {
+        $sentenciaSql = "SELECT * FROM datos_reserva WHERE id = '" . $id . "'";
+        $consulta = $this->connexio->query($sentenciaSql);
+        while ($vector = $consulta->fetch_array(MYSQLI_ASSOC)) {
+            $totalJugadores = $vector['total_jugadores'];
+            $fecha_partido = $vector['fecha_partido'];
+            $fecha_reserva = $vector['fecha_reserva'];
+            $estado = $vector['estado'];
+            $privacidad = $vector['privacidad'];
+            $maximo_jugadores = $vector['maximo_jugadores'];
+            $dni_jugador_responsable = $vector['dni_jugador_responsable'];
+            $id_pista = $vector['id_pista'];
+        }
+        $reserva = new Reserva($id, $totalJugadores, $fecha_partido, $fecha_reserva, $estado, $privacidad, $maximo_jugadores, $dni_jugador_responsable, $id_pista, null);
+        return $reserva;
+    }
+
+    function actualizarReserva($reserva) {
+        $sesion = new Session();
+        $jugador = $sesion->getSession('jugador');
+        $dni_jugador = $jugador->getDni();
+        $id_reserva = $reserva->getId();
+        
+        $sentenciaSql = "UPDATE datos_reserva SET total_jugadores= '" . $reserva->getTotalJugadores() . "' WHERE id='" . $reserva->getId() . "'";
+        $this->connexio->query($sentenciaSql);
+        echo $this->connexio->error;
+        
+        $sentenciaSql2 = "INSERT INTO jugadores_anadidos(dni_jugador, id_reserva) VALUES ('" . $dni_jugador . "','" . $id_reserva . "')";
+        $this->connexio->query($sentenciaSql2);
+        echo $this->connexio->error;
     }
 
 }
