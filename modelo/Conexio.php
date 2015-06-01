@@ -216,7 +216,6 @@ class Conexio {
 
         $sentenciaSql = "INSERT INTO datos_reserva (id , total_jugadores , fecha_partido , fecha_reserva , estado , privacidad , maximo_jugadores , dni_jugador_responsable , id_pista )VALUES ( NULL ,  '" . $totalJugadores . "',  '" . $fechaPartido . "',  '" . $fechaReserva . "',  '" . $estado . "',  '" . $privacidad . "',  '" . $maxJugadores . "',  '" . $dni . "',  '" . $idPista . "'
 )";
-
         $this->connexio->query($sentenciaSql);
         echo $this->connexio->error;
     }
