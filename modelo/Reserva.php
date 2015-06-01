@@ -103,15 +103,11 @@ class Reserva {
     }
     
     function printReserva(){
-        return "Total Jugadores: ".$this->totalJugadores.
-        "Fecha Partido : ".$this->fecha_partido .
-        "Fecha Reserva : ".$this->fecha_reserva .
-        "Fecha estado: ".$this->estado.
-        "Privacidad:".$this->privacidad .
-        "Maximo Jugadores:".$this->maximo_jugadores .
-        "DNI Jugador".$this->dni_jugador_responsable .
-        "ID Pista".$this->id_pista .
-        "ID Reserva".$this->id;
+        return "<br>Total Jugadores = ".$this->totalJugadores.
+        "<br>Fecha Partido = ".$this->fecha_partido .
+        "<br>Maximo Jugadores = ".$this->maximo_jugadores .
+        "<br>ID Pista = ".$this->id_pista .
+        "<br>ID Reserva = ".$this->id;
     }
 
 

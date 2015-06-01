@@ -38,7 +38,7 @@
                 <br><br>
                 <form action="index.php" method="POST">
                     <center>
-                        <div class="perfil1">
+                        <div class="perfil3">
                             <img src="style/images/selectRol/jugador2.png" width="200px" height="200px"/><br><br>
                             <select name= "deporte" id="deporte">
                                 <option value="0">Escoje Deporte</option>
@@ -49,12 +49,12 @@
                                 <option value="padel">Padel</option>
                             </select>
                         </div>
-                        <div class="perfil1">
+                        <div class="perfil3">
                             <img src="style/images/selectRol/club.png" width="200px" height="200px"/><br><br>
                             <select name="club" id="clubs" hidden>                    
                             </select>
                         </div>
-                        <div class="perfil1">
+                        <div class="perfil3">
                          <img src="style/images/botonReservas.png" width="200px" height="200px"/><br><br>
                          <input type="date" id="fecha" name="fecha" hidden><br><br><br>           
                     <button id="consultar" type="submit" name="accion" value="consultar" hidden >CONSULTAR</button>

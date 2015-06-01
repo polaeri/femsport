@@ -395,35 +395,39 @@ if (isset($_POST["accion"])) {
             $reservas = $conexio->mostrarPartidos("basket");
             $sessio = new Session();
             $sessio->setSession("arrayDisponibles", $reservas);
+            $sessio->setSession("deporteBuscado", "Basket");
             include "vistas/mostrarPartidos.php";
             break;
         case "buscaPadel":
             $conexio = new Conexio();
             $reservas = $conexio->mostrarPartidos("padel");
-            print_r($reservas);
             $sessio = new Session();
             $sessio->setSession("arrayDisponibles", $reservas);
+            $sessio->setSession("deporteBuscado", "Padel");
             include "vistas/mostrarPartidos.php";
             break;
         case "buscaFutbol11":
             $conexio = new Conexio();
-            $reservas = $conexio->mostrarPartidos("futbol11");
+            $reservas = $conexio->mostrarPartidos("futbol_11");
             $sessio = new Session();
             $sessio->setSession("arrayDisponibles", $reservas);
+            $sessio->setSession("deporteBuscado", "Futbol 11");
             include "vistas/mostrarPartidos.php";
             break;
         case "buscaFutbol7":
             $conexio = new Conexio();
-            $reservas = $conexio->mostrarPartidos("futbol7");
+            $reservas = $conexio->mostrarPartidos("futbol_7");
             $sessio = new Session();
             $sessio->setSession("arrayDisponibles", $reservas);
+            $sesion->setSession("deporteBuscado", "Futbol 7");
             include "vistas/mostrarPartidos.php";
             break;
         case "buscaFutbol5":
             $conexio = new Conexio();
-            $reservas = $conexio->mostrarPartidos("futbol5");
+            $reservas = $conexio->mostrarPartidos("futbol_5");
             $sessio = new Session();
             $sessio->setSession("arrayDisponibles", $reservas);
+            $sessio->setSession("deporteBuscado", "Futbol 5");
             include "vistas/mostrarPartidos.php";
             break;
         case 'maximoJugadores':
