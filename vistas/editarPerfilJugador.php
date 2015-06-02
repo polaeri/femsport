@@ -49,7 +49,7 @@ and open the template in the editor.
                     <h2>Editar Información</h2>
                     <hr>
                      <form action="index.php" method="POST" class="contact_form" id="contact_form" runat="server">
-                    <div class="subperfilClub" >
+                    <div class="subperfil2" >
                    
                             <?php
                             $sessio = new Session();

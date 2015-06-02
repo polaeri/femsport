@@ -74,6 +74,7 @@ and open the template in the editor.
                     <div class="perfil1">
                         <h2>Historial Reservas</h2>                    
                         <hr>
+                        <div class="perfilHistorial">
                         <?php
                         $sesion = new Session();
                         $jugador = $sesion->getSession('jugador');
@@ -82,12 +83,13 @@ and open the template in the editor.
                             echo "<br>" . $value->printReservaHistorial();
                         }
                         ?>
-
+                    </div>
                     </div>
 
                     <div class="perfil1">
                         <h2>Partidos Jugados</h2>
                         <hr>
+                        <div class="perfilHistorial">
                         <?php
                         $sesion = new Session();
                         $jugador = $sesion->getSession('jugador');
@@ -97,6 +99,7 @@ and open the template in the editor.
                             echo "<br>" . $reserva->printReservaHistorial();
                         }
                         ?>
+                        </div>
                     </div>
                 </div>
             </div>

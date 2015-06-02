@@ -41,8 +41,13 @@ http://www.the-art-of-web.com/javascript/validate-password/
                     <br><br>
                 <img src="style/images/completo.png" alt="" width="200px" height="200px"/>
                 <br>
+                
+                <div class="success">Reserva Realizada Correctamente</div>
+                <br>
+                <form action="index.php" method="POST">
+                        <button type="submit" class="boton azul formaBoton "  name="accion" value="atrasJugador">SALIR</button>
+                    </form>
                 </center>
-                <div class="success">Reserva Realizada</div>
               
             </div> 
         </article>

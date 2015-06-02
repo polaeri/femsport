@@ -25,7 +25,7 @@ and open the template in the editor.
                 </ul>
             </menu>
         </header>
-        <img src="../style/images/completo.png" alt=""/>
+       
 
         <article>
             <sidebar>
@@ -36,7 +36,7 @@ and open the template in the editor.
 
              </sidebar>
             
-            <div class="contentJugador">
+            <div class="contentJugador2">
                 
                 <h1 class="titol2">
                     <?php
@@ -46,6 +46,7 @@ and open the template in the editor.
                     ?>
                 </h1>
                 <div align="center">
+                    <br><br>
                     <form method="POST" action="index.php">
                         <input class="especial" type="image" name="accion" value="perfilJugador" src="style/images/botonPerfilJugador.png" width="250px">
                         &nbsp &nbsp &nbsp &nbsp 

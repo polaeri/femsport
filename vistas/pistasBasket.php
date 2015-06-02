@@ -40,7 +40,7 @@
                     <hr>
                     <form action="index.php" method="POST" class="contact_form" id="contact_form" runat="server">
                         <div class="subperfilClub" >
-                             <div class="datosPerfil">
+                             <div class="datosPerfilScroll">
                             <?php
                             $sessio = new Session();
                             $club = $sessio->getSession("club");
@@ -60,7 +60,7 @@
                         </div>
                         <div class="subperfil3">
 
-                            <button name="accion" value="EditarPerfilPista" class="boton2 verde formaBoton ">Editar</button>
+                           
 
                         </div> 
                     </form>

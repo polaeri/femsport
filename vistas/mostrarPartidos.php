@@ -15,10 +15,8 @@
 
             <menu>
                 <ul>
-                    <li><a href="#Aqui URL">Inicio</a></li>
-
+                    <li><a href="index.php">Inicio</a></li>
                 </ul>
-
             </menu>
         </header>
 
@@ -26,28 +24,33 @@
             <sidebar>
 
                 <form action="index.php" method="POST">
-                    <button type="submit" class="boton anaranjado formaBoton "  name="accion" value="atrasJugador">ATRAS</button>
-                </form><
+                    <button type="submit" class="boton anaranjado formaBoton "  name="accion" value="atrasBuscarJugador">ATRAS</button>
+                </form><br>
                 <form action="index.php" method="POST">
                     <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>
                 </form>
 
             </sidebar>
-            <div class="contentJugador">                
+            <div class="contentJugador">
+                <div class="perfilHistorial3">
+                    
                 <?php
                 $sessio = new Session();
                 $reservas = $sessio->getSession("arrayDisponibles");
-                echo "<h1>Eventos de " . $sessio->getSession("deporteBuscado") . "</h1>";
+                echo "<h1 class='titol2'>Eventos de " . $sessio->getSession("deporteBuscado") . "</h1>";
+              
                 if (isset($reservas)) {
                     foreach ($reservas as $key => $value) {
                         echo "<form action='index.php' method='POST'>";
                         echo $value->printReserva();
                         echo "</form>";
+                        
                     }
                 } else {
-                    echo "<h2>No hay eventos disponibles</h2>";
+                    echo "<h2 class='titol2'>No hay eventos disponibles</h2>";
                 }
-                ?>                
+                ?>      
+                    </div>
             </div>
         </article>
 

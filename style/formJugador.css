@@ -40,7 +40,7 @@ and open the template in the editor.
 
 //.contact_form input { height: 30px; width: 150px; padding: 5px 8px; margin: 0px} 
 
-.contact_form textarea { padding: 8px; width: 300px; } 
+.contact_form textarea { padding: 0px; width: 250px; } 
 
 //.contact_form button { margin-left: 0px; margin: 10px} 
 
