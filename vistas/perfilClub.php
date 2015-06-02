@@ -40,6 +40,12 @@
                         <hr>
                         
                         <div class="avatar">
+                            
+                             <?php
+                            $sessio = new Session();
+                            $jugador = $sessio->getSession("club");
+                            $jugador->printAvatarClub();
+                            ?>
                         
                         </div><br>
                          <div class="datosPerfil">
@@ -71,9 +77,7 @@
                             ?>                            
                         </form>
                        
-                        <form action="index.php" method="POST">
-                            <p> <button name="accion" value="editarCamposClub" class="boton2 verde formaBoton ">Editar</button></p>
-                        </form> </center>
+                         </center>
                     </div>
                     <div class="perfil1">
                          <h2>Insertar Nuevas Pistas/Campos</h2>

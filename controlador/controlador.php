@@ -205,6 +205,23 @@ if (isset($_POST["accion"])) {
             $sessio = new Session();
             include 'vistas/perfilClub.php';
             break;
+        
+        case"atrasBuscarJugador":
+            $sessio = new Session();
+            include 'vistas/buscarJugador.php';
+            break;
+        
+        case "atrasConsultarHorario":
+            $sessio = new Session();
+            include 'vistas/reservaJugador.php';
+            break;
+        
+        case "atrasReservaPista":
+            $sessio = new Session();
+            include 'vistas/consultaHorario.php';
+            break;
+            
+            
 
         case "perfilClub":
             include 'vistas/perfilClub.php';
@@ -419,7 +436,7 @@ if (isset($_POST["accion"])) {
             $reservas = $conexio->mostrarPartidos("futbol_7");
             $sessio = new Session();
             $sessio->setSession("arrayDisponibles", $reservas);
-            $sesion->setSession("deporteBuscado", "Futbol 7");
+            $sessio->setSession("deporteBuscado", "Futbol 7");
             include "vistas/mostrarPartidos.php";
             break;
         case "buscaFutbol5":

@@ -16,10 +16,8 @@
 
             <menu>
                 <ul>
-                    <li><a href="#Aqui URL">Inicio</a></li>
-
+                    <li><a href="index.php">Inicio</a></li>
                 </ul>
-
             </menu>
         </header>
 
@@ -27,7 +25,7 @@
             <sidebar>
 
                 <form action="index.php" method="POST">
-                    <button type="submit" class="boton anaranjado formaBoton "  name="accion" value="atrasJugador">ATRAS</button>
+                    <button type="submit" class="boton anaranjado formaBoton "  name="accion" value="atrasReservaPista">ATRAS</button>
                 </form><br>
                 <form action="index.php" method="POST">
                     <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>

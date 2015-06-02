@@ -31,11 +31,14 @@ class Club {
     function printClub() {
         echo "CLUB<br>CIF: " . $this->cif . "<br>Nombre:" . $this->nombre . "<br>Telefono: " . $this->telefono .
         "<br>Telefono 2: " . $this->telefono2 . "<br>Direccion: " . $this->direccion . "<br>Email: " .
-        $this->email . "<br>Avatar: " . $this->avatar . "<br>Web: " . $this->web .// "<br>Password: " .
+        $this->email . "<br>Web: " . $this->web .// "<br>Password: " .
         /*$this->password . */"<br>Descripcion: " . $this->descripcion . "<br>";
     }
-
-    function guardarClub() {
+    
+    function printAvatarClub(){
+         echo "<img src='" . $this->avatar . "'/>";
+    }
+                function guardarClub() {
         $conexio = new Conexio();
         $conexio->guardarClub($this->cif, $this->nombre, $this->telefono, $this->telefono2, $this->direccion, $this->email, $this->avatar, $this->web, $this->password, $this->descripcion, $this->pistas);
         $conexio->tancarConexio();
