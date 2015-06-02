@@ -43,7 +43,7 @@ http://www.the-art-of-web.com/javascript/validate-password/
             </sidebar>
             <div class="contentClub">
                 
-            <form id="formulario" class="contact_form" action="index.php" method="POST">
+            <form id="formulario" class="contact_form" action="index.php" method="POST" enctype="multipart/form-data">
                 <br>
                 <!-- progreso -->
                 <ul id="progreso">
