@@ -136,8 +136,13 @@ class Reserva {
 
     function actualizarReserva() {
         $conexio = new Conexio();
-        $conexio->actualizarReserva($this);
+        $resultat = $conexio->actualizarReserva($this);
         $conexio->tancarConexio();
+        if($resultat){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 }

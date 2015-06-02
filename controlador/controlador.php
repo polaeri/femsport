@@ -458,10 +458,14 @@ if (isset($_POST["accion"])) {
             $conexio->tancarConexio();
             $totalJugadores = $reserva->getTotalJugadores() + 1;
             $reserva->setTotalJugadores($totalJugadores);
-            if ($reserva->actualizarReserva()) {
-                
+            $resultat = $reserva->actualizarReserva();
+            if ($resultat == true) {
+                include 'vistas/jugadorAnadidoEvento.php';
             } else {
-                
+                $errorInicio = "No puedes añadirte a un partido que ya estas apuntado!";
+                /*$sesion = new Session();
+                $sesion->setSession("errorAnadirEvento", "No puedes añadirte a un partido que ya estas apuntado!");*/
+                include "vistas/mostrarPartidos.php";
             }
             break;
         default:

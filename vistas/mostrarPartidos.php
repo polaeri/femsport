@@ -33,24 +33,31 @@
             </sidebar>
             <div class="contentJugador">
                 <div class="perfilHistorial3">
-                    
-                <?php
-                $sessio = new Session();
-                $reservas = $sessio->getSession("arrayDisponibles");
-                echo "<h1 class='titol2'>Eventos de " . $sessio->getSession("deporteBuscado") . "</h1>";
-              
-                if (isset($reservas)) {
-                    foreach ($reservas as $key => $value) {
-                        echo "<form action='index.php' method='POST'>";
-                        echo $value->printReserva();
-                        echo "</form>";
-                        
+
+                    <?php
+                    $sessio = new Session();
+                    $reservas = $sessio->getSession("arrayDisponibles");
+                    echo "<h1 class='titol2'>Eventos de " . $sessio->getSession("deporteBuscado") . "</h1>";
+
+                    if (isset($reservas)) {
+                        foreach ($reservas as $key => $value) {
+                            echo "<form action='index.php' method='POST'>";
+                            echo $value->printReserva();
+                            echo "</form>";
+                        }
+                    } else {
+                        echo "<h2 class='titol2'>No hay eventos disponibles</h2>";
                     }
-                } else {
-                    echo "<h2 class='titol2'>No hay eventos disponibles</h2>";
+                    ?>      
+                </div>
+                <?php
+                $sesion = new Session();
+                if (isset($errorInicio)) {
+                    echo "<div class='error'>";
+                    echo "<img src='style/images/error.png' width='20px' />&nbsp";
+                    echo "" . $errorInicio . "</div>";
                 }
-                ?>      
-                    </div>
+                ?>
             </div>
         </article>
 

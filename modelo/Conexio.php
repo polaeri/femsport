@@ -279,14 +279,13 @@ class Conexio {
         return $reserva;
     }
 
-    function buscarIdAnadirJugador($dni) {
-        $sentenciaSql = "SELECT * FROM jugadores_anadidos WHERE dni_jugador_responsable = '" . $dni . "'";
+    function buscarIdAnadirJugador($dni, $id) {
+        $sentenciaSql = "SELECT * FROM jugadores_anadidos WHERE dni_jugador = '" . $dni . "' AND id_reserva = '".$id."'";
         $consulta = $this->connexio->query($sentenciaSql);
-        $dni_aux = 0;
         while ($vector = $consulta->fetch_array(MYSQLI_ASSOC)) {
             $dni_aux = $vector['dni_jugador'];
         }
-        if ($dni_aux !== 0) {
+        if (isset($dni_aux)) {
             return true;
         } else {
             return false;
@@ -298,16 +297,25 @@ class Conexio {
         $jugador = $sesion->getSession('jugador');
         $dni_jugador = $jugador->getDni();
         $id_reserva = $reserva->getId();
-        if ($this->buscarIdAnadirJugador($jugador->getId())) {
+        $dni = $jugador->getDni();
+        $dni_responsable_reserva = $reserva->getDni_jugador_responsable();
+        $resultat1 = $this->buscarIdAnadirJugador($dni, $id_reserva);
+        
+        if($dni_jugador === $dni_responsable_reserva){
+            $resultat2 = true;
+            //echo $resultat2 . " TRUE   -- dni_jugador = ".$dni_jugador . "    ----- dni_responsable_reserva = " . $dni_responsable_reserva;
+        }else{
+            $resultat2 = false;
+            //echo "BIEN   " . $resultat2 . " FALSE   -- dni_jugador = ".$dni_jugador . "    ----- dni_responsable_reserva = " . $dni_responsable_reserva;
+        }
+        if ($resultat1 || $resultat2) {
             return false;
         } else {
             $sentenciaSql = "UPDATE datos_reserva SET total_jugadores= '" . $reserva->getTotalJugadores() . "' WHERE id='" . $reserva->getId() . "'";
             $this->connexio->query($sentenciaSql);
-            echo $this->connexio->error;
 
             $sentenciaSql2 = "INSERT INTO jugadores_anadidos(dni_jugador, id_reserva) VALUES ('" . $dni_jugador . "','" . $id_reserva . "')";
             $this->connexio->query($sentenciaSql2);
-            echo $this->connexio->error;
             return true;
         }
     }
