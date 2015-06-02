@@ -328,7 +328,7 @@ INSERT INTO " . $nomClub . "_users (user_id, user_name, password, temp_password,
 
 
 
-        $sentenciaSQL = "INSERT INTO 12345678P_events (event_id, event_type, title, description, xfield1, xfield2, category_id, venue, user_id, editor, approved, private, checked, s_date, e_date, x_dates, s_time, e_time, r_type, r_interval, r_period, r_month, r_until, notify, not_mail, a_datetime, m_datetime, status) VALUES
+        $sentenciaSQL = "INSERT INTO ".$club."_events (event_id, event_type, title, description, xfield1, xfield2, category_id, venue, user_id, editor, approved, private, checked, s_date, e_date, x_dates, s_time, e_time, r_type, r_interval, r_period, r_month, r_until, notify, not_mail, a_datetime, m_datetime, status) VALUES
 (NULL , 0, '" . $usuario . "_" . $dni . "', '', '', '', '" . $category_id . "', '', 2, '', 0, 0, NULL, '" . $data . "', '9999-00-00', NULL, '" . $hora . "', '" . $hora_final . "', 0, 0, 0, 0, '9999-00-00', -1, '" . $email . "', '2015-00-0 00:00:00', '9999-00-00 00:00:00', 0);";
 
         $this->connexioCal->query($sentenciaSQL);

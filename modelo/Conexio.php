@@ -235,8 +235,9 @@ class Conexio {
         $consulta1 = $this->connexio->query($sentenciaSql);
         $i = 0;
         $reservas = [];
+        $data_actual = date("Y-m-d H:i:s");
         while ($vector = $consulta1->fetch_array(MYSQLI_ASSOC)) {
-            $sentenciaSql2 = "SELECT * FROM datos_reserva WHERE total_jugadores < maximo_jugadores AND privacidad = '1' AND id_pista = '" . $vector['id'] . "'";
+            $sentenciaSql2 = "SELECT * FROM datos_reserva WHERE total_jugadores < maximo_jugadores AND privacidad = '1' AND id_pista = '" . $vector['id'] . "' AND fecha_partido > '".$data_actual."'";
             $consulta2 = $this->connexio->query($sentenciaSql2);
             while ($vectorReserva = $consulta2->fetch_array(MYSQLI_ASSOC)) {
                 if (isset($vectorReserva['id'])) {
@@ -303,10 +304,8 @@ class Conexio {
         
         if($dni_jugador === $dni_responsable_reserva){
             $resultat2 = true;
-            //echo $resultat2 . " TRUE   -- dni_jugador = ".$dni_jugador . "    ----- dni_responsable_reserva = " . $dni_responsable_reserva;
         }else{
-            $resultat2 = false;
-            //echo "BIEN   " . $resultat2 . " FALSE   -- dni_jugador = ".$dni_jugador . "    ----- dni_responsable_reserva = " . $dni_responsable_reserva;
+            $resultat2 = false;            
         }
         if ($resultat1 || $resultat2) {
             return false;
@@ -357,7 +356,8 @@ class Conexio {
     }
 
     function buscarPartidosReservadoConId($id) {
-        $sentenciaSql = "SELECT * FROM datos_reserva WHERE id = '" . $id . "'";
+        $data_actual = date("Y-m-d H:i:s");
+        $sentenciaSql = "SELECT * FROM datos_reserva WHERE id = '" . $id . "' AND fecha_partido > '".$data_actual."'";
         $consulta = $this->connexio->query($sentenciaSql);
         $i = 0;
         while ($vector = $consulta->fetch_array(MYSQLI_ASSOC)) {
