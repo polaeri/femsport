@@ -58,8 +58,8 @@ http://www.the-art-of-web.com/javascript/validate-password/
 
                     <h2 class="fs-title">Crear su cuenta</h2>
                     <h3 class="fs-subtitle">Paso 1</h3>
-                    <input type="dni" name="cif" placeholder="CIF" maxlength="9" pattern="^[A-Z]{7}[0-5][0-9]$" required /> 
-                    <span class="form_hint" >Formato correcto: "A12345678"</span> 
+                    <input type="dni" name="cif" placeholder="CIF" maxlength="9" pattern="^[0-5][0-9]{7}[A-Z]$" required /> 
+                    <span class="form_hint" >Formato correcto: "12345678A"</span> 
                     <input type="password" placeholder="Contraseña" name="pwd1" maxlength="20" onchange="form.pwd2.pattern = this.value;" required />
                     <input type="password"  name="pwd2" placeholder="Confirmar contraseña" maxlength="20"name="pwd2"required /> 
                     <input type="button" name="next" class="next action-button" value="Siguiente" />
