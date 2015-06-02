@@ -87,7 +87,7 @@ and open the template in the editor.
                     </div>
 
                     <div class="perfil1">
-                        <h2>Partidos Jugados</h2>
+                        <h2>Partidos como invitado Pendientes</h2>
                         <hr>
                         <div class="perfilHistorial">
                         <?php

@@ -332,7 +332,6 @@ if (isset($_POST["accion"])) {
             $maxJugadores = 0;
             switch ($tipo) {
                 case 'futbo':
-                    echo "FUTBOL = ";
                     if (substr($nombre_pista, 7, 1) == '5') {
                         $maxJugadores = 15;
                     } else if (substr($nombre_pista, 7, 1) === '7') {
