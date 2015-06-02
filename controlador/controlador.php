@@ -205,23 +205,23 @@ if (isset($_POST["accion"])) {
             $sessio = new Session();
             include 'vistas/perfilClub.php';
             break;
-        
+
         case"atrasBuscarJugador":
             $sessio = new Session();
             include 'vistas/buscarJugador.php';
             break;
-        
+
         case "atrasConsultarHorario":
             $sessio = new Session();
             include 'vistas/reservaJugador.php';
             break;
-        
+
         case "atrasReservaPista":
             $sessio = new Session();
             include 'vistas/consultaHorario.php';
             break;
-            
-            
+
+
 
         case "perfilClub":
             include 'vistas/perfilClub.php';
@@ -458,8 +458,11 @@ if (isset($_POST["accion"])) {
             $conexio->tancarConexio();
             $totalJugadores = $reserva->getTotalJugadores() + 1;
             $reserva->setTotalJugadores($totalJugadores);
-            $reserva->actualizarReserva();
-            echo 'Reserva realizada';
+            if ($reserva->actualizarReserva()) {
+                
+            } else {
+                
+            }
             break;
         default:
             echo 'Error controlador';
