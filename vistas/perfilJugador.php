@@ -16,7 +16,7 @@ and open the template in the editor.
 
     </head>
     <body>
-         <header>
+        <header>
             <img src="style/images/selectRol/logoFemEsport2.png">
             <menu>
                 <ul>
@@ -27,63 +27,78 @@ and open the template in the editor.
 
         <article>
             <sidebar>
-                    <form action="index.php" method="POST">
-                        <button type="submit" class="boton anaranjado formaBoton "  name="accion" value="atrasJugador">ATRAS</button>
-                       
-                    </form><br>
-                    <form action="index.php" method="POST">
-                       
-                        <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>
-                    </form>
+                <form action="index.php" method="POST">
+                    <button type="submit" class="boton anaranjado formaBoton "  name="accion" value="atrasJugador">ATRAS</button>
+
+                </form><br>
+                <form action="index.php" method="POST">
+
+                    <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>
+                </form>
             </sidebar>
             <div class="contentJugador">
 
                 <div class="perfil">
-                                   
-                <div class="perfil1">
-                  
-                    <h2>Información Personal</h2>
-                    <hr>
-                    
-                    <div class="avatar">
-                        
-                        <?php
-                        $sessio = new Session();
-                        $jugador = $sessio->getSession("jugador");
-                        $jugador->printAvatarJugador();
-                        ?>
-                        
+
+                    <div class="perfil1">
+
+                        <h2>Información Personal</h2>
+                        <hr>
+
+                        <div class="avatar">
+
+                            <?php
+                            $sessio = new Session();
+                            $jugador = $sessio->getSession("jugador");
+                            $jugador->printAvatarJugador();
+                            ?>
+
+                        </div>
+
+                        <div class="datosPerfil">
+
+                            <?php
+                            $sessio = new Session();
+                            $jugador = $sessio->getSession("jugador");
+                            $jugador->printPerfilJugador();
+                            ?>
+
+                        </div> 
+
+                        <div class="botonDatosPerfil"> 
+                            <form action="index.php" method="POST">
+                                <p> <button name="accion" value="editarPerfilJugador" class="boton2 verde formaBoton ">Editar</button></p>
+                            </form>
+                        </div>
                     </div>
-                                       
-                    <div class="datosPerfil">
-                    
+                    <div class="perfil1">
+                        <h2>Historial Reservas</h2>                    
+                        <hr>
                         <?php
-                        $sessio = new Session();
-                        $jugador = $sessio->getSession("jugador");
-                        $jugador->printPerfilJugador();
+                        $sesion = new Session();
+                        $jugador = $sesion->getSession('jugador');
+                        $historial = $jugador->mostrarHistorialReservas();
+                        foreach ($historial as $key => $value) {
+                            echo "<br>" . $value->printReservaHistorial();
+                        }
                         ?>
-                   
-                    </div> 
-                
-                    <div class="botonDatosPerfil"> 
-                    <form action="index.php" method="POST">
-                        <p> <button name="accion" value="editarPerfilJugador" class="boton2 verde formaBoton ">Editar</button></p>
-                    </form>
-                </div>
-                </div>
-                <div class="perfil1">
-                    <h2>Historial Reservas</h2>
-                    <hr>
-                    
-                    
-                </div>
-                
-                 <div class="perfil1">
-                    <h2>Partidos Jugados</h2>
-                    <hr>
-                    
-                </div>
+
                     </div>
+
+                    <div class="perfil1">
+                        <h2>Partidos Jugados</h2>
+                        <hr>
+                        <?php
+                        $sesion = new Session();
+                        $jugador = $sesion->getSession('jugador');
+                        $historial = $jugador->mostrarPartidosInvitado();
+                        foreach ($historial as $key => $value) {
+                            $reserva = $value;
+                            echo "<br>" . $reserva->printReservaHistorial();
+                        }
+                        ?>
+                    </div>
+                </div>
             </div>
 
         </article>

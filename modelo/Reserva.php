@@ -23,11 +23,7 @@ class Reserva {
         $this->dni_jugador_responsable = $dni_jugador_responsable;
         $this->id_pista = $id_pista;
         $this->id = $id;
-        if (isset($cif_club)) {
-            $this->cif_club = $cif_club;
-        } else {
-            $this->cif_club = null;
-        }
+        $this->cif_club = $cif_club;
     }
 
     function guardarReserva() {
@@ -127,8 +123,18 @@ class Reserva {
                 "<p> <button name='accion' value='nuevoJugadorEvento' class='boton2 verde formaBoton'>Añadirse</button></p>" .
                 "<input type='hidden' name='id_reserva' value='" . $this->id . "'> ";
     }
-    
-    function actualizarReserva(){
+
+    function printReservaHistorial() {
+        $conexio = new Conexio();
+        $nombre = $conexio->buscarNomClub($this->cif_club);
+        $conexio->tancarConexio();
+        return "<br>Total Jugadores = " . $this->totalJugadores .
+                "<br>Fecha Partido = " . $this->fecha_partido .
+                "<br>Maximo Jugadores = " . $this->maximo_jugadores .
+                "<br> Club = " . $nombre;
+    }
+
+    function actualizarReserva() {
         $conexio = new Conexio();
         $conexio->actualizarReserva($this);
         $conexio->tancarConexio();

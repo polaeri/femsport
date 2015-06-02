@@ -30,9 +30,9 @@ class jugador {
         echo "Nombre: " . $this->nombre . "<br>DNI: " . $this->dni . "<br>Apellidos:" . $this->apellidos .
         "<br>Telefono: " . $this->telefono . "<br>Email: " . $this->email . "<br>Usuario: " . $this->usuario .
         "<br>Reputacion: " . $this->reputacion . "<br>Contraseña: " . $this->contrasena . "<br>Descripcion: " .
-        $this->descripcion . "<br> Avatar:<img src= '" . $this->avatar."'>";
+        $this->descripcion . "<br> Avatar:<img src= '" . $this->avatar . "'>";
     }
-    
+
     function guardarJugador() {
         $conexio = new Conexio();
         $conexio->guardarJugador($this->dni, $this->nombre, $this->apellidos, $this->telefono, $this->email, $this->usuario, $this->reputacion, $this->contrasena, $this->descripcion, $this->avatar);
@@ -46,16 +46,16 @@ class jugador {
     }
 
     function printEditarJugador() {
-        
-     
+
+
         echo "<input type='text' name='usuario' placeholder='Nombre Usuario' value='" . $this->usuario . "' pattern='[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}' required><br>";
-        echo "<input type='text' name='nombre' placeholder='Nombre' value='" . $this->nombre . "' pattern='[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}' required /><br>"; 
+        echo "<input type='text' name='nombre' placeholder='Nombre' value='" . $this->nombre . "' pattern='[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}' required /><br>";
         echo "<input type='text' name='apellidos' placeholder='Apellidos' value='" . $this->apellidos . "' pattern='[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}' required /> <br>";
-        echo "<input type='DNI' name='dni' placeholder='DNI/NIF' value='" . $this->dni . "' pattern='^[0-5][0-9]{7}[A-Z]$' required /><br>"; 
-            echo" <span class='form_hint' >Formato:'12345678A'</span>";
+        echo "<input type='DNI' name='dni' placeholder='DNI/NIF' value='" . $this->dni . "' pattern='^[0-5][0-9]{7}[A-Z]$' required /><br>";
+        echo" <span class='form_hint' >Formato:'12345678A'</span>";
         echo '<input type="tel" name="telefono" placeholder="Telefono" value="' . $this->telefono . '" pattern="^[9|8|7|6|5]\d{8}$" required /><br>';
         echo "<input type='text' name='email' value='" . $this->email . "' placeholder='Correo electronico' pattern='^[-\w.]+@{1}[-a-z0-9]+[.]{1}[a-z]{2,5}$' required><br>";
-            echo "<span class='form_hint' >Formato:'nombre@dominio.com'</span>";
+        echo "<span class='form_hint' >Formato:'nombre@dominio.com'</span>";
         echo "<textarea cols='40' rows='6' name='descripcion' >$this->descripcion</textarea>";
     }
 
@@ -66,11 +66,11 @@ class jugador {
         "<br>Descripcion: " . $this->descripcion;
     }
 
-    function printAvatarJugador(){
-        echo "<img src='".$this->avatar."'/>";
-        
+    function printAvatarJugador() {
+        echo "<img src='" . $this->avatar . "'/>";
     }
-            function modificarJugador($telefono, $email, $contrasena, $descripcion) {
+
+    function modificarJugador($telefono, $email, $contrasena, $descripcion) {
         $this->setTelefono($telefono);
         $this->setEmail($email);
         if (isset($contrasena)) {
@@ -86,6 +86,26 @@ class jugador {
         } else {
             return false;
         }
+    }
+
+    function mostrarHistorialReservas() {
+        $conexion = new Conexio();
+        $arrayReservas = $conexion->busarHistorialReservas($this->dni);
+        $conexion->tancarConexio();
+        return $arrayReservas;
+    }
+
+    function mostrarPartidosInvitado() {
+        $conexion = new Conexio();
+        $arrayPartidosInvitados = $conexion->busarPartidosInvitados($this->dni); 
+        $array = [];
+        $i = 0;
+        foreach ($arrayPartidosInvitados as $key => $value) {
+            $array[$i] = $conexion->buscarPartidosReservadoConId($value);
+            $i++;
+        }        
+        $conexion->tancarConexio();
+        return $array;
     }
 
     function setNombre($valor) {

@@ -284,14 +284,71 @@ class Conexio {
         $jugador = $sesion->getSession('jugador');
         $dni_jugador = $jugador->getDni();
         $id_reserva = $reserva->getId();
-        
+
         $sentenciaSql = "UPDATE datos_reserva SET total_jugadores= '" . $reserva->getTotalJugadores() . "' WHERE id='" . $reserva->getId() . "'";
         $this->connexio->query($sentenciaSql);
         echo $this->connexio->error;
-        
+
         $sentenciaSql2 = "INSERT INTO jugadores_anadidos(dni_jugador, id_reserva) VALUES ('" . $dni_jugador . "','" . $id_reserva . "')";
         $this->connexio->query($sentenciaSql2);
         echo $this->connexio->error;
+    }
+
+    function busarHistorialReservas($dni_jugador) {
+        $sentenciaSql = "SELECT * FROM datos_reserva WHERE dni_jugador_responsable = '" . $dni_jugador . "'";
+        $consulta = $this->connexio->query($sentenciaSql);
+        $i = 0;
+        $arrayHistorial = [];
+        while ($vector = $consulta->fetch_array(MYSQLI_ASSOC)) {
+            $id = $vector['id'];
+            $totalJugadores = $vector['total_jugadores'];
+            $fecha_partido = $vector['fecha_partido'];
+            $fecha_reserva = $vector['fecha_reserva'];
+            $estado = $vector['estado'];
+            $privacidad = $vector['privacidad'];
+            $maximo_jugadores = $vector['maximo_jugadores'];
+            $dni_jugador_responsable = $vector['dni_jugador_responsable'];
+            $id_pista = $vector['id_pista'];
+            
+            $reserva = new Reserva($id, $totalJugadores, $fecha_partido, $fecha_reserva, $estado, $privacidad, $maximo_jugadores, $dni_jugador_responsable, $id_pista, null);
+            $arrayHistorial[$i] = $reserva;
+            $i++;
+        }
+        return $arrayHistorial;
+    }
+    
+    function busarPartidosInvitados($dni_jugador){
+        $sentenciaSql = "SELECT id_reserva FROM jugadores_anadidos WHERE dni_jugador = '" . $dni_jugador . "'";
+        $consulta = $this->connexio->query($sentenciaSql);
+        $i = 0;
+        $arrayHistorial = [];
+        while ($vector = $consulta->fetch_array(MYSQLI_ASSOC)) {
+            $id_reserva = $vector['id_reserva'];
+            $arrayHistorial[$i] = $id_reserva;
+            $i++;
+        }
+        return $arrayHistorial;
+    }
+    
+    function buscarPartidosReservadoConId($id){
+        $sentenciaSql = "SELECT * FROM datos_reserva WHERE id = '" . $id . "'";
+        $consulta = $this->connexio->query($sentenciaSql);
+        $i = 0;        
+        while ($vector = $consulta->fetch_array(MYSQLI_ASSOC)) {
+            $id = $vector['id'];
+            $totalJugadores = $vector['total_jugadores'];
+            $fecha_partido = $vector['fecha_partido'];
+            $fecha_reserva = $vector['fecha_reserva'];
+            $estado = $vector['estado'];
+            $privacidad = $vector['privacidad'];
+            $maximo_jugadores = $vector['maximo_jugadores'];
+            $dni_jugador_responsable = $vector['dni_jugador_responsable'];
+            $id_pista = $vector['id_pista'];
+            
+            $reserva = new Reserva($id, $totalJugadores, $fecha_partido, $fecha_reserva, $estado, $privacidad, $maximo_jugadores, $dni_jugador_responsable, $id_pista, null);
+            $i++;
+        }
+        return $reserva;
     }
 
 }
