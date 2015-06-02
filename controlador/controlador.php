@@ -57,11 +57,11 @@ if (isset($_POST["accion"])) {
                 break;
             } else {
                 $jugador = new Jugador($_POST['nombre'], $_POST['dni'], $_POST['apellidos'], $_POST['telefono'], $_POST['email'], $_POST['usuario'], 0, $_POST['pwd1'], $_POST['descripcion'], $nombreFichero);
-                
+
                 if (isset($_FILES['avatar'])) {
-                    
+
                     if ($_FILES['avatar']['error'] == "0") {
-                        
+
                         $var = $_FILES["avatar"]["name"];
                         $ficheroSubir = new Fichero($var);
                         $nombreFichero = $ficheroSubir->nombreFichero($_POST['usuario']);
@@ -153,7 +153,7 @@ if (isset($_POST["accion"])) {
 
             break;
         case "login":
-            $sessio = new Session();            
+            $sessio = new Session();
             $conexion = new Conexio();
             $club = $conexion->buscarClub($_POST["usuario"], $_POST["contrasena"]);
             if ($club !== null) {
