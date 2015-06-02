@@ -45,13 +45,9 @@ class jugador {
         $conexio->tancarConexio();
     }
 
-    function printEditarJugador() {
-
-
-        echo "<input type='text' name='usuario' placeholder='Nombre Usuario' value='" . $this->usuario . "' pattern='[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}' required><br>";
+    function printEditarJugador() {        
         echo "<input type='text' name='nombre' placeholder='Nombre' value='" . $this->nombre . "' pattern='[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}' required /><br>";
         echo "<input type='text' name='apellidos' placeholder='Apellidos' value='" . $this->apellidos . "' pattern='[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}' required /> <br>";
-        echo "<input type='DNI' name='dni' placeholder='DNI/NIF' value='" . $this->dni . "' pattern='^[0-5][0-9]{7}[A-Z]$' required /><br>";
         echo" <span class='form_hint' >Formato:'12345678A'</span>";
         echo '<input type="tel" name="telefono" placeholder="Telefono" value="' . $this->telefono . '" pattern="^[9|8|7|6|5]\d{8}$" required /><br>';
         echo "<input type='text' name='email' value='" . $this->email . "' placeholder='Correo electronico' pattern='^[-\w.]+@{1}[-a-z0-9]+[.]{1}[a-z]{2,5}$' required><br>";
@@ -70,12 +66,14 @@ class jugador {
         echo "<img src='" . $this->avatar . "'/>";
     }
 
-    function modificarJugador($telefono, $email, $contrasena, $descripcion) {
+    function modificarJugador($nombre, $apellidos, $telefono, $email, $contrasena, $descripcion) {
         $this->setTelefono($telefono);
         $this->setEmail($email);
         if (isset($contrasena)) {
             $this->setContrasena($contrasena);
         }
+        $this->setApellidos($apellidos);
+        $this->setNombre($nombre);
         $this->setDescripcion($descripcion);
         //$this->avatar($avatar);
     }

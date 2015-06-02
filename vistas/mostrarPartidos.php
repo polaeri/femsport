@@ -32,23 +32,25 @@
 
             </sidebar>
             <div class="contentJugador">
-                <div class="perfilHistorial3">
+                <div class="perfilHistorial2">
 
-                    <?php
-                    $sessio = new Session();
-                    $reservas = $sessio->getSession("arrayDisponibles");
-                    echo "<h1 class='titol2'>Eventos de " . $sessio->getSession("deporteBuscado") . "</h1>";
+                    <center>
+                        <?php
+                        $sessio = new Session();
+                        $reservas = $sessio->getSession("arrayDisponibles");
+                        echo "<h1 class='titol2'>Eventos de " . $sessio->getSession("deporteBuscado") . "</h1>";
 
-                    if (isset($reservas)) {
-                        foreach ($reservas as $key => $value) {
-                            echo "<form action='index.php' method='POST'>";
-                            echo $value->printReserva();
-                            echo "</form>";
+                        if (isset($reservas)) {
+                            foreach ($reservas as $key => $value) {
+                                echo "<p>__________________________</p>";
+                                echo "<form action='index.php' method='POST'>";
+                                echo $value->printReserva();
+                                echo "</form>";
+                            }
+                        } else {
+                            echo "<h2 class='titol2'>No hay eventos disponibles</h2>";
                         }
-                    } else {
-                        echo "<h2 class='titol2'>No hay eventos disponibles</h2>";
-                    }
-                    ?>      
+                        ?>      
                 </div>
                 <?php
                 $sesion = new Session();
@@ -58,6 +60,7 @@
                     echo "" . $errorInicio . "</div>";
                 }
                 ?>
+                </center>
             </div>
         </article>
 

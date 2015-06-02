@@ -322,6 +322,11 @@ li {
     color: white;
     overflow:scroll;height:100%;width:80%;
 }
+.perfilHistorial3{
+    font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+    overflow:scroll;height:500px;width:80%;
+}
 
 .perfil2{
     float: left;

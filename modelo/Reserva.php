@@ -12,6 +12,7 @@ class Reserva {
     private $dni_jugador_responsable;
     private $id_pista;
     private $cif_club;
+    private $deporte;
 
     function __construct($id, $totalJugadores, $fecha_partido, $fecha_reserva, $estado, $privacidad, $maximo_jugadores, $dni_jugador_responsable, $id_pista, $cif_club) {
         $this->totalJugadores = $totalJugadores;
@@ -34,6 +35,10 @@ class Reserva {
 
     function getId() {
         return $this->id;
+    }
+
+    function getDeporte() {
+        return $this->deporte;
     }
 
     function getTotalJugadores() {
@@ -115,11 +120,13 @@ class Reserva {
     function printReserva() {
         $conexio = new Conexio();
         $nombre = $conexio->buscarNomClub($this->cif_club);
+        $deporte = $conexio->buscarTipoPista($this->id_pista);
         $conexio->tancarConexio();
         return "<br>Total Jugadores = " . $this->totalJugadores .
                 "<br>Fecha Partido = " . $this->fecha_partido .
                 "<br>Maximo Jugadores = " . $this->maximo_jugadores .
                 "<br> Club = " . $nombre .
+                "<br> Deporte = " . $deporte .
                 "<p> <button name='accion' value='nuevoJugadorEvento' class='boton2 verde formaBoton'>Añadirse</button></p>" .
                 "<input type='hidden' name='id_reserva' value='" . $this->id . "'> ";
     }
@@ -127,20 +134,22 @@ class Reserva {
     function printReservaHistorial() {
         $conexio = new Conexio();
         $nombre = $conexio->buscarNomClub($this->cif_club);
+        $deporte = $conexio->buscarTipoPista($this->id_pista);
         $conexio->tancarConexio();
         return "<br>Total Jugadores = " . $this->totalJugadores .
                 "<br>Fecha Partido = " . $this->fecha_partido .
                 "<br>Maximo Jugadores = " . $this->maximo_jugadores .
-                "<br> Club = " . $nombre;
+                "<br> Club = " . $nombre .
+                "<br> Deporte = " . $deporte;
     }
 
     function actualizarReserva() {
         $conexio = new Conexio();
         $resultat = $conexio->actualizarReserva($this);
         $conexio->tancarConexio();
-        if($resultat){
+        if ($resultat) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }

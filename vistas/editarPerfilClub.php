@@ -28,13 +28,13 @@ and open the template in the editor.
         <article>
             <sidebar>
 
-                     <form action="index.php" method="POST">
-                        <button type="submit" class="boton anaranjado formaBoton "  name="accion" value="atrasClubPerfil">ATRAS</button>
-                       
-                     </form><br>
-                    <form action="index.php" method="POST">
-                        <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>
-                    </form>
+                <form action="index.php" method="POST">
+                    <button type="submit" class="boton anaranjado formaBoton "  name="accion" value="atrasClubPerfil">ATRAS</button>
+
+                </form><br>
+                <form action="index.php" method="POST">
+                    <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>
+                </form>
 
             </sidebar>
 
@@ -43,33 +43,32 @@ and open the template in the editor.
                 <div class="perfil">
                     <h2>Editar Información</h2>
                     <hr>
-                     <form action="index.php" method="POST" class="contact_form" id="contact_form" runat="server">
-                    <div class="subperfil1" >
-                   
-                        <ul>
-                            <?php
-                            $sessio = new Session();
-                            $club = $sessio->getSession("club");
-                            $club->printEditarClub();
-                            ?>         
-                            </div>
-                    
+                    <form action="index.php" method="POST" class="contact_form" id="contact_form" runat="server">
+                        <div class="subperfil1" >
+
+                            <ul>
+                                <?php
+                                $sessio = new Session();
+                                $club = $sessio->getSession("club");
+                                $club->printEditarClub();
+                                ?>         
+                        </div>
+
                         <div class="subperfil2">
-                        <input type="button" value="Actualizar Contraseña" id="mostrar">
-                       
-                        <input type="password" placeholder="Contraseña actual" id="contrasenaVieja" name="contrasenaVieja" />
-                        
-                        <input type="password" placeholder="Nueva contraseña" name="contrasenaNueva" id="contrasenaNueva" onchange="form.contrasenaNueva2.pattern = this.value;" required hidden />
-                         <input type="password"  name="pwd2" placeholder="Confirmar nueva contraseña" name="contrasenaNueva2" id="contrasenaNueva2" required hidden /> 
-                         
-                        
-                         </div>
-                    <div class="subperfil3">
-                      
-                        <button name="accion" value="cancelarEditarPerfilClub" class="boton2 colorRojo formaBoton ">Cancelar</button>
-                        <button name="accion" value="guardarEditarPerfilClub" class="boton2 verde formaBoton ">Guardar</button> 
-                  
-                    </div> 
+                            <input type="button" value="Actualizar Contraseña" id="mostrar">
+
+                            <input type="password" placeholder="Contraseña actual" id="contrasenaVieja" name="contrasenaVieja" hidden />                        
+                            <input type="password" placeholder="Nueva contraseña" name="contrasenaNueva" id="contrasenaNueva" hidden />
+                            <input type="password" placeholder="Confirmar nueva contraseña" name="contrasenaNueva2" id="contrasenaNueva2" hidden /> 
+
+
+                        </div>
+                        <div class="subperfil3">
+
+                            <button name="accion" value="cancelarEditarPerfilClub" class="boton2 colorRojo formaBoton ">Cancelar</button>
+                            <button name="accion" value="guardarEditarPerfilClub" class="boton2 verde formaBoton ">Guardar</button> 
+
+                        </div> 
                     </form>
                     <script>
                         $(document).ready(function () {
@@ -80,6 +79,14 @@ and open the template in the editor.
                             });
                         });
                     </script>
+                    <?php
+                    $sesion = new Session();
+                    if (isset($errorContraseña)) {
+                        echo "<div class='error'>";
+                        echo "<img src='style/images/error.png' width='20px' />&nbsp";
+                        echo "" . $errorContraseña . "</div>";
+                    }
+                    ?>
                 </div>
         </article>
 

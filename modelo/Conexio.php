@@ -237,7 +237,7 @@ class Conexio {
         $reservas = [];
         $data_actual = date("Y-m-d H:i:s");
         while ($vector = $consulta1->fetch_array(MYSQLI_ASSOC)) {
-            $sentenciaSql2 = "SELECT * FROM datos_reserva WHERE total_jugadores < maximo_jugadores AND privacidad = '1' AND id_pista = '" . $vector['id'] . "' AND fecha_partido > '".$data_actual."'";
+            $sentenciaSql2 = "SELECT * FROM datos_reserva WHERE total_jugadores < maximo_jugadores AND privacidad = '1' AND id_pista = '" . $vector['id'] . "' AND fecha_partido > '" . $data_actual . "'";
             $consulta2 = $this->connexio->query($sentenciaSql2);
             while ($vectorReserva = $consulta2->fetch_array(MYSQLI_ASSOC)) {
                 if (isset($vectorReserva['id'])) {
@@ -263,6 +263,19 @@ class Conexio {
         return $id;
     }
 
+    function buscarTipoPista($id) {
+        $sentenciaSql = "SELECT tipo FROM pista WHERE id = '" . $id . "'";
+        $consulta = $this->connexio->query($sentenciaSql);
+        while ($vector = $consulta->fetch_array(MYSQLI_ASSOC)) {
+            $tipo = $vector["tipo"];
+        }
+        if (isset($tipo)) {
+            return $tipo;
+        }else{
+            return "NOO";
+        }
+    }
+
     function buscarReserva($id) {
         $sentenciaSql = "SELECT * FROM datos_reserva WHERE id = '" . $id . "'";
         $consulta = $this->connexio->query($sentenciaSql);
@@ -281,7 +294,7 @@ class Conexio {
     }
 
     function buscarIdAnadirJugador($dni, $id) {
-        $sentenciaSql = "SELECT * FROM jugadores_anadidos WHERE dni_jugador = '" . $dni . "' AND id_reserva = '".$id."'";
+        $sentenciaSql = "SELECT * FROM jugadores_anadidos WHERE dni_jugador = '" . $dni . "' AND id_reserva = '" . $id . "'";
         $consulta = $this->connexio->query($sentenciaSql);
         while ($vector = $consulta->fetch_array(MYSQLI_ASSOC)) {
             $dni_aux = $vector['dni_jugador'];
@@ -301,11 +314,11 @@ class Conexio {
         $dni = $jugador->getDni();
         $dni_responsable_reserva = $reserva->getDni_jugador_responsable();
         $resultat1 = $this->buscarIdAnadirJugador($dni, $id_reserva);
-        
-        if($dni_jugador === $dni_responsable_reserva){
+
+        if ($dni_jugador === $dni_responsable_reserva) {
             $resultat2 = true;
-        }else{
-            $resultat2 = false;            
+        } else {
+            $resultat2 = false;
         }
         if ($resultat1 || $resultat2) {
             return false;
@@ -334,12 +347,21 @@ class Conexio {
             $maximo_jugadores = $vector['maximo_jugadores'];
             $dni_jugador_responsable = $vector['dni_jugador_responsable'];
             $id_pista = $vector['id_pista'];
-
-            $reserva = new Reserva($id, $totalJugadores, $fecha_partido, $fecha_reserva, $estado, $privacidad, $maximo_jugadores, $dni_jugador_responsable, $id_pista, null);
+            $cif_club = $this->buscarCifClub($id_pista);
+            $reserva = new Reserva($id, $totalJugadores, $fecha_partido, $fecha_reserva, $estado, $privacidad, $maximo_jugadores, $dni_jugador_responsable, $id_pista, $cif_club);
             $arrayHistorial[$i] = $reserva;
             $i++;
         }
         return $arrayHistorial;
+    }
+
+    function buscarCifClub($id_pista) {
+        $sentenciaSql = "SELECT cif_club FROM pista WHERE id = '" . $id_pista . "'";
+        $consulta = $this->connexio->query($sentenciaSql);
+        while ($vector = $consulta->fetch_array(MYSQLI_ASSOC)) {
+            $cif = $vector['cif_club'];
+        }
+        return $cif;
     }
 
     function busarPartidosInvitados($dni_jugador) {
@@ -357,7 +379,7 @@ class Conexio {
 
     function buscarPartidosReservadoConId($id) {
         $data_actual = date("Y-m-d H:i:s");
-        $sentenciaSql = "SELECT * FROM datos_reserva WHERE id = '" . $id . "' AND fecha_partido > '".$data_actual."'";
+        $sentenciaSql = "SELECT * FROM datos_reserva WHERE id = '" . $id . "' AND fecha_partido > '" . $data_actual . "'";
         $consulta = $this->connexio->query($sentenciaSql);
         $i = 0;
         while ($vector = $consulta->fetch_array(MYSQLI_ASSOC)) {

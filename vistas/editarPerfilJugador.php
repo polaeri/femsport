@@ -18,7 +18,7 @@ and open the template in the editor.
 
     </head>
     <body>
-         <header>
+        <header>
             <img src="style/images/selectRol/logoFemEsport2.png">
             <menu>
                 <ul>
@@ -30,46 +30,46 @@ and open the template in the editor.
         <article>
             <sidebar>
 
-                    <form action="index.php" method="POST">
-                        <button type="submit" class="boton anaranjado formaBoton "  name="accion" value="atrasJugadorPerfil">ATRAS</button>
-                       
-                    </form>
+                <form action="index.php" method="POST">
+                    <button type="submit" class="boton anaranjado formaBoton "  name="accion" value="atrasJugadorPerfil">ATRAS</button>
+
+                </form>
                 <br>
 
-                    <form action="index.php" method="POST">
-                        <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>
-                    </form>
+                <form action="index.php" method="POST">
+                    <button type="submit" class="boton azul formaBoton " data-toggle="modal" data-target="#myModal" name="accion" value="salir">SALIR</button>
+                </form>
 
 
             </sidebar>
 
             <div class="contentJugador">
 
-                 <div class="perfil">
+                <div class="perfil">
                     <h2>Editar Información</h2>
                     <hr>
-                     <form action="index.php" method="POST" class="contact_form" id="contact_form" runat="server">
-                    <div class="subperfil2" >
-                   
+                    <form action="index.php" method="POST" class="contact_form" id="contact_form" runat="server">
+                        <div class="subperfil2" >
+
                             <?php
                             $sessio = new Session();
                             $jugador = $sessio->getSession("jugador");
                             echo $jugador->printEditarJugador();
-                                   ?>          
-                    
-                    </div>
-                         
-                     <div class="subperfil2">
-                        
-                        <input type="button" value="Actualizar Contraseña" id="mostrar" />
-                        <input type="password" placeholder="Contraseña actual" id="contrasenaVieja" name="contrasenaVieja" hidden/>
-                        <input type="password" placeholder="Nueva contraseña" id="contrasenaNueva" name="contrasenaNueva"  hidden />
-                        <input type="password" placeholder="Confirmar nueva contraseña" id="contrasenaNueva2" name="contrasenaNueva2" hidden/>
-                    </div>
-                    <div class="subperfil3">
-                        <button name="accion" value="cancelarEditarPerfilJugador" class="boton2 colorRojo formaBoton " >Cancelar</button>
-                        <button name="accion" value="GuardarEditarPerfilJugador" class="boton2 verde formaBoton " >Guardar</button>
-                     </div> 
+                            ?>          
+
+                        </div>
+
+                        <div class="subperfil2">
+
+                            <input type="button" value="Actualizar Contraseña" id="mostrar" />
+                            <input type="password" placeholder="Contraseña actual" id="contrasenaVieja" name="contrasenaVieja" hidden/>
+                            <input type="password" placeholder="Nueva contraseña" id="contrasenaNueva" name="contrasenaNueva"  hidden />
+                            <input type="password" placeholder="Confirmar nueva contraseña" id="contrasenaNueva2" name="contrasenaNueva2" hidden/>
+                        </div>
+                        <div class="subperfil3">
+                            <button name="accion" value="cancelarEditarPerfilJugador" class="boton2 colorRojo formaBoton " >Cancelar</button>
+                            <button name="accion" value="GuardarEditarPerfilJugador" class="boton2 verde formaBoton " >Guardar</button>
+                        </div> 
                     </form>
                     <script>
                         $(document).ready(function () {
@@ -80,7 +80,14 @@ and open the template in the editor.
                             });
                         });
                     </script>
-
+                    <?php
+                    $sesion = new Session();
+                    if (isset($errorContraseña)) {
+                        echo "<div class='error'>";
+                        echo "<img src='style/images/error.png' width='20px' />&nbsp";
+                        echo "" . $errorContraseña . "</div>";
+                    }
+                    ?>
                 </div>
             </div>
         </article>
