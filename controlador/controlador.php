@@ -137,7 +137,7 @@ if (isset($_POST["accion"])) {
             //VALIDACION DE CLUB VALIDO PARA REGISTRAR
             if ($clubComprobar) {
 
-                $validar = true;
+                $validarClub = true;
                 include 'vistas/formularioClub2.php';
                 break;
             } else {
