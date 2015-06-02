@@ -31,8 +31,6 @@ if (isset($_POST["accion"])) {
             if (!isset($_POST['descripcion'])) {
                 $_POST['descripcion'] = NULL;
             }
-
-
             if (isset($_FILES['avatar'])) {
                 if ($_FILES['avatar']['error'] == "4") {
                     $nombreFichero = "style/avatars/defaultJugador.png";
@@ -61,10 +59,7 @@ if (isset($_POST["accion"])) {
                 if (isset($_FILES['avatar'])) {
 
                     if ($_FILES['avatar']['error'] == "0") {
-
-                        $var = $_FILES["avatar"]["name"];
-                        $ficheroSubir = new Fichero($var);
-                        $nombreFichero = $ficheroSubir->nombreFichero($_POST['usuario']);
+                       
                         $ficheroSubir->subirFichero($nombreFichero);
                     }
                 }
@@ -81,11 +76,18 @@ if (isset($_POST["accion"])) {
             if (!isset($_POST['descripcion'])) {
                 $_POST['descripcion'] = NULL;
             }
-            if (!isset($_POST['descripcion'])) {
+            if (!isset($_POST['telefono2'])) {
                 $_POST['telefono2'] = NULL;
             }
-            if (!isset($_POST['avatar'])) {
-                $_POST['avatar'] = "style/avatars/defaultJugador.png";
+            if (isset($_FILES['avatar'])) {
+                if ($_FILES['avatar']['error'] == "4") {
+                    $nombreFichero = "style/avatars/defaultClub.png";
+                } else {
+                    echo "2";
+                    $var = $_FILES["avatar"]["name"];
+                    $ficheroSubir = new Fichero($var);
+                    $nombreFichero = $ficheroSubir->nombreFichero($_POST['cif']);
+                }
             }
 
             $arrayPistas = [];
@@ -135,11 +137,21 @@ if (isset($_POST["accion"])) {
             //VALIDACION DE CLUB VALIDO PARA REGISTRAR
             if ($clubComprobar) {
 
-                $validar = true;
+                $validarClub = true;
                 include 'vistas/formularioClub2.php';
                 break;
             } else {
-                $club = new Club($_POST["cif"], $_POST["nombre"], $_POST["telefono"], $_POST["telefono2"], $_POST["direccion"], $_POST["email"], $_POST["avatar"], $_POST["web"], $_POST["pwd1"], $_POST["descripcion"], $arrayPistas);
+                $club = new Club($_POST["cif"], $_POST["nombre"], $_POST["telefono"], $_POST["telefono2"], $_POST["direccion"], $_POST["email"],$nombreFichero , $_POST["web"], $_POST["pwd1"], $_POST["descripcion"], $arrayPistas);
+                    if (isset($_FILES['avatar'])) {
+
+                    if ($_FILES['avatar']['error'] == "0") {
+                        echo "3";
+                        $ficheroSubir->subirFichero($nombreFichero);
+                    }
+                }
+                
+                
+                
                 $club->guardarClub();
                 //Añadir tablas Mysql del calendario
                 $ConexioCalendario = new ConexioCalendario();

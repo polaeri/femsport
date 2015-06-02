@@ -33,9 +33,9 @@ class Fichero {
     function subirFichero($nombre) {
        
         if (move_uploaded_file($_FILES['avatar']['tmp_name'], $nombre)) {
-            echo " ha sido subido";
+          
         } else {
-            echo "Ha ocurrido un error, trate de nuevo!";
+           
         }
     }
 
@@ -54,27 +54,6 @@ class Fichero {
         }
     }
 
-    //Mètode que tanca el fitxer obert.
-    function cerrarFichero() {
-        fclose($this->ficheroAbierto);
-    }
-
-    //Mètode que mostra les propietats del fitxer assignat a l'atribut
-    function mostrarPropietats() {
-        if (!file_exists($this->fichero)) {
-            echo "<p>$this->fichero no exiteix</p>";
-            return;
-        }
-        echo "<p>$this->fichero " . (is_file($this->fichero) ? "" : "no ") . "és un fitxer.</p>";
-        echo "<p>$this->fichero " . (is_dir($this->fichero) ? "" : "no ") . "és un directori.</p>";
-        echo "<p>$this->fichero " . (is_readable($this->fichero) ? "" : "no ") . "és de lectura</p>";
-        echo "<p>$this->fichero " . (is_writable($this->fichero) ? "" : "no ") . "és d'escriptura</p>";
-        echo "<p>$this->fichero " . (is_executable($this->fichero) ? "" : "no ") . "és executable</p>";
-        echo "<p>$this->fichero té una grandària de " . (filesize($this->fichero)) . " bytes</p>";
-        echo "<p>L'últim accés a $this->fichero ha estat el " . date("D d M Y g:i A", fileatime($this->fichero)) . "</p>";
-        echo "<p>L'última modificació del contingut de $this->fichero ha estat el " . date("D d M Y g:i A", filemtime($this->fichero)) . "</p>";
-        echo "<p>L'últim canvi en els permisos de $this->fichero ha estat el " . date("D d M Y g:i A", filectime($this->fichero)) . "</p>";
-    }
 
     //Mètode per eliminar un fitxer
     function eliminarFitxer() {

@@ -43,7 +43,7 @@ http://www.the-art-of-web.com/javascript/validate-password/
             </sidebar>
             <div class="contentClub">
                 
-            <form id="formulario" class="contact_form" action="index.php" method="POST">
+            <form id="formulario" class="contact_form" action="index.php" method="POST" enctype="multipart/form-data">
                 <br>
                 <!-- progreso -->
                 <ul id="progreso">
@@ -112,12 +112,12 @@ http://www.the-art-of-web.com/javascript/validate-password/
             </form>
 
 
-                <?php if(isset($validar)){
+                <?php if(isset($validarClub)){
                     
-                    $validar=false;
+                     $validarClub=false;
                     echo "<div class='errorFormJug'>";
-                    echo "<img src='style/images/error.png' width='40px' />&nbsp";
-                    echo "Error. Vuelve a identificarte</div>"; 
+                    echo "<img src='style/images/error.png' width='20px' />&nbsp";
+                    echo "El CIF introducido ya existe</div>"; 
                     
                 } ?>
 
