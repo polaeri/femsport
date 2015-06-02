@@ -240,15 +240,16 @@ if (isset($_POST["accion"])) {
             $session = new Session();
             $jugador = $session->getSession("jugador");
             if ($_POST['contrasenaVieja'] === "") {
-                $jugador->modificarJugador($_POST['telefono'], $_POST['email'], null, $_POST['descripcion']);
+                $jugador->modificarJugador($_POST['nombre'],$_POST['apellidos'],$_POST['telefono'], $_POST['email'], null, $_POST['descripcion']);
                 $jugador->guardarModificarJugador();
                 include 'vistas/perfilJugador.php';
             } else if ($jugador->comprovarPassword($_POST['contrasenaVieja'])) {
-                $jugador->modificarJugador($_POST['telefono'], $_POST['email'], $_POST['contrasenaNueva'], $_POST['descripcion']);
+                $jugador->modificarJugador($_POST['nombre'],$_POST['apellidos'],$_POST['telefono'], $_POST['email'], $_POST['contrasenaNueva'], $_POST['descripcion']);
                 $jugador->guardarModificarJugador();
                 include 'vistas/perfilJugador.php';
             } else {
-                include 'vistas/editarPerfilJugador.php'; //enviar un mensaje de error (la contraseña no es correcta)
+                $errorContraseña = "La contraseña introducida no es correcta!";
+                include 'vistas/editarPerfilJugador.php';
             }
             break;
         case "editarPerfilClub":
@@ -273,7 +274,8 @@ if (isset($_POST["accion"])) {
                 $club->guardarModificarClub();
                 include 'vistas/perfilClub.php';
             } else {
-                include 'vistas/editarPerfilClub.php'; //enviar un mensaje de error (la contraseña no es correcta)
+                $errorContraseña = "La contraseña introducida no es correcta!";
+                include 'vistas/editarPerfilClub.php'; 
             }
             break;
         case "verPistasFutbol":
